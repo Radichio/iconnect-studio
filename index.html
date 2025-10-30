@@ -1,6 +1,3 @@
-rtfolio v2 · HTML
-Copy
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -61,16 +58,8 @@ Copy
         }
         
         .logo-icon {
-            width: 36px;
-            height: 36px;
-            background: var(--purple-gradient);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-            font-size: 1.1rem;
+            width: 40px;
+            height: 40px;
             transition: transform 0.6s ease;
         }
         
@@ -406,13 +395,48 @@ Copy
         
         .featured-image {
             height: 220px;
+            position: relative;
+            overflow: hidden;
             background: linear-gradient(135deg, #5333ed 0%, #7C3AED 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        }
+        
+        .featured-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(255,255,255,0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255,255,255,0.08) 0%, transparent 50%);
+        }
+        
+        .featured-image-text {
+            position: absolute;
+            bottom: 1.5rem;
+            left: 1.5rem;
             color: white;
-            font-size: 3rem;
+            font-size: 2.5rem;
             font-weight: 700;
+            letter-spacing: -1px;
+            z-index: 1;
+        }
+        
+        .featured-image.gradient-1 {
+            background: linear-gradient(135deg, #5333ed 0%, #7C3AED 100%);
+        }
+        
+        .featured-image.gradient-2 {
+            background: linear-gradient(135deg, #6b4eff 0%, #8b5cf6 100%);
+        }
+        
+        .featured-image.gradient-3 {
+            background: linear-gradient(135deg, #7C3AED 0%, #a78bfa 100%);
+        }
+        
+        .featured-image.gradient-4 {
+            background: linear-gradient(135deg, #5333ed 0%, #6366f1 100%);
         }
         
         .featured-content-inner {
@@ -697,7 +721,7 @@ Copy
     <header>
         <nav>
             <a href="/" class="logo">
-                <div class="logo-icon">i</div>
+                <img src="icon-only.png" alt="iConnect Studio" class="logo-icon">
                 <span class="logo-text">iConnect studio</span>
             </a>
             <ul class="nav-links">
@@ -723,7 +747,7 @@ Copy
                         </div>
                     </div>
                     <div class="slide-image">
-                        <div class="slide-image-placeholder">[Your Professional Photo]</div>
+                        <img src="lisa-hero.jpg" alt="Lisa M. Kaminski" style="width: 100%; max-width: 450px; height: auto; border-radius: 12px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);">
                     </div>
                 </div>
                 
@@ -738,7 +762,7 @@ Copy
                         </div>
                     </div>
                     <div class="slide-image">
-                        <div class="slide-image-placeholder">[Your Professional Photo]</div>
+                        <img src="lisa-hero.jpg" alt="Lisa M. Kaminski" style="width: 100%; max-width: 450px; height: auto; border-radius: 12px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);">
                     </div>
                 </div>
                 
@@ -753,7 +777,7 @@ Copy
                         </div>
                     </div>
                     <div class="slide-image">
-                        <div class="slide-image-placeholder">[Your Professional Photo]</div>
+                        <img src="lisa-hero.jpg" alt="Lisa M. Kaminski" style="width: 100%; max-width: 450px; height: auto; border-radius: 12px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);">
                     </div>
                 </div>
             </div>
@@ -841,7 +865,9 @@ Copy
         
         <div class="featured-grid">
             <div class="featured-card">
-                <div class="featured-image">AI</div>
+                <div class="featured-image gradient-1">
+                    <div class="featured-image-text">AI<br>EDU</div>
+                </div>
                 <div class="featured-content-inner">
                     <span class="featured-tag">Social Impact</span>
                     <h3>AI Education Initiative</h3>
@@ -853,7 +879,9 @@ Copy
             </div>
             
             <div class="featured-card">
-                <div class="featured-image">🚁</div>
+                <div class="featured-image gradient-2">
+                    <div class="featured-image-text">AERIAL</div>
+                </div>
                 <div class="featured-content-inner">
                     <span class="featured-tag">Agricultural Tech</span>
                     <h3>Aerial Services</h3>
@@ -865,7 +893,9 @@ Copy
             </div>
             
             <div class="featured-card">
-                <div class="featured-image">📊</div>
+                <div class="featured-image gradient-3">
+                    <div class="featured-image-text">PAPER</div>
+                </div>
                 <div class="featured-content-inner">
                     <span class="featured-tag">Thought Leadership</span>
                     <h3>Rural AI White Paper</h3>
@@ -877,7 +907,9 @@ Copy
             </div>
             
             <div class="featured-card">
-                <div class="featured-image">🎙️</div>
+                <div class="featured-image gradient-4">
+                    <div class="featured-image-text">SPEAK</div>
+                </div>
                 <div class="featured-content-inner">
                     <span class="featured-tag">Speaking</span>
                     <h3>Available for Consultation</h3>
