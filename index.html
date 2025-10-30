@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lisa M. Kaminski | iConnect Studio</title>
+    <title>iConnect Studio | Lisa M. Kaminski</title>
     <style>
         * {
             margin: 0;
@@ -11,1025 +11,132 @@
             box-sizing: border-box;
         }
         
-        :root {
-            --primary: #1a1a1a;
-            --accent: #5333ed;
-            --accent-light: #6b4eff;
-            --purple-gradient: linear-gradient(135deg, #5333ed 0%, #7C3AED 100%);
-            --gray: #666;
-            --light-gray: #f8f9fa;
-            --white: #ffffff;
-            --border: #e8e8e8;
-        }
-        
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.6;
-            color: var(--primary);
-            background: var(--white);
-        }
-        
-        /* Header */
-        header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border);
-            z-index: 1000;
-        }
-        
-        nav {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 1.25rem 3rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
+            background: #ffffff;
+            color: #1a1a1a;
+            min-height: 100vh;
             display: flex;
             align-items: center;
-            gap: 0.75rem;
-            text-decoration: none;
-            color: var(--primary);
+            justify-content: center;
+            padding: 2rem;
+        }
+        
+        .container {
+            max-width: 600px;
+            text-align: center;
+        }
+        
+        .logo-container {
+            margin-bottom: 3rem;
         }
         
         .logo-icon {
-            width: 40px;
-            height: 40px;
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
             transition: transform 0.6s ease;
         }
         
-        .logo:hover .logo-icon {
+        .logo-icon:hover {
             transform: rotate(360deg);
         }
         
         .logo-text {
-            font-size: 1.25rem;
+            font-size: 2rem;
             font-weight: 600;
-            letter-spacing: -0.5px;
-        }
-        
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2.5rem;
-        }
-        
-        .nav-links a {
-            color: var(--gray);
-            text-decoration: none;
-            font-size: 0.95rem;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-        
-        .nav-links a:hover {
-            color: var(--accent);
-        }
-        
-        /* Hero Carousel */
-        .hero-carousel {
-            position: relative;
-            min-height: 85vh;
-            display: flex;
-            align-items: center;
-            overflow: hidden;
-            background: var(--white);
-            padding-top: 80px;
-        }
-        
-        .carousel-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 3rem;
-            width: 100%;
-        }
-        
-        .carousel-slides {
-            position: relative;
-        }
-        
-        .carousel-slide {
-            display: none;
-            grid-template-columns: 1fr 1fr;
-            gap: 5rem;
-            align-items: center;
-            animation: fadeIn 0.8s ease-in-out;
-        }
-        
-        .carousel-slide.active {
-            display: grid;
-        }
-        
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .slide-content h1 {
-            font-size: 3.25rem;
-            font-weight: 700;
-            margin-bottom: 2rem;
-            letter-spacing: -1.5px;
-            line-height: 1.1;
-        }
-        
-        .slide-content .gradient-text {
-            background: var(--purple-gradient);
+            background: linear-gradient(135deg, #5333ed 0%, #7C3AED 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            letter-spacing: -0.5px;
         }
         
-        .slide-content p {
-            font-size: 1.35rem;
-            color: var(--gray);
-            margin-bottom: 2.5rem;
-            line-height: 1.7;
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            letter-spacing: -1px;
+            line-height: 1.2;
         }
         
-        .slide-content p strong {
-            color: var(--primary);
-            font-weight: 600;
+        p {
+            font-size: 1.25rem;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 3rem;
         }
         
-        .cta-buttons {
-            display: flex;
-            gap: 1.5rem;
-        }
-        
-        .btn {
-            padding: 1rem 2rem;
+        .contact-link {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: linear-gradient(135deg, #5333ed 0%, #7C3AED 100%);
+            color: white;
             text-decoration: none;
             border-radius: 6px;
-            font-weight: 500;
+            font-weight: 600;
+            font-size: 1rem;
             transition: all 0.3s;
-            display: inline-block;
-            font-size: 0.95rem;
-        }
-        
-        .btn-primary {
-            background: var(--accent);
-            color: white;
             box-shadow: 0 4px 15px rgba(83, 51, 237, 0.25);
         }
         
-        .btn-primary:hover {
-            background: var(--accent-light);
+        .contact-link:hover {
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(83, 51, 237, 0.35);
         }
         
-        .btn-secondary {
-            background: white;
-            color: var(--accent);
-            border: 2px solid var(--accent);
+        .divider {
+            margin: 3rem 0;
+            height: 1px;
+            background: #e8e8e8;
         }
         
-        .btn-secondary:hover {
-            background: var(--accent);
-            color: white;
-        }
-        
-        .slide-image {
-            position: relative;
+        .links {
             display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .slide-image-placeholder {
-            width: 100%;
-            max-width: 450px;
-            height: 550px;
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            border-radius: 12px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--gray);
-            font-size: 0.95rem;
-        }
-        
-        /* Carousel Controls */
-        .carousel-dots {
-            display: flex;
-            justify-content: center;
-            gap: 0.75rem;
-            margin-top: 3rem;
-        }
-        
-        .dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: #ddd;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        
-        .dot.active {
-            background: var(--accent);
-            width: 30px;
-            border-radius: 5px;
-        }
-        
-        /* Section Base */
-        section {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 5rem 3rem;
-        }
-        
-        .section-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-        
-        .section-title {
-            font-size: 2.25rem;
-            margin-bottom: 0.75rem;
-            font-weight: 700;
-            letter-spacing: -0.75px;
-        }
-        
-        .section-subtitle {
-            font-size: 1.15rem;
-            color: var(--gray);
-        }
-        
-        /* Methodology */
-        .methodology {
-            background: var(--light-gray);
-            padding: 5rem 3rem;
-        }
-        
-        .methodology-content {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .method-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2.5rem;
-        }
-        
-        .method-item {
-            background: white;
-            padding: 2.5rem 2rem;
-            border-radius: 10px;
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        
-        .method-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(83, 51, 237, 0.12);
-        }
-        
-        .method-number {
-            font-size: 2.5rem;
-            font-weight: 700;
-            background: var(--purple-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 0.75rem;
-        }
-        
-        .method-item h3 {
-            font-size: 1.5rem;
-            margin-bottom: 0.75rem;
-            font-weight: 600;
-        }
-        
-        .method-item p {
-            color: var(--gray);
-            line-height: 1.7;
-            font-size: 1rem;
-        }
-        
-        /* What I Do */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
-        }
-        
-        .service-card {
-            padding: 2rem;
-            border: 2px solid var(--border);
-            border-radius: 10px;
-            transition: all 0.3s;
-        }
-        
-        .service-card:hover {
-            border-color: var(--accent);
-            box-shadow: 0 8px 25px rgba(83, 51, 237, 0.12);
-            transform: translateY(-3px);
-        }
-        
-        .service-card h3 {
-            font-size: 1.35rem;
-            margin-bottom: 1.25rem;
-            font-weight: 600;
-            color: var(--primary);
-        }
-        
-        .service-card ul {
-            list-style: none;
-            color: var(--gray);
-        }
-        
-        .service-card li {
-            padding: 0.65rem 0;
-            padding-left: 1.5rem;
-            position: relative;
-            line-height: 1.6;
-            font-size: 0.95rem;
-        }
-        
-        .service-card li:before {
-            content: "→";
-            color: var(--accent);
-            position: absolute;
-            left: 0;
-            font-weight: bold;
-        }
-        
-        /* Featured Content Section */
-        .featured-content {
-            background: var(--light-gray);
-        }
-        
-        .featured-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2.5rem;
-        }
-        
-        .featured-card {
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s;
-        }
-        
-        .featured-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(83, 51, 237, 0.12);
-        }
-        
-        .featured-image {
-            height: 220px;
-            position: relative;
-            overflow: hidden;
-            background: linear-gradient(135deg, #5333ed 0%, #7C3AED 100%);
-        }
-        
-        .featured-image::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                radial-gradient(circle at 20% 50%, rgba(255,255,255,0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(255,255,255,0.08) 0%, transparent 50%);
-        }
-        
-        .featured-image-text {
-            position: absolute;
-            bottom: 1.5rem;
-            left: 1.5rem;
-            color: white;
-            font-size: 2.5rem;
-            font-weight: 700;
-            letter-spacing: -1px;
-            z-index: 1;
-        }
-        
-        .featured-image.gradient-1 {
-            background: linear-gradient(135deg, #5333ed 0%, #7C3AED 100%);
-        }
-        
-        .featured-image.gradient-2 {
-            background: linear-gradient(135deg, #6b4eff 0%, #8b5cf6 100%);
-        }
-        
-        .featured-image.gradient-3 {
-            background: linear-gradient(135deg, #7C3AED 0%, #a78bfa 100%);
-        }
-        
-        .featured-image.gradient-4 {
-            background: linear-gradient(135deg, #5333ed 0%, #6366f1 100%);
-        }
-        
-        .featured-content-inner {
-            padding: 2rem;
-        }
-        
-        .featured-tag {
-            display: inline-block;
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--accent);
-            margin-bottom: 0.75rem;
-            font-weight: 600;
-            padding: 0.4rem 0.8rem;
-            background: rgba(83, 51, 237, 0.1);
-            border-radius: 15px;
-        }
-        
-        .featured-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 0.75rem;
-            font-weight: 600;
-        }
-        
-        .featured-card p {
-            color: var(--gray);
-            line-height: 1.7;
-            margin-bottom: 1.25rem;
-            font-size: 0.95rem;
-        }
-        
-        .featured-link {
-            color: var(--accent);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
-            display: inline-flex;
+            justify-content: center;
             align-items: center;
-            gap: 0.5rem;
-            transition: gap 0.3s;
         }
         
-        .featured-link:hover {
-            gap: 0.75rem;
-        }
-        
-        /* Newsletter Section */
-        .newsletter {
-            background: var(--white);
-            text-align: center;
-        }
-        
-        .newsletter-content {
-            max-width: 650px;
-            margin: 0 auto;
-        }
-        
-        .newsletter h2 {
-            font-size: 2.25rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-            letter-spacing: -0.75px;
-        }
-        
-        .newsletter p {
-            font-size: 1.15rem;
-            color: var(--gray);
-            margin-bottom: 2.5rem;
-        }
-        
-        .newsletter-form {
-            display: flex;
-            gap: 1rem;
-            max-width: 500px;
-            margin: 0 auto;
-        }
-        
-        .newsletter-input {
-            flex: 1;
-            padding: 1rem 1.5rem;
-            border: 2px solid var(--border);
-            border-radius: 6px;
-            font-size: 0.95rem;
-            transition: border-color 0.3s;
-        }
-        
-        .newsletter-input:focus {
-            outline: none;
-            border-color: var(--accent);
-        }
-        
-        .newsletter-button {
-            padding: 1rem 2rem;
-            background: var(--accent);
-            color: white;
-            border: none;
-            border-radius: 6px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-size: 0.95rem;
-        }
-        
-        .newsletter-button:hover {
-            background: var(--accent-light);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(83, 51, 237, 0.3);
-        }
-        
-        /* Recent Work */
-        .recent-work {
-            background: var(--light-gray);
-        }
-        
-        .work-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-        }
-        
-        .work-card {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 10px;
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s;
-        }
-        
-        .work-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(83, 51, 237, 0.12);
-        }
-        
-        .work-tag {
-            display: inline-block;
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--accent);
-            margin-bottom: 0.75rem;
-            font-weight: 600;
-            padding: 0.4rem 0.8rem;
-            background: rgba(83, 51, 237, 0.1);
-            border-radius: 15px;
-        }
-        
-        .work-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 0.75rem;
-            font-weight: 600;
-        }
-        
-        .work-card p {
-            color: var(--gray);
-            line-height: 1.7;
-            margin-bottom: 1.25rem;
-            font-size: 0.95rem;
-        }
-        
-        .work-stat {
-            font-size: 0.85rem;
-            color: var(--gray);
-            padding-top: 1.25rem;
-            border-top: 1px solid var(--border);
-        }
-        
-        .work-stat strong {
-            color: var(--accent);
-            font-weight: 600;
-        }
-        
-        /* Contact */
-        .contact {
-            background: linear-gradient(135deg, #5333ed 0%, #7C3AED 100%);
-            color: white;
-            text-align: center;
-            padding: 5rem 3rem;
-        }
-        
-        .contact h2 {
-            font-size: 2.25rem;
-            margin-bottom: 0.75rem;
-            font-weight: 700;
-        }
-        
-        .contact p {
-            font-size: 1.15rem;
-            opacity: 0.95;
-            margin-bottom: 2rem;
-        }
-        
-        .contact-button {
-            display: inline-block;
-            background: white;
-            color: var(--accent);
-            padding: 1.1rem 2.5rem;
-            border-radius: 6px;
+        .links a {
+            color: #666;
             text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-        }
-        
-        .contact-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
-        }
-        
-        /* Footer */
-        footer {
-            background: #0a0a0a;
-            color: rgba(255, 255, 255, 0.6);
-            padding: 2.5rem 3rem;
-            text-align: center;
-            font-size: 0.9rem;
-        }
-        
-        footer a {
-            color: rgba(255, 255, 255, 0.8);
-            text-decoration: none;
-            margin: 0 1rem;
+            font-size: 0.95rem;
             transition: color 0.3s;
         }
         
-        footer a:hover {
-            color: var(--accent-light);
-        }
-        
-        /* Responsive */
-        @media (max-width: 1024px) {
-            .carousel-slide {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-            
-            .slide-image {
-                order: -1;
-            }
-            
-            .cta-buttons {
-                justify-content: center;
-            }
-            
-            .method-grid,
-            .services-grid,
-            .work-grid,
-            .featured-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .slide-content h1 {
-                font-size: 2.25rem;
-            }
-            
-            .slide-content p {
-                font-size: 1.15rem;
-            }
+        .links a:hover {
+            color: #5333ed;
         }
         
         @media (max-width: 768px) {
-            nav {
-                padding: 1.25rem 2rem;
+            h1 {
+                font-size: 2rem;
             }
             
-            section, .methodology, .contact {
-                padding: 4rem 2rem;
+            p {
+                font-size: 1.1rem;
             }
             
-            .nav-links {
-                gap: 1.5rem;
-            }
-            
-            .newsletter-form {
+            .links {
                 flex-direction: column;
+                gap: 1rem;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <nav>
-            <a href="/" class="logo">
-                <img src="icon-only.png" alt="iConnect Studio" class="logo-icon">
-                <span class="logo-text">iConnect studio</span>
-            </a>
-            <ul class="nav-links">
-                <li><a href="#what-i-do">Expertise</a></li>
-                <li><a href="#work">Work</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <!-- Hero Carousel -->
-    <section class="hero-carousel">
-        <div class="carousel-container">
-            <div class="carousel-slides">
-                <!-- Slide 1 -->
-                <div class="carousel-slide active">
-                    <div class="slide-content">
-                        <h1>I don't deliver <span class="gradient-text">strategy PDFs</span>.<br>I deliver <span class="gradient-text">working prototypes</span>.</h1>
-                        <p>Strategic problem solver and technical architect.<br>From research to <strong>investor-ready products</strong> in weeks, not months.</p>
-                        <div class="cta-buttons">
-                            <a href="#what-i-do" class="btn btn-primary">How I Work</a>
-                            <a href="#contact" class="btn btn-secondary">Let's Talk</a>
-                        </div>
-                    </div>
-                    <div class="slide-image">
-                        <img src="lisa-hero.jpg" alt="Lisa M. Kaminski" style="width: 100%; max-width: 450px; height: auto; border-radius: 12px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);">
-                    </div>
-                </div>
-                
-                <!-- Slide 2 -->
-                <div class="carousel-slide">
-                    <div class="slide-content">
-                        <h1>From <span class="gradient-text">research</span> to <span class="gradient-text">investor-ready products</span> in weeks, not months.</h1>
-                        <p>I investigate deeply, synthesize complexity, and build working solutions that prove concepts—not strategy documents that gather dust.</p>
-                        <div class="cta-buttons">
-                            <a href="#what-i-do" class="btn btn-primary">How I Work</a>
-                            <a href="#contact" class="btn btn-secondary">Let's Talk</a>
-                        </div>
-                    </div>
-                    <div class="slide-image">
-                        <img src="lisa-hero.jpg" alt="Lisa M. Kaminski" style="width: 100%; max-width: 450px; height: auto; border-radius: 12px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);">
-                    </div>
-                </div>
-                
-                <!-- Slide 3 -->
-                <div class="carousel-slide">
-                    <div class="slide-content">
-                        <h1><span class="gradient-text">Strategic Researcher</span>. <span class="gradient-text">Technical Architect</span>. <span class="gradient-text">Rapid Executor</span>.</h1>
-                        <p>I see complete solution architectures where others see only problems. Then I build them—from prototype to production-ready systems.</p>
-                        <div class="cta-buttons">
-                            <a href="#what-i-do" class="btn btn-primary">How I Work</a>
-                            <a href="#contact" class="btn btn-secondary">Let's Talk</a>
-                        </div>
-                    </div>
-                    <div class="slide-image">
-                        <img src="lisa-hero.jpg" alt="Lisa M. Kaminski" style="width: 100%; max-width: 450px; height: auto; border-radius: 12px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);">
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Carousel Dots -->
-            <div class="carousel-dots">
-                <span class="dot active" onclick="currentSlide(0)"></span>
-                <span class="dot" onclick="currentSlide(1)"></span>
-                <span class="dot" onclick="currentSlide(2)"></span>
-            </div>
+    <div class="container">
+        <div class="logo-container">
+            <img src="icon-only.png" alt="iConnect Studio" class="logo-icon">
+            <div class="logo-text">iConnect studio</div>
         </div>
-    </section>
-
-    <!-- Methodology -->
-    <div class="methodology">
-        <div class="methodology-content">
-            <div class="method-grid">
-                <div class="method-item">
-                    <div class="method-number">01</div>
-                    <h3>SEE</h3>
-                    <p>I investigate, research, and map complete solution architectures where others see only problems.</p>
-                </div>
-                
-                <div class="method-item">
-                    <div class="method-number">02</div>
-                    <h3>SOLVE</h3>
-                    <p>I build working prototypes that prove concepts—not strategy documents that gather dust.</p>
-                </div>
-                
-                <div class="method-item">
-                    <div class="method-number">03</div>
-                    <h3>SCALE</h3>
-                    <p>From prototype to production-ready systems. I turn what's working into what's winning.</p>
-                </div>
-            </div>
-        </div>
+        
+        <h1>Currently in development</h1>
+        
+        <p>Building something new. In the meantime, let's connect.</p>
+        
+        <a href="mailto:lisa@iconnect.studio" class="contact-link">Get in Touch</a>
     </div>
-
-    <!-- What I Do -->
-    <section id="what-i-do">
-        <div class="section-header">
-            <h2 class="section-title">What I Do</h2>
-            <p class="section-subtitle">Rapid execution for complex challenges</p>
-        </div>
-        
-        <div class="services-grid">
-            <div class="service-card">
-                <h3>Solution Architecture</h3>
-                <ul>
-                    <li>Rapid problem investigation</li>
-                    <li>Complete system design</li>
-                    <li>Tech stack recommendations</li>
-                    <li>Implementation roadmaps</li>
-                </ul>
-            </div>
-            
-            <div class="service-card">
-                <h3>Prototype Development</h3>
-                <ul>
-                    <li>Working demos in weeks</li>
-                    <li>Investor-ready presentations</li>
-                    <li>Proof-of-concept builds</li>
-                    <li>Technical validation</li>
-                </ul>
-            </div>
-            
-            <div class="service-card">
-                <h3>Strategic Consulting</h3>
-                <ul>
-                    <li>Federal grant applications</li>
-                    <li>IP strategy guidance</li>
-                    <li>Partnership frameworks</li>
-                    <li>Go-to-market planning</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- Featured Content -->
-    <section class="featured-content">
-        <div class="section-header">
-            <h2 class="section-title">Featured Initiatives</h2>
-            <p class="section-subtitle">Building solutions in real time</p>
-        </div>
-        
-        <div class="featured-grid">
-            <div class="featured-card">
-                <div class="featured-image gradient-1">
-                    <div class="featured-image-text">AI<br>EDU</div>
-                </div>
-                <div class="featured-content-inner">
-                    <span class="featured-tag">Social Impact</span>
-                    <h3>AI Education Initiative</h3>
-                    <p>Bringing AI literacy to rural Manitoba through curriculum design and federal funding. Complete program architecture from research to implementation.</p>
-                    <a href="https://ainow.iconnect.studio" class="featured-link" target="_blank">
-                        Explore the platform →
-                    </a>
-                </div>
-            </div>
-            
-            <div class="featured-card">
-                <div class="featured-image gradient-2">
-                    <div class="featured-image-text">AERIAL</div>
-                </div>
-                <div class="featured-content-inner">
-                    <span class="featured-tag">Agricultural Tech</span>
-                    <h3>Aerial Services</h3>
-                    <p>Professional agricultural drone services and documentation. Precision agriculture solutions for modern farming operations.</p>
-                    <a href="https://aerial.iconnect.studio" class="featured-link" target="_blank">
-                        View services →
-                    </a>
-                </div>
-            </div>
-            
-            <div class="featured-card">
-                <div class="featured-image gradient-3">
-                    <div class="featured-image-text">PAPER</div>
-                </div>
-                <div class="featured-content-inner">
-                    <span class="featured-tag">Thought Leadership</span>
-                    <h3>Rural AI White Paper</h3>
-                    <p>40-page strategic analysis on bringing artificial intelligence literacy to rural communities. Federal funding framework included.</p>
-                    <a href="#contact" class="featured-link">
-                        Request access →
-                    </a>
-                </div>
-            </div>
-            
-            <div class="featured-card">
-                <div class="featured-image gradient-4">
-                    <div class="featured-image-text">SPEAK</div>
-                </div>
-                <div class="featured-content-inner">
-                    <span class="featured-tag">Speaking</span>
-                    <h3>Available for Consultation</h3>
-                    <p>Strategic problem-solving workshops, technical architecture reviews, and rapid prototyping guidance for executive teams.</p>
-                    <a href="#contact" class="featured-link">
-                        Book a session →
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Newsletter -->
-    <section class="newsletter">
-        <div class="newsletter-content">
-            <h2>Weekly Insights</h2>
-            <p>Strategic thinking, rapid execution, and lessons from building real solutions. Join 500+ leaders.</p>
-            <form class="newsletter-form" onsubmit="handleNewsletter(event)">
-                <input 
-                    type="email" 
-                    class="newsletter-input" 
-                    placeholder="Enter your email"
-                    required
-                >
-                <button type="submit" class="newsletter-button">Subscribe</button>
-            </form>
-        </div>
-    </section>
-
-    <!-- Recent Work -->
-    <section id="work" class="recent-work">
-        <div class="section-header">
-            <h2 class="section-title">Recent Work</h2>
-            <p class="section-subtitle">Proof of concept → Proof of capability</p>
-        </div>
-        
-        <div class="work-grid">
-            <div class="work-card">
-                <span class="work-tag">SaaS Prototype</span>
-                <h3>TeamSync</h3>
-                <p>Transformed 20 years of academic research into an investor-ready SaaS prototype. Research algorithm became clickable product with IP strategy.</p>
-                <p class="work-stat"><strong>Timeline:</strong> 6 weeks | <strong>Result:</strong> Investor demo ready</p>
-            </div>
-            
-            <div class="work-card">
-                <span class="work-tag">Solution Architecture</span>
-                <h3>PastureIQ</h3>
-                <p>Complete technical architecture for multi-language agricultural education platform. From overheard conversation to full system spec.</p>
-                <p class="work-stat"><strong>Timeline:</strong> 2 hours | <strong>Result:</strong> Full stack specification</p>
-            </div>
-            
-            <div class="work-card">
-                <span class="work-tag">Social Impact</span>
-                <h3>Rural AI Education Initiative</h3>
-                <p>Federal grant application, 40-page white paper, and thought leadership platform for bringing AI literacy to rural communities.</p>
-                <p class="work-stat"><strong>Timeline:</strong> 3 weeks | <strong>Result:</strong> $500K+ funding potential</p>
-            </div>
-            
-            <div class="work-card">
-                <span class="work-tag">AI Orchestration</span>
-                <h3>Apex Portfolio Intelligence</h3>
-                <p>Multi-LLM system orchestrating three AI engines (Perplexity, Claude, OpenAI) for unified investment intelligence.</p>
-                <p class="work-stat"><strong>Timeline:</strong> 2 weeks | <strong>Result:</strong> Working prototype</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact" class="contact">
-        <h2>Let's Talk About Your Challenge</h2>
-        <p>What problem are you trying to solve?</p>
-        <a href="mailto:lisa@iconnect.studio" class="contact-button">Get in Touch</a>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <p>
-            <a href="https://www.linkedin.com/in/lisakaminski" target="_blank">LinkedIn</a>
-            <span>|</span>
-            <a href="mailto:lisa@iconnect.studio">Email</a>
-        </p>
-        <p style="margin-top: 1rem;">©2025 iConnect Studio</p>
-    </footer>
-
-    <script>
-        // Carousel functionality
-        let currentSlideIndex = 0;
-        const slides = document.querySelectorAll('.carousel-slide');
-        const dots = document.querySelectorAll('.dot');
-        
-        function showSlide(index) {
-            // Hide all slides
-            slides.forEach(slide => slide.classList.remove('active'));
-            dots.forEach(dot => dot.classList.remove('active'));
-            
-            // Show current slide
-            slides[index].classList.add('active');
-            dots[index].classList.add('active');
-        }
-        
-        function currentSlide(index) {
-            currentSlideIndex = index;
-            showSlide(currentSlideIndex);
-        }
-        
-        function nextSlide() {
-            currentSlideIndex = (currentSlideIndex + 1) % slides.length;
-            showSlide(currentSlideIndex);
-        }
-        
-        // Auto-advance carousel every 7 seconds
-        setInterval(nextSlide, 7000);
-        
-        // Newsletter form handler
-        function handleNewsletter(event) {
-            event.preventDefault();
-            const email = event.target.querySelector('input').value;
-            alert(`Thank you for subscribing! We'll send insights to ${email}`);
-            event.target.reset();
-        }
-    </script>
 </body>
 </html>
