@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>About Lisa M. Kaminski - Solutions Architect | iConnect Studio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+        darkMode: "class",
+        theme: {
+            extend: {
+                colors: {
+                    "primary": "#a855f7",
+                    "primary-blue": "#3b82f6",
+                    "primary-gold": "#c9a87c",
+                    "primary-bronze": "#c9a87c",
+                    "navy-deep": "#020817",
+                },
+                fontFamily: {
+                    "display": ["Inter", "sans-serif"]
+                },
+            },
+        },
+    }
+</script>
+<style type="text/tailwindcss">
+    .glass-card {
+        background: rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(40px);
+        -webkit-backdrop-filter: blur(40px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    /* Spinning Logo Animation */
+    .logo {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    
+    .logo-icon {
+        width: 32px;
+        height: 32px;
+        transition: transform 0.6s ease;
+        filter: brightness(2.5) saturate(1.2);
+    }
+    
+    .logo:hover .logo-icon {
+        transform: rotate(360deg);
+    }
+</style>
+</head>
+<body class="bg-navy-deep font-display text-white selection:bg-primary-bronze selection:text-navy-deep overflow-x-hidden">
+
+<!-- AI Generated Background Image -->
+<div class="fixed inset-0 z-0" style="
+    background-image: url('background.png');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+"></div>
+
+<!-- Darker overlay to dim the background -->
+<div class="fixed inset-0 z-0 bg-gradient-to-b from-navy-deep/50 via-navy-deep/40 to-navy-deep/60"></div>
+
+<div class="relative z-10 flex min-h-screen w-full flex-col">
+    
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 flex items-center justify-between px-6 py-6 backdrop-blur-xl bg-navy-deep/40 border-b border-white/10">
+        <a href="index.html" class="logo">
+            <img src="icon-only.png" alt="iConnect Studio" class="logo-icon">
+            <span class="text-xl font-bold tracking-tight" style="
+                background: linear-gradient(135deg, #a855f7 0%, #3b82f6 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+            ">iconnect.studio</span>
+        </a>
+        <div class="flex items-center gap-6">
+            <a class="text-white/60 hover:text-white transition-colors text-sm font-medium" href="work.html">Work</a>
+            <a class="text-white hover:text-white transition-colors text-sm font-medium" href="about.html">About</a>
+            <a class="text-white/60 hover:text-white transition-colors text-sm font-medium" href="contact.html">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="flex-1 flex flex-col items-center px-6 py-16">
+        
+        <!-- About Section -->
+        <div class="mt-12 max-w-6xl mx-auto w-full">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                
+                <!-- Left: Photo -->
+                <div class="order-2 md:order-1">
+                    <div class="relative">
+                        <div class="absolute -inset-4 bg-gradient-to-br from-purple-500/20 to-blue-500/20 rounded-3xl blur-2xl"></div>
+                        <img src="lisa-hero.jpg" alt="LM - Solutions Architect" class="relative rounded-2xl w-full shadow-2xl border border-white/10">
+                    </div>
+                </div>
+
+                <!-- Right: Story -->
+                <div class="order-1 md:order-2 space-y-8">
+                    <div>
+                        <p class="text-xs uppercase tracking-widest mb-3 text-white/40 font-light">About</p>
+                        <h1 class="text-4xl font-light text-white mb-6 leading-tight">From Research to<br/>Production Deployment</h1>
+                        <div class="space-y-4 text-white/70 text-base font-light leading-relaxed">
+                            <p>I'm Lisa M. Kaminski, a Solutions Architect and AI Integration Specialist serving clients across North America.</p>
+                            <p>After 13 years in business operations at BellMTS—managing budgets, analyzing strategic initiatives, and understanding what actually matters to businesses—I transitioned to AI-augmented development.</p>
+                            <p>I work location-independently with flexible timezone availability. Whether I'm on the road or at my desk, clients get the same dedicated support and technical expertise.</p>
+                            <p>I don't just understand the technical side. I understand the business problem. That's what makes the difference.</p>
+                        </div>
+                    </div>
+
+                    <!-- Certifications -->
+                    <div>
+                        <p class="text-xs uppercase tracking-widest mb-3 text-white/40 font-light">Certifications</p>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="px-4 py-2 rounded-full text-sm font-light bg-white/8 text-white/70 border border-white/12 backdrop-blur-md">
+                                IBM Agentic AI
+                            </span>
+                            <span class="px-4 py-2 rounded-full text-sm font-light bg-white/8 text-white/70 border border-white/12 backdrop-blur-md">
+                                Vanderbilt Claude Code
+                            </span>
+                            <span class="px-4 py-2 rounded-full text-sm font-light bg-white/8 text-white/70 border border-white/12 backdrop-blur-md">
+                                13+ Years Enterprise
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- How I Work Section -->
+            <div class="mt-24 space-y-12">
+                <div class="text-center">
+                    <p class="text-xs uppercase tracking-widest mb-3 text-white/40 font-light">How I Work</p>
+                    <h2 class="text-3xl font-light text-white">SEE → SOLVE → SCALE</h2>
+                </div>
+
+                <!-- Process Cards -->
+                <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+                    
+                    <!-- SEE -->
+                    <div class="glass-card p-8 rounded-xl border-l-4 border-purple-500">
+                        <div class="space-y-4">
+                            <div class="text-5xl font-light text-purple-400">01</div>
+                            <h3 class="text-2xl font-light text-white">SEE</h3>
+                            <p class="text-white/60 text-sm font-light leading-relaxed">I investigate, research, and map complete solution architectures where others see only problems.</p>
+                        </div>
+                    </div>
+
+                    <!-- SOLVE -->
+                    <div class="glass-card p-8 rounded-xl border-l-4 border-blue-500">
+                        <div class="space-y-4">
+                            <div class="text-5xl font-light text-blue-400">02</div>
+                            <h3 class="text-2xl font-light text-white">SOLVE</h3>
+                            <p class="text-white/60 text-sm font-light leading-relaxed">I build working prototypes that prove concepts—not strategy documents that gather dust.</p>
+                        </div>
+                    </div>
+
+                    <!-- SCALE -->
+                    <div class="glass-card p-8 rounded-xl border-l-4 border-amber-500">
+                        <div class="space-y-4">
+                            <div class="text-5xl font-light text-amber-400">03</div>
+                            <h3 class="text-2xl font-light text-white">SCALE</h3>
+                            <p class="text-white/60 text-sm font-light leading-relaxed">From prototype to production-ready systems. I turn what's working into what's winning.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- What I Bring Section -->
+            <div class="mt-24 max-w-4xl mx-auto">
+                <div class="text-center mb-12">
+                    <p class="text-xs uppercase tracking-widest mb-3 text-white/40 font-light">What I Bring</p>
+                    <h2 class="text-3xl font-light text-white">More Than Just Code</h2>
+                </div>
+
+                <div class="space-y-6 text-white/70 text-base font-light leading-relaxed">
+                    <div class="glass-card p-6 rounded-xl">
+                        <h3 class="text-white font-normal text-lg mb-2">Business Operations Experience</h3>
+                        <p>13 years at BellMTS taught me budget analysis, strategic planning, and what actually matters to businesses—not just what's technically interesting.</p>
+                    </div>
+
+                    <div class="glass-card p-6 rounded-xl">
+                        <h3 class="text-white font-normal text-lg mb-2">AI-Augmented Speed</h3>
+                        <p>I achieve 4-6x faster delivery than traditional development methods. Projects that would take 6 months? I deliver in 6 weeks.</p>
+                    </div>
+
+                    <div class="glass-card p-6 rounded-xl">
+                        <h3 class="text-white font-normal text-lg mb-2">Canadian Compliance Expertise</h3>
+                        <p>Deep knowledge of PIPEDA, provincial regulations, GST/HST, and trust accounting requirements. Valuable for Canadian markets or North American timezone collaboration.</p>
+                    </div>
+
+                    <div class="glass-card p-6 rounded-xl">
+                        <h3 class="text-white font-normal text-lg mb-2">Hands-On Technical Architecture</h3>
+                        <p>React, Supabase, Stripe integration, payment systems, AI integrations. I design the architecture AND build it.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA Section -->
+            <div class="mt-24 text-center">
+                <p class="text-white/60 text-lg font-light mb-8">Ready to discuss your project?</p>
+                <button onclick="window.location.href='contact.html'" class="inline-flex items-center justify-center px-8 py-4 rounded-full bg-gradient-to-r from-amber-600 to-amber-700 text-white font-normal hover:shadow-[0_0_50px_rgba(201,168,124,0.5)] active:scale-95 transition-all">
+                    Get in Touch
+                </button>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="mt-auto px-8 py-16 border-t border-white/10 bg-navy-deep/40 backdrop-blur-xl">
+        <div class="flex flex-col items-center gap-10">
+            <div class="flex gap-10">
+                <a class="text-white/50 hover:text-white transition-colors" href="https://www.linkedin.com/in/lisamk1/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                    <span class="material-symbols-outlined text-2xl">person</span>
+                </a>
+                <a class="text-white/50 hover:text-white transition-colors" href="/cdn-cgi/l/email-protection#8ce5e2eae3cce5efe3e2e2e9eff8a2fff8f9e8e5e3" aria-label="Email">
+                    <span class="material-symbols-outlined text-2xl">alternate_email</span>
+                </a>
+                <a class="text-white/50 hover:text-white transition-colors" href="contact.html" aria-label="Contact">
+                    <span class="material-symbols-outlined text-2xl">share</span>
+                </a>
+            </div>
+            <div class="text-center">
+                <p class="text-white/40 text-[10px] tracking-widest font-bold uppercase">
+                    © 2026 iConnect Studio · LM
+                </p>
+                <p class="text-white/20 text-[9px] mt-2 font-medium">
+                    AI-Augmented Solutions Architecture
+                </p>
+            <

@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Stack - Technical Profile Assistant | Lisa M. Kaminski</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+        darkMode: "class",
+        theme: {
+            extend: {
+                colors: {
+                    "primary": "#a855f7",
+                    "primary-blue": "#3b82f6",
+                    "primary-gold": "#c9a87c",
+                    "primary-bronze": "#c9a87c",
+                    "navy-deep": "#020817",
+                },
+                fontFamily: {
+                    "display": ["Inter", "sans-serif"]
+                },
+            },
+        },
+    }
+</script>
+<style type="text/tailwindcss">
+    .glass-card {
+        background: rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(40px);
+        -webkit-backdrop-filter: blur(40px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .glass-bubble {
+        background: rgba(255, 255, 255, 0.12);
+        backdrop-filter: blur(40px);
+        -webkit-backdrop-filter: blur(40px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    /* Spinning Logo Animation */
+    .logo {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    
+    .logo-icon {
+        width: 32px;
+        height: 32px;
+        transition: transform 0.6s ease;
+        filter: brightness(2.5) saturate(1.2);
+    }
+    
+    .logo:hover .logo-icon {
+        transform: rotate(360deg);
+    }
+    
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+</style>
+</head>
+<body class="bg-navy-deep font-display text-white selection:bg-primary-bronze selection:text-navy-deep overflow-x-hidden">
+
+<!-- AI Generated Background Image -->
+<div class="fixed inset-0 z-0" style="
+    background-image: url('background.png');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+"></div>
+
+<!-- Darker overlay -->
+<div class="fixed inset-0 z-0 bg-gradient-to-b from-navy-deep/50 via-navy-deep/40 to-navy-deep/60"></div>
+
+<div class="relative z-10 flex min-h-screen w-full flex-col">
+    
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 flex items-center justify-between px-6 py-6 backdrop-blur-xl bg-navy-deep/40 border-b border-white/10">
+        <a href="index.html" class="logo">
+            <img src="icon-only.png" alt="iConnect Studio" class="logo-icon">
+            <span class="text-xl font-bold tracking-tight" style="
+                background: linear-gradient(135deg, #a855f7 0%, #3b82f6 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+            ">iconnect.studio</span>
+        </a>
+        <div class="flex items-center gap-6">
+            <a class="text-white/60 hover:text-white transition-colors text-sm font-medium" href="work.html">Work</a>
+            <a class="text-white/60 hover:text-white transition-colors text-sm font-medium" href="about.html">About</a>
+            <a class="text-white/60 hover:text-white transition-colors text-sm font-medium" href="contact.html">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="flex-1 flex flex-col items-center px-6 py-8">
+        
+        <!-- Chat Container -->
+        <div class="w-full max-w-4xl">
+            
+            <!-- Header -->
+            <div class="text-center mb-8">
+                <h1 class="text-3xl font-light text-white mb-2">Stack</h1>
+                <p class="text-white/60 text-sm font-light">Technical Profile Assistant powered by Claude</p>
+            </div>
+
+            <!-- Chat Window -->
+            <div class="glass-card rounded-3xl flex flex-col h-[70vh] overflow-hidden">
+                
+                <!-- Messages -->
+                <div id="messageContainer" class="flex-1 overflow-y-auto p-6 space-y-6 no-scrollbar">
+                    <!-- Messages added by JavaScript -->
+                </div>
+
+                <!-- Input Area -->
+                <div class="px-6 py-6 space-y-4 bg-white/[0.04] border-t border-white/20 backdrop-blur-3xl">
+                    
+                    <!-- Sample Question Chips -->
+                    <div class="flex flex-wrap gap-2">
+                        <button onclick="askSampleQuestion('What is your tech stack?')" class="bg-white/10 border border-white/20 px-4 py-2 rounded-full text-xs font-normal text-white/90 hover:bg-white/20 transition-all">
+                            Tech Stack
+                        </button>
+                        <button onclick="askSampleQuestion('Tell me about your AWS deployment experience')" class="bg-white/10 border border-white/20 px-4 py-2 rounded-full text-xs font-normal text-white/90 hover:bg-white/20 transition-all">
+                            AWS Experience
+                        </button>
+                        <button onclick="askSampleQuestion('Have you worked with payment integration?')" class="bg-white/10 border border-white/20 px-4 py-2 rounded-full text-xs font-normal text-white/90 hover:bg-white/20 transition-all">
+                            Payment Systems
+                        </button>
+                        <button onclick="askSampleQuestion('What is your availability and timezone?')" class="bg-white/10 border border-white/20 px-4 py-2 rounded-full text-xs font-normal text-white/90 hover:bg-white/20 transition-all">
+                            Availability
+                        </button>
+                    </div>
+
+                    <!-- Input -->
+                    <div class="flex gap-3">
+                        <input 
+                            id="userInput" 
+                            type="text" 
+                            placeholder="Ask about technical skills, projects, or availability..." 
+                            class="flex-1 bg-white/10 border border-white/20 text-white px-5 py-3 rounded-xl font-light transition-all focus:bg-white/15 focus:border-primary/50 focus:outline-none"
+                            onkeypress="if(event.key === 'Enter') sendMessage()"
+                        />
+                        <button 
+                            onclick="sendMessage()" 
+                            class="bg-gradient-to-r from-amber-600 to-amber-700 text-white px-6 py-3 rounded-xl font-normal hover:shadow-[0_0_30px_rgba(201,168,124,0.4)] active:scale-95 transition-all flex items-center gap-2"
+                        >
+                            <span class="material-symbols-outlined text-xl">arrow_upward</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="mt-auto px-8 py-12 border-t border-white/10 bg-navy-deep/40 backdrop-blur-xl">
+        <div class="flex flex-col items-center gap-10">
+            <div class="flex gap-10">
+                <a class="text-white/50 hover:text-white transition-colors" href="https://www.linkedin.com/in/lisamk1/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                    <span class="material-symbols-outlined text-2xl">person</span>
+                </a>
+                <a class="text-white/50 hover:text-white transition-colors" href="/cdn-cgi/l/email-protection#167f787079567f7579787873756238656263727f79" aria-label="Email">
+                    <span class="material-symbols-outlined text-2xl">alternate_email</span>
+                </a>
+                <a class="text-white/50 hover:text-white transition-colors" href="contact.html" aria-label="Contact">
+                    <span class="material-symbols-outlined text-2xl">share</span>
+                </a>
+            </div>
+            <div class="text-center">
+                <p class="text-white/40 text-[10px] tracking-widest font-bold uppercase">
+                    © 2026 iConnect Studio · LM
+                </p>
+                <p class="text-white/20 text-[9px] mt-2 font-medium">
+                    AI-Augmented Solutions Architecture
+                </p>
+            </div>
+        </div>
+    </footer>
+
+</div>
+
+<script>
+// No API key needed - calls Netlify function
+window.addEventListener('DOMContentLoaded', function() {
+    addMessage("Hi! I'm Stack, trained on Lisa M. Kaminski's work and technical capabilities. Ask about her skills, project experience, or whether she's a fit for your role requirements.", false);
+});
+
+function askSampleQuestion(question) {
+    document.getElementById('userInput').value = question;
+    sendMessage();
+}
+
+async function sendMessage() {
+    const input = document.getElementById('userInput');
+    const message = input.value.trim();
+    
+    if (!message) return;
+    
+    input.value = '';
+    addMessage(message, true);
+    
+    // Show typing indicator
+    const container = document.getElementById('messageContainer');
+    const typingDiv = document.createElement('div');
+    typingDiv.id = 'typing-indicator';
+    typingDiv.className = 'flex items-start gap-4';
+    typingDiv.innerHTML = `
+        <div class="bg-primary/20 rounded-full w-9 h-9 shrink-0 border border-primary/40 flex items-center justify-center">
+            <span class="text-sm font-bold text-primary">STK</span>
+        </div>
+        <div class="flex flex-1 flex-col gap-1.5 items-start max-w-[80%]">
+            <div class="text-sm font-light leading-relaxed rounded-2xl rounded-tl-none px-5 py-3 glass-bubble text-white/90">
+                <span class="animate-pulse">Thinking...</span>
+            </div>
+        </div>
+    `;
+    container.appendChild(typingDiv);
+    container.scrollTop = container.scrollHeight;
+    
+    try {
+        // Call Netlify function (works locally with netlify dev and in production)
+        const response = await fetch('/.netlify/functions/chat', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ message })
+        });
+        
+        // Remove typing indicator
+        const typing = document.getElementById('typing-indicator');
+        if (typing) typing.remove();
+        
+        const data = await response.json();
+        
+        // Handle rate limiting
+        if (response.status === 429) {
+            addMessage('You\'ve reached the free tier limit (10 messages/hour). Please try again later.', false);
+            return;
+        }
+        
+        // Handle other errors
+        if (!response.ok) {
+            throw new Error(data.error || 'Request failed');
+        }
+        
+        // Display Claude's response
+        if (data.content && data.content[0]) {
+            addMessage(data.content[0].text, false);
+            
+            // Show rate limit warning if getting close
+            const remaining = response.headers.get('X-RateLimit-Remaining');
+            if (remaining && parseInt(remaining) <= 2 && parseInt(remaining) > 0) {
+                setTimeout(() => {
+                    addMessage(`(${remaining} messages remaining this hour)`, false);
+                }, 300);
+            }
+        } else {
+            addMessage('Sorry, I received an unexpected response. Please try again.', false);
+        }
+        
+    } catch (error) {
+        // Remove typing indicator on error
+        const typing = document.getElementById('typing-indicator');
+        if (typing) typing.remove();
+        
+        console.error('Chat error:', error);
+        addMessage('Error connecting to Stack. Please try again in a moment.', false);
+    }
+}
+
+function addMessage(text, isUser) {
+    const container = document.getElementById('messageContainer');
+    const messageDiv = document.createElement('div');
+    messageDiv.className = 'flex items-start gap-4';
+    
+    if (isUser) {
+        messageDiv.classList.add('flex-row-reverse');
+        messageDiv.innerHTML = `
+            <div class="bg-primary/20 rounded-full w-9 h-9 shrink-0 border border-primary/40 flex items-center justify-center">
+                <span class="material-symbols-outlined text-sm text-primary">person</span>
+            </div>
+            <div class="flex flex-1 flex-col gap-1.5 items-end max-w-[80%]">
+                <div class="text-sm font-light leading-relaxed rounded-2xl rounded-tr-none px-5 py-3 bg-primary/20 text-white border border-primary/30">
+                    ${text}
+                </div>
+            </div>
+        `;
+    } else {
+        messageDiv.innerHTML = `
+            <div class="bg-primary/20 rounded-full w-9 h-9 shrink-0 border border-primary/40 flex items-center justify-center">
+                <span class="text-sm font-bold text-primary">STK</span>
+            </div>
+            <div class="flex flex-1 flex-col gap-1.5 items-start max-w-[80%]">
+                <div class="text-sm font-light leading-relaxed rounded-2xl rounded-tl-none px-5 py-3 glass-bubble text-white/90">
+                    ${text}
+                </div>
+            </div>
+        `;
+    }
+    
+    container.appendChild(messageDiv);
+    container.scrollTop = container.scrollHeight;
+}
+</script>
+
+</body>
+</html>
