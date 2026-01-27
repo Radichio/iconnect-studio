@@ -1,377 +1,55 @@
 <!DOCTYPE html>
-<html class="dark" lang="en">
+<html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Lisa M. Kaminski - Solutions Architect & AI Integration Specialist | iConnect Studio</title>
-<meta name="description" content="Solutions Architect specializing in SaaS platforms, payment systems, and compliance-ready applications. Serving clients across North America."/>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;600;700&display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
-<script id="tailwind-config">
-    tailwind.config = {
-        darkMode: "class",
-        theme: {
-            extend: {
-                colors: {
-                    "primary-bronze": "#c9a87c",
-                    "primary-gold": "#e5c18b",
-                    "navy-deep": "#08080c",
-                    "charcoal-dark": "#0d0d0f"
-                },
-                fontFamily: {
-                    "display": ["Inter", "sans-serif"]
-                },
-                fontSize: {
-                    'card-body': '15px',
-                    'card-title': '24px'
-                }
-            }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iConnect Studio | Solutions Architecture & AI Integration</title>
+    <link rel="icon" type="image/png" href="icon-only.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
         }
-    }
-</script>
-<style type="text/tailwindcss">
-    :root {
-        --glass-bg: rgba(255, 255, 255, 0.12);
-        --glass-border: rgba(255, 255, 255, 0.20);
-    }
-    
-    /* Premium GitHub-style glassmorphism */
-    .glass-card {
-        background: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.06) 100%);
-        backdrop-filter: blur(100px) saturate(200%);
-        -webkit-backdrop-filter: blur(100px) saturate(200%);
-        border: 1.5px solid rgba(255, 255, 255, 0.2);
-        position: relative;
-        overflow: visible;
-        box-shadow: 
-            0 8px 32px rgba(0, 0, 0, 0.4),
-            inset 0 1px 0 rgba(255, 255, 255, 0.15),
-            inset 0 0 20px rgba(255, 255, 255, 0.03);
-        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        cursor: pointer;
-    }
-    
-    .glass-card:hover {
-        background: linear-gradient(135deg, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.1) 100%);
-        backdrop-filter: blur(120px) saturate(220%);
-        -webkit-backdrop-filter: blur(120px) saturate(220%);
-        border-color: rgba(255, 255, 255, 0.35);
-        box-shadow: 
-            0 16px 48px rgba(0, 0, 0, 0.5),
-            0 0 40px rgba(100, 165, 250, 0.15),
-            inset 0 1px 0 rgba(255, 255, 255, 0.25),
-            inset 0 0 30px rgba(255, 255, 255, 0.05);
-        transform: translateY(-4px) scale(1.01);
-    }
-    
-    .glass-card:active {
-        transform: translateY(-2px) scale(0.99);
-        transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    
-    .glass-card::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 40%;
-        background: linear-gradient(180deg, rgba(255, 255, 255, 0.15) 0%, transparent 100%);
-        z-index: 10;
-        border-radius: inherit;
-        transition: opacity 0.4s ease;
-    }
-    
-    .glass-card:hover::before {
-        background: linear-gradient(180deg, rgba(255, 255, 255, 0.22) 0%, transparent 100%);
-    }
-    
-    .bronze-gradient-text {
-        background: linear-gradient(135deg, #c9a87c 0%, #e5c18b 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        backgroundClip: text;
-    }
-    
-    .bronze-button-gradient {
-        background: linear-gradient(135deg, #a68456 0%, #c9a87c 50%, #e5c18b 100%);
-        box-shadow: 
-            0 0 40px rgba(201, 168, 124, 0.4),
-            0 8px 24px rgba(0, 0, 0, 0.3),
-            inset 0 1px 0 rgba(255, 255, 255, 0.3),
-            inset 0 -1px 0 rgba(0, 0, 0, 0.2);
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        position: relative;
-        overflow: hidden;
-    }
-    
-    .bronze-button-gradient::after {
-        content: '';
-        position: absolute;
-        top: -50%;
-        left: -50%;
-        width: 200%;
-        height: 200%;
-        background: linear-gradient(
-            45deg,
-            transparent 30%,
-            rgba(255, 255, 255, 0.3) 50%,
-            transparent 70%
-        );
-        transform: translateX(-100%) translateY(-100%) rotate(45deg);
-        transition: transform 0.6s ease;
-    }
-    
-    .bronze-button-gradient:hover {
-        background: linear-gradient(135deg, #b89567 0%, #dab88d 50%, #f0d5a0 100%);
-        box-shadow: 
-            0 0 60px rgba(201, 168, 124, 0.7),
-            0 0 30px rgba(201, 168, 124, 0.5),
-            0 12px 40px rgba(0, 0, 0, 0.4),
-            inset 0 1px 0 rgba(255, 255, 255, 0.5),
-            inset 0 0 20px rgba(255, 255, 255, 0.1);
-        transform: translateY(-2px) scale(1.02);
-    }
-    
-    .bronze-button-gradient:hover::after {
-        transform: translateX(100%) translateY(100%) rotate(45deg);
-    }
-    
-    .bronze-button-gradient:active {
-        transform: translateY(0) scale(0.98);
-        box-shadow: 
-            0 0 30px rgba(201, 168, 124, 0.5),
-            0 4px 16px rgba(0, 0, 0, 0.3),
-            inset 0 1px 0 rgba(255, 255, 255, 0.2);
-        transition: all 0.1s ease;
-    }
-    
-    .card-link {
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        display: inline-flex;
-        align-items: center;
-        gap: 0.5rem;
-    }
-    
-    .card-link:hover {
-        color: #f0d5a0;
-        transform: translateX(4px);
-    }
-    
-    .card-link:hover .material-symbols-outlined {
-        transform: translateX(4px);
-    }
-    
-    /* Desktop grid layout */
-    @media (min-width: 768px) {
-        .hero-section {
-            padding-top: 6rem;
-            padding-bottom: 4rem;
-        }
-        .cards-container {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-            max-width: 1200px;
-        }
-    }
-    
-    /* Spinning Logo Animation */
-    .logo {
-        display: flex;
-        align-items: center;
-        gap: 0.75rem;
-        text-decoration: none;
-        cursor: pointer;
-    }
-    
-    .logo-icon {
-        width: 32px;
-        height: 32px;
-        transition: transform 0.6s ease;
-        filter: brightness(2.5) saturate(1.2);
-    }
-    
-    .logo:hover .logo-icon {
-        transform: rotate(360deg);
-    }
-</style>
+    </style>
 </head>
-<body class="bg-navy-deep font-display text-white selection:bg-primary-bronze selection:text-navy-deep overflow-x-hidden">
-
-<!-- AI Generated Background Image -->
-<div class="fixed inset-0 z-0" style="
-    background-image: url('background.png');
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-"></div>
-
-<!-- Darker overlay to dim the background -->
-<div class="fixed inset-0 z-0 bg-gradient-to-b from-navy-deep/50 via-navy-deep/40 to-navy-deep/60"></div>
-
-<div class="relative z-10 flex min-h-screen w-full flex-col">
+<body class="bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 min-h-screen flex items-center justify-center p-6">
     
-    <!-- Navigation -->
-    <nav class="sticky top-0 z-50 flex items-center justify-between px-6 py-6 backdrop-blur-xl bg-navy-deep/40 border-b border-white/10">
-        <a href="index.html" class="logo">
-            <img src="icon-only.png" alt="iConnect Studio" class="logo-icon">
-            <span class="text-xl font-bold tracking-tight" style="
-                background: linear-gradient(135deg, #a855f7 0%, #3b82f6 100%);
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-                background-clip: text;
-            ">iconnect.studio</span>
-        </a>
-        <div class="flex items-center gap-6">
-            <a class="text-white/60 hover:text-white transition-colors text-sm font-medium" href="work.html">Work</a>
-            <a class="text-white/60 hover:text-white transition-colors text-sm font-medium" href="about.html">About</a>
-            <a class="text-white/60 hover:text-white transition-colors text-sm font-medium" href="contact.html">Contact</a>
-        </div>
-    </nav>
-
-    <!-- Main Content -->
-    <main class="flex-1 flex flex-col items-center px-6 pt-12 pb-24 hero-section">
+    <!-- Coming Soon Content -->
+    <div class="max-w-3xl mx-auto text-center">
         
-        <!-- Hero Name -->
-        <div class="mb-6 mt-4">
-            <h1 class="text-6xl md:text-7xl font-[200] tracking-[-0.02em] text-white opacity-95">Lisa M. Kaminski</h1>
+        <!-- Logo -->
+        <div class="mb-12 flex justify-center">
+            <img src="icon-only.png" alt="iConnect Studio" class="h-20 w-20 opacity-90">
         </div>
+
+        <!-- Heading -->
+        <h1 class="text-5xl md:text-6xl font-light text-white mb-6">
+            iConnect Studio
+        </h1>
         
-        <!-- Title & Subtitle -->
-        <div class="text-center mb-4">
-            <p class="text-primary-bronze tracking-[0.25em] text-[10px] font-bold uppercase">
-                Solutions Architect • AI Integration Specialist
-            </p>
-        </div>
-        
-        <!-- Tagline -->
-        <div class="text-center mb-8 max-w-2xl">
-            <p class="text-white/70 text-base leading-relaxed">
-                I help businesses solve complex problems with technology that actually works.<br/>
-                <span class="text-white/50 text-sm">13 years of business operations. AI-augmented development. North America.</span>
-            </p>
-        </div>
+        <!-- Subheading -->
+        <p class="text-xl md:text-2xl text-white/80 font-light mb-4">
+            Solutions Architecture & AI Integration
+        </p>
 
-        <!-- CTA Button -->
-        <div class="w-full max-w-sm px-4 mb-20">
-            <button onclick="window.location.href='chat.html'" class="w-full flex items-center justify-center overflow-hidden rounded-full h-16 px-8 bronze-button-gradient text-navy-deep gap-3 hover:shadow-[0_0_50px_rgba(201,168,124,0.5)] active:scale-95 transition-all">
-                <span class="material-symbols-outlined text-[24px] fill-current">chat_bubble</span>
-                <span class="text-base font-bold tracking-tight">Ask Stack</span>
-            </button>
+        <!-- Description -->
+        <p class="text-white/60 text-lg font-light leading-relaxed mb-12 max-w-2xl mx-auto">
+            Building production-ready systems from concept to deployment. Specializing in AI-augmented development, enterprise integrations, and scalable architecture.
+        </p>
+
+        <!-- CTA -->
+        <div class="flex flex-col sm:flex-row gap-4 justify-center mb-16">
+            <a href="mailto:lisa@iconnect.studio" class="px-8 py-4 bg-white text-slate-900 rounded-lg font-normal hover:bg-white/90 transition-colors text-lg">
+                Get in Touch
+            </a>
         </div>
 
-        <!-- Feature Cards -->
-        <div class="flex flex-col md:flex-row gap-6 w-full max-w-md md:max-w-none cards-container">
-            
-            <!-- Card 1: My Approach -->
-            <div class="flex flex-col gap-6 rounded-[2rem] glass-card p-8">
-                <div class="flex items-center gap-4">
-                    <div class="size-12 rounded-xl bg-white/10 flex items-center justify-center text-white border border-white/20 backdrop-blur-md flex-shrink-0">
-                        <span class="material-symbols-outlined text-2xl">science</span>
-                    </div>
-                    <span class="text-white/60 text-xs font-bold uppercase tracking-widest">Process</span>
-                </div>
-                <div class="flex flex-col gap-4">
-                    <h3 class="text-white text-card-title font-semibold leading-tight tracking-tight">My Approach</h3>
-                    <p class="text-white/70 text-card-body font-light leading-relaxed">
-                        SEE → SOLVE → SCALE. From research to investor-ready products in weeks, not months.
-                    </p>
-                </div>
-                <div class="mt-2">
-                    <a class="card-link text-primary-gold text-sm font-bold flex items-center gap-2 group" href="about.html">
-                        How I Work 
-                        <span class="material-symbols-outlined text-[20px] transition-transform duration-300">arrow_right_alt</span>
-                    </a>
-                </div>
-            </div>
+        <!-- Footer Note -->
+        <p class="text-white/40 text-sm font-light">
+            Portfolio site launching soon
+        </p>
+    </div>
 
-            <!-- Card 2: Recent Work -->
-            <div class="flex flex-col gap-6 rounded-[2rem] glass-card p-8">
-                <div class="flex items-center gap-4">
-                    <div class="size-12 rounded-xl bg-white/10 flex items-center justify-center text-white border border-white/20 backdrop-blur-md flex-shrink-0">
-                        <span class="material-symbols-outlined text-2xl">work</span>
-                    </div>
-                    <span class="text-white/60 text-xs font-bold uppercase tracking-widest">Portfolio</span>
-                </div>
-                <div class="flex flex-col gap-4">
-                    <h3 class="text-white text-card-title font-semibold leading-tight tracking-tight">Recent Work</h3>
-                    <p class="text-white/70 text-card-body font-light leading-relaxed">
-                        TeamSync AI · RCIC Manager · Business proposals & marketing for US companies.
-                    </p>
-                </div>
-                <div class="mt-2">
-                    <a class="card-link text-primary-gold text-sm font-bold flex items-center gap-2 group" href="work.html">
-                        View Portfolio 
-                        <span class="material-symbols-outlined text-[20px] transition-transform duration-300">arrow_right_alt</span>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Card 3: Skills Match -->
-            <div class="flex flex-col gap-6 rounded-[2rem] glass-card p-8">
-                <div class="flex items-center gap-4">
-                    <div class="size-12 rounded-xl bg-white/10 flex items-center justify-center text-white border border-white/20 backdrop-blur-md flex-shrink-0">
-                        <span class="material-symbols-outlined text-2xl">chat_bubble</span>
-                    </div>
-                    <span class="text-white/60 text-xs font-bold uppercase tracking-widest">Skills Match</span>
-                </div>
-                <div class="flex flex-col gap-4">
-                    <h3 class="text-white text-card-title font-semibold leading-tight tracking-tight">Stack</h3>
-                    <p class="text-white/70 text-card-body font-light leading-relaxed">
-                        Verify technical capabilities and project experience with my AI assistant.
-                    </p>
-                </div>
-                <div class="mt-2">
-                    <a class="card-link text-primary-gold text-sm font-bold flex items-center gap-2 group" href="chat.html">
-                        Start Chat
-                        <span class="material-symbols-outlined text-[20px] transition-transform duration-300">arrow_right_alt</span>
-                    </a>
-                </div>
-            </div>
-
-        </div>
-
-        <!-- Certifications -->
-        <div class="mt-20 text-center">
-            <p class="text-xs uppercase tracking-widest mb-4 text-white/40">
-                Certifications & Background
-            </p>
-            <div class="flex flex-wrap justify-center gap-3">
-                <span class="px-5 py-2.5 rounded-full text-sm bg-white/8 text-white/70 border border-white/12 backdrop-blur-md">
-                    IBM Agentic AI
-                </span>
-                <span class="px-5 py-2.5 rounded-full text-sm bg-white/8 text-white/70 border border-white/12 backdrop-blur-md">
-                    Vanderbilt Claude Code
-                </span>
-                <span class="px-5 py-2.5 rounded-full text-sm bg-white/8 text-white/70 border border-white/12 backdrop-blur-md">
-                    13+ Years Enterprise
-                </span>
-            </div>
-        </div>
-
-    </main>
-
-    <!-- Footer -->
-    <footer class="mt-auto px-8 py-16 border-t border-white/10 bg-navy-deep/40 backdrop-blur-xl">
-        <div class="flex flex-col items-center gap-10">
-            <div class="flex gap-10">
-                <a class="text-white/50 hover:text-white transition-colors" href="https://www.linkedin.com/in/lisamk1/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                    <span class="material-symbols-outlined text-2xl">person</span>
-                </a>
-                <a class="text-white/50 hover:text-white transition-colors" href="/cdn-cgi/l/email-protection#e78e898188a78e84888989828493c9949392838e88" aria-label="Email">
-                    <span class="material-symbols-outlined text-2xl">alternate_email</span>
-                </a>
-                <a class="text-white/50 hover:text-white transition-colors" href="contact.html" aria-label="Contact">
-                    <span class="material-symbols-outlined text-2xl">share</span>
-                </a>
-            </div>
-            <div class="text-center">
-                <p class="text-white/40 text-[10px] tracking-widest font-bold uppercase">
-                    © 2026 iConnect Studio · LM
-                </p>
-                <p class="text-white/20 text-[9px] mt-2 font-medium">
-                    AI-Augmented Solutions Architecture
-     
+</body>
+</html>
