@@ -1,5 +1,3 @@
-const fetch = require('node-fetch');
-
 // Simple in-memory rate limiting (resets on function cold start)
 const rateLimits = new Map();
 const MAX_REQUESTS_PER_HOUR = 10;
