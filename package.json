@@ -1,0 +1,17 @@
+{
+  "name": "iconnect-studio-portfolio",
+  "version": "1.0.0",
+  "description": "Professional portfolio for Lisa M. Kaminski - Solutions Architecture & AI Integration",
+  "private": true,
+  "scripts": {
+    "dev": "echo 'Open index.html in browser'",
+    "deploy": "netlify deploy --prod"
+  },
+  "keywords": [
+    "portfolio",
+    "solutions-architect",
+    "ai-integration"
+  ],
+  "author": "Lisa M. Kaminski",
+  "license": "UNLICENSED"
+}

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>About | Lisa M. Kaminski - iConnect Studio</title>
+<meta name="description" content="Enterprise operations meet AI-augmented development. SEE the problem. SOLVE with technology. SCALE for impact.">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link rel="icon" type="image/png" href="icon-only.png">
+<script id="tailwind-config">
+    tailwind.config = {
+        darkMode: "class",
+        theme: {
+            extend: {
+                colors: {
+                    "primary": "#a855f7",
+                    "primary-blue": "#3b82f6",
+                    "primary-gold": "#c9a87c",
+                    "navy-deep": "#020817",
+                },
+                fontFamily: {
+                    "display": ["Inter", "sans-serif"]
+                },
+            },
+        },
+    }
+</script>
+<style type="text/tailwindcss">
+    .glass-card {
+        background: rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(40px);
+        -webkit-backdrop-filter: blur(40px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .logo {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    
+    .logo-icon {
+        width: 32px;
+        height: 32px;
+        transition: transform 0.6s ease;
+        filter: brightness(1.5) saturate(1.2);
+    }
+    
+    .logo:hover .logo-icon {
+        transform: rotate(360deg);
+    }
+</style>
+</head>
+<body class="bg-navy-deep font-display text-white selection:bg-primary-gold selection:text-navy-deep overflow-x-hidden">
+
+<!-- AI Generated Background Image -->
+<div class="fixed inset-0 z-0" style="
+    background-image: url('background.png');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+"></div>
+
+<!-- Overlay -->
+<div class="fixed inset-0 z-0 bg-gradient-to-b from-navy-deep/50 via-navy-deep/40 to-navy-deep/60"></div>
+
+<div class="relative z-10 flex min-h-screen w-full flex-col">
+    
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 flex items-center justify-between px-6 py-6 backdrop-blur-xl bg-navy-deep/40 border-b border-white/10">
+        <a href="index.html" class="logo">
+            <img src="icon-only.png" alt="iConnect Studio" class="logo-icon">
+            <span class="text-xl font-bold tracking-tight" style="
+                background: linear-gradient(135deg, #a855f7 0%, #3b82f6 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+            ">iconnect.studio</span>
+        </a>
+        <div class="flex items-center gap-6">
+            <a class="text-white/60 hover:text-white transition-colors text-sm font-medium" href="work.html">Work</a>
+            <a class="text-white/60 hover:text-white transition-colors text-sm font-medium" href="about.html">About</a>
+            <a class="text-white/60 hover:text-white transition-colors text-sm font-medium" href="contact.html">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="flex-1 px-6 py-16">
+        
+        <div class="max-w-4xl mx-auto space-y-16">
+            
+            <!-- Header with Photo -->
+            <div class="glass-card rounded-3xl p-8 md:p-12">
+                <div class="flex flex-col md:flex-row gap-8 items-start">
+                    <img src="lisa-hero.jpg" alt="Lisa M. Kaminski" class="w-48 h-48 rounded-2xl object-cover border-2 border-white/20 shadow-2xl flex-shrink-0">
+                    <div>
+                        <h1 class="text-4xl font-light text-white mb-4">Lisa M. Kaminski</h1>
+                        <p class="text-white/70 text-lg font-light leading-relaxed mb-4">
+                            I build systems that solve real business problems. Not prototypes that live in demos. Not MVPs that collapse under load. Production-ready systems that scale, comply with regulations, and make complex workflows invisible to end users.
+                        </p>
+                        <p class="text-white/60 font-light leading-relaxed">
+                            My background in enterprise operations means I understand the messy reality behind business requirements — the organizational politics, the legacy systems no one wants to touch, the compliance requirements that seem designed to make everything harder. And I know how to build around all of it.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Methodology -->
+            <div class="glass-card rounded-3xl p-8 md:p-12">
+                <h2 class="text-3xl font-light text-white mb-8">How I Work</h2>
+                
+                <div class="space-y-8">
+                    <!-- SEE -->
+                    <div class="flex gap-6">
+                        <div class="flex-shrink-0">
+                            <div class="w-12 h-12 rounded-xl bg-purple-500/20 flex items-center justify-center">
+                                <span class="material-symbols-outlined text-2xl text-purple-400">visibility</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-normal text-white mb-2">SEE</h3>
+                            <p class="text-white/70 font-light leading-relaxed">
+                                I listen to what stakeholders think they need, then dig deeper to find what they actually need. Complex systems hide their real requirements behind surface-level requests. My job starts with understanding the underlying problem, not just the stated ask.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- SOLVE -->
+                    <div class="flex gap-6">
+                        <div class="flex-shrink-0">
+                            <div class="w-12 h-12 rounded-xl bg-blue-500/20 flex items-center justify-center">
+                                <span class="material-symbols-outlined text-2xl text-blue-400">construction</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-normal text-white mb-2">SOLVE</h3>
+                            <p class="text-white/70 font-light leading-relaxed">
+                                AI-augmented development lets me move fast without cutting corners. I prototype rapidly, validate with real users, then build production systems that handle edge cases, scale under load, and integrate with existing infrastructure. "Is this the best that can be done?" drives every technical decision.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- SCALE -->
+                    <div class="flex gap-6">
+                        <div class="flex-shrink-0">
+                            <div class="w-12 h-12 rounded-xl bg-primary-gold/20 flex items-center justify-center">
+                                <span class="material-symbols-outlined text-2xl text-primary-gold">trending_up</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-normal text-white mb-2">SCALE</h3>
+                            <p class="text-white/70 font-light leading-relaxed">
+                                Systems only matter if people can use them. I train teams, navigate organizational politics, document thoughtfully, and build for maintainability. The technical solution is half the work — making it stick is the other half.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Experience & Certifications -->
+            <div class="grid md:grid-cols-2 gap-6">
+                <!-- Background -->
+                <div class="glass-card rounded-3xl p-8">
+                    <div class="w-10 h-10 rounded-xl bg-primary-blue/20 flex items-center justify-center mb-4">
+                        <span class="material-symbols-outlined text-2xl text-primary-blue">business_center</span>
+                    </div>
+                    <h3 class="text-xl font-light text-white mb-4">Background</h3>
+                    <ul class="text-white/70 font-light space-y-2 text-sm">
+                        <li>• Enterprise operations & network infrastructure</li>
+                        <li>• Legacy system integration & modernization</li>
+                        <li>• Stakeholder management & team training</li>
+                        <li>• Budget development & resource allocation</li>
+                        <li>• 40+ applications built (LMS, e-commerce, SaaS)</li>
+                    </ul>
+                </div>
+
+                <!-- Certifications -->
+                <div class="glass-card rounded-3xl p-8">
+                    <div class="w-10 h-10 rounded-xl bg-primary-gold/20 flex items-center justify-center mb-4">
+                        <span class="material-symbols-outlined text-2xl text-primary-gold">workspace_premium</span>
+                    </div>
+                    <h3 class="text-xl font-light text-white mb-4">Certifications</h3>
+                    <ul class="text-white/70 font-light space-y-2 text-sm">
+                        <li>• IBM Building AI Agents</li>
+                        <li>• Vanderbilt Claude Code</li>
+                        <li>• Enterprise Architecture Patterns</li>
+                        <li>• Scalable System Design</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- CTA -->
+            <div class="text-center glass-card p-12 rounded-3xl">
+                <h2 class="text-2xl font-light text-white mb-4">Let's Talk About Your Project</h2>
+                <p class="text-white/60 font-light mb-8 max-w-2xl mx-auto">
+                    Whether you need a rapid prototype, a compliance-focused platform, or help navigating enterprise constraints — let's figure out what's actually possible.
+                </p>
+                <a href="contact.html" class="inline-flex items-center justify-center px-8 py-4 rounded-full bg-gradient-to-r from-amber-600 to-amber-700 text-white font-normal hover:shadow-[0_0_50px_rgba(201,168,124,0.5)] active:scale-95 transition-all">
+                    Get in Touch
+                </a>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="mt-32 px-8 py-16 border-t border-white/10 bg-navy-deep/40 backdrop-blur-xl">
+        <div class="flex flex-col items-center gap-10">
+            <div class="flex gap-10">
+                <a class="text-white/50 hover:text-white transition-colors" href="https://www.linkedin.com/in/lisamk1/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                    <span class="material-symbols-outlined text-2xl">person</span>
+                </a>
+                <a class="text-white/50 hover:text-white transition-colors" href="mailto:info@iconnect.studio" aria-label="Email">
+                    <span class="material-symbols-outlined text-2xl">alternate_email</span>
+                </a>
+                <a class="text-white/50 hover:text-white transition-colors" href="contact.html" aria-label="Contact">
+                    <span class="material-symbols-outlined text-2xl">share</span>
+                </a>
+            </div>
+            <div class="text-center">
+                <p class="text-white/40 text-[10px] tracking-widest font-bold uppercase">
+                    © 2026 iConnect Studio · Lisa M. Kaminski
+                </p>
+                <p class="text-white/20 text-[9px] mt-2 font-medium">
+                    AI-Augmented Solutions Architecture
+                </p>
+            </div>
+        </div>
+    </footer>
+
+</div>
+
+</body>
+</html>

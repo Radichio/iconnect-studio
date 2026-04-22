@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Stack - AI Assistant | iConnect Studio</title>
+<meta name="description" content="Ask Stack AI about Lisa's technical capabilities, project experience, and role fit.">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols_Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link rel="icon" type="image/png" href="icon-only.png">
+<script id="tailwind-config">
+    tailwind.config = {
+        darkMode: "class",
+        theme: {
+            extend: {
+                colors: {
+                    "primary": "#a855f7",
+                    "primary-blue": "#3b82f6",
+                    "primary-gold": "#c9a87c",
+                    "navy-deep": "#020817",
+                },
+                fontFamily: {
+                    "display": ["Inter", "sans-serif"]
+                },
+            },
+        },
+    }
+</script>
+<style type="text/tailwindcss">
+    .glass-modal {
+        background: rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(48px);
+        -webkit-backdrop-filter: blur(48px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        box-shadow: 0 20px 60px -10px rgba(0, 0, 0, 0.9);
+    }
+    .glass-bubble {
+        background: rgba(255, 255, 255, 0.12);
+        backdrop-filter: blur(40px);
+        -webkit-backdrop-filter: blur(40px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+</style>
+</head>
+<body class="bg-navy-deep font-display text-white overflow-hidden h-screen">
+
+<!-- Background -->
+<div class="fixed inset-0 z-0" style="
+    background-image: url('background.png');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+"></div>
+<div class="fixed inset-0 z-0 bg-gradient-to-b from-navy-deep/70 via-navy-deep/60 to-navy-deep/70"></div>
+
+<!-- Chat Modal -->
+<div class="fixed inset-0 z-50 flex items-end justify-center md:items-center md:p-6">
+    <div class="relative w-full max-w-2xl glass-modal rounded-t-3xl md:rounded-3xl flex flex-col h-[94vh] md:h-[85vh] overflow-hidden">
+        
+        <!-- Header -->
+        <div class="flex items-center px-6 py-5 border-b border-white/20 bg-white/5 shrink-0">
+            <div class="flex size-12 shrink-0 items-center justify-center relative">
+                <div class="bg-primary-gold/20 rounded-full size-12 border-2 border-primary-gold/40 shadow-[0_0_20px_rgba(201,168,124,0.3)] flex items-center justify-center">
+                    <span class="text-xl font-bold text-primary-gold">STK</span>
+                </div>
+                <div class="absolute bottom-0 right-0 size-3 bg-green-500 rounded-full border-2 border-navy-deep"></div>
+            </div>
+            <div class="flex-1 ml-4 min-w-0">
+                <h2 class="text-white text-lg font-semibold leading-tight">Stack</h2>
+                <p class="text-primary-gold text-xs font-medium uppercase tracking-wider">AI Assistant</p>
+            </div>
+            <button onclick="window.location.href='index.html'" class="flex items-center justify-center rounded-full size-10 bg-white/10 hover:bg-white/20 transition-all border border-white/10 shrink-0">
+                <span class="material-symbols-outlined text-white text-xl">close</span>
+            </button>
+        </div>
+
+        <!-- Messages -->
+        <div id="messageContainer" class="flex-1 overflow-y-auto p-6 space-y-6 no-scrollbar">
+            
+            <!-- Welcome Message -->
+            <div class="flex items-start gap-3">
+                <div class="bg-primary-gold/20 rounded-full w-8 h-8 shrink-0 border border-primary-gold/40 flex items-center justify-center">
+                    <span class="text-xs font-bold text-primary-gold">STK</span>
+                </div>
+                <div class="flex-1 flex-col max-w-[85%]">
+                    <div class="glass-bubble rounded-2xl rounded-tl-none px-4 py-3 text-white/80 text-sm font-light leading-relaxed">
+                        Hi! I'm Stack, trained on Lisa's work and experience. Ask me about her technical capabilities, projects, or whether she'd be a good fit for your role.
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Sample Questions & Input -->
+        <div class="px-6 py-6 space-y-4 bg-white/[0.04] border-t border-white/20 shrink-0">
+            
+            <!-- Sample Question Chips -->
+            <div class="flex gap-2 overflow-x-auto no-scrollbar pb-2">
+                <button onclick="askSampleQuestion('What is your experience with payment integration?')" class="px-4 py-2 rounded-full bg-white/10 border border-white/20 text-white/70 text-xs font-light hover:bg-white/20 transition-colors whitespace-nowrap">
+                    Payment integration?
+                </button>
+                <button onclick="askSampleQuestion('What technologies do you use?')" class="px-4 py-2 rounded-full bg-white/10 border border-white/20 text-white/70 text-xs font-light hover:bg-white/20 transition-colors whitespace-nowrap">
+                    Tech stack?
+                </button>
+                <button onclick="askSampleQuestion('Tell me about TeamSync AI')" class="px-4 py-2 rounded-full bg-white/10 border border-white/20 text-white/70 text-xs font-light hover:bg-white/20 transition-colors whitespace-nowrap">
+                    TeamSync AI?
+                </button>
+            </div>
+
+            <!-- Input Form -->
+            <form id="chatForm" class="flex gap-2">
+                <input 
+                    type="text" 
+                    id="messageInput" 
+                    placeholder="Ask about technical skills, projects, or role fit..."
+                    class="flex-1 px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-primary-gold/50 focus:border-transparent transition-all text-sm"
+                >
+                <button 
+                    type="submit"
+                    id="sendButton"
+                    class="px-6 py-3 rounded-xl bg-gradient-to-r from-amber-600 to-amber-700 text-white font-normal hover:shadow-[0_0_20px_rgba(201,168,124,0.5)] active:scale-95 transition-all flex items-center gap-2 text-sm"
+                >
+                    <span>Send</span>
+                    <span class="material-symbols-outlined text-lg">send</span>
+                </button>
+            </form>
+
+            <!-- Rate Limit Info -->
+            <p class="text-white/40 text-xs text-center font-light">
+                <span id="rateLimitText">10 messages remaining this hour</span>
+            </p>
+
+        </div>
+
+    </div>
+</div>
+
+<script>
+let messagesRemaining = 10;
+
+// Send message function
+async function sendMessage(message) {
+    const messageContainer = document.getElementById('messageContainer');
+    const sendButton = document.getElementById('sendButton');
+    const messageInput = document.getElementById('messageInput');
+
+    // Disable input
+    sendButton.disabled = true;
+    messageInput.disabled = true;
+
+    // Add user message
+    const userMessageDiv = document.createElement('div');
+    userMessageDiv.className = 'flex items-start gap-3 justify-end';
+    userMessageDiv.innerHTML = `
+        <div class="flex-1 flex-col items-end max-w-[85%]">
+            <div class="glass-bubble rounded-2xl rounded-tr-none px-4 py-3 bg-primary-gold/20 border-primary-gold/30 ml-auto">
+                <p class="text-white/90 text-sm font-light leading-relaxed">${message}</p>
+            </div>
+        </div>
+        <div class="bg-white/10 rounded-full w-8 h-8 shrink-0 border border-white/20 flex items-center justify-center">
+            <span class="material-symbols-outlined text-white text-sm">person</span>
+        </div>
+    `;
+    messageContainer.appendChild(userMessageDiv);
+    messageContainer.scrollTop = messageContainer.scrollHeight;
+
+    // Add loading indicator
+    const loadingDiv = document.createElement('div');
+    loadingDiv.className = 'flex items-start gap-3';
+    loadingDiv.id = 'loading';
+    loadingDiv.innerHTML = `
+        <div class="bg-primary-gold/20 rounded-full w-8 h-8 shrink-0 border border-primary-gold/40 flex items-center justify-center">
+            <span class="text-xs font-bold text-primary-gold">STK</span>
+        </div>
+        <div class="flex-1 flex-col max-w-[85%]">
+            <div class="glass-bubble rounded-2xl rounded-tl-none px-4 py-3">
+                <div class="flex gap-1">
+                    <div class="w-2 h-2 bg-white/40 rounded-full animate-bounce"></div>
+                    <div class="w-2 h-2 bg-white/40 rounded-full animate-bounce" style="animation-delay: 0.1s"></div>
+                    <div class="w-2 h-2 bg-white/40 rounded-full animate-bounce" style="animation-delay: 0.2s"></div>
+                </div>
+            </div>
+        </div>
+    `;
+    messageContainer.appendChild(loadingDiv);
+    messageContainer.scrollTop = messageContainer.scrollHeight;
+
+    try {
+        // Call API
+        const response = await fetch('/.netlify/functions/chat', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ message })
+        });
+
+        const data = await response.json();
+
+        // Remove loading
+        document.getElementById('loading').remove();
+
+        if (!response.ok) {
+            throw new Error(data.error || 'Failed to get response');
+        }
+
+        // Update rate limit
+        if (response.headers.get('X-RateLimit-Remaining')) {
+            messagesRemaining = parseInt(response.headers.get('X-RateLimit-Remaining'));
+            document.getElementById('rateLimitText').textContent = `${messagesRemaining} messages remaining this hour`;
+        }
+
+        // Add Stack response
+        const stackMessageDiv = document.createElement('div');
+        stackMessageDiv.className = 'flex items-start gap-3';
+        const responseText = data.content?.[0]?.text || 'Sorry, I encountered an error.';
+        stackMessageDiv.innerHTML = `
+            <div class="bg-primary-gold/20 rounded-full w-8 h-8 shrink-0 border border-primary-gold/40 flex items-center justify-center">
+                <span class="text-xs font-bold text-primary-gold">STK</span>
+            </div>
+            <div class="flex-1 flex-col max-w-[85%]">
+                <div class="glass-bubble rounded-2xl rounded-tl-none px-4 py-3">
+                    <p class="text-white/80 text-sm font-light leading-relaxed whitespace-pre-wrap">${responseText}</p>
+                </div>
+            </div>
+        `;
+        messageContainer.appendChild(stackMessageDiv);
+        messageContainer.scrollTop = messageContainer.scrollHeight;
+
+    } catch (error) {
+        console.error('Error:', error);
+        document.getElementById('loading').remove();
+        
+        const errorDiv = document.createElement('div');
+        errorDiv.className = 'flex items-start gap-3';
+        errorDiv.innerHTML = `
+            <div class="bg-red-500/20 rounded-full w-8 h-8 shrink-0 border border-red-500/40 flex items-center justify-center">
+                <span class="material-symbols-outlined text-red-400 text-sm">error</span>
+            </div>
+            <div class="flex-1 flex-col max-w-[85%]">
+                <div class="glass-bubble rounded-2xl rounded-tl-none px-4 py-3 bg-red-500/10 border-red-500/30">
+                    <p class="text-white/80 text-sm font-light">${error.message}</p>
+                </div>
+            </div>
+        `;
+        messageContainer.appendChild(errorDiv);
+        messageContainer.scrollTop = messageContainer.scrollHeight;
+    }
+
+    // Re-enable input
+    sendButton.disabled = false;
+    messageInput.disabled = false;
+    messageInput.value = '';
+    messageInput.focus();
+}
+
+// Form submission
+document.getElementById('chatForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const input = document.getElementById('messageInput');
+    const message = input.value.trim();
+    if (message) {
+        sendMessage(message);
+    }
+});
+
+// Sample questions
+function askSampleQuestion(question) {
+    sendMessage(question);
+}
+</script>
+
+</body>
+</html>

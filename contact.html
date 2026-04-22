@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Contact | iConnect Studio - Lisa M. Kaminski</title>
+<meta name="description" content="Get in touch to discuss your project. From AI prototypes to enterprise systems — let's figure out what's possible.">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link rel="icon" type="image/png" href="icon-only.png">
+<script id="tailwind-config">
+    tailwind.config = {
+        darkMode: "class",
+        theme: {
+            extend: {
+                colors: {
+                    "primary": "#a855f7",
+                    "primary-blue": "#3b82f6",
+                    "primary-gold": "#c9a87c",
+                    "navy-deep": "#020817",
+                },
+                fontFamily: {
+                    "display": ["Inter", "sans-serif"]
+                },
+            },
+        },
+    }
+</script>
+<style type="text/tailwindcss">
+    .glass-card {
+        background: rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(40px);
+        -webkit-backdrop-filter: blur(40px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .logo {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    
+    .logo-icon {
+        width: 32px;
+        height: 32px;
+        transition: transform 0.6s ease;
+        filter: brightness(1.5) saturate(1.2);
+    }
+    
+    .logo:hover .logo-icon {
+        transform: rotate(360deg);
+    }
+</style>
+</head>
+<body class="bg-navy-deep font-display text-white selection:bg-primary-gold selection:text-navy-deep overflow-x-hidden">
+
+<!-- AI Generated Background Image -->
+<div class="fixed inset-0 z-0" style="
+    background-image: url('background.png');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+"></div>
+
+<!-- Overlay -->
+<div class="fixed inset-0 z-0 bg-gradient-to-b from-navy-deep/50 via-navy-deep/40 to-navy-deep/60"></div>
+
+<div class="relative z-10 flex min-h-screen w-full flex-col">
+    
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 flex items-center justify-between px-6 py-6 backdrop-blur-xl bg-navy-deep/40 border-b border-white/10">
+        <a href="index.html" class="logo">
+            <img src="icon-only.png" alt="iConnect Studio" class="logo-icon">
+            <span class="text-xl font-bold tracking-tight" style="
+                background: linear-gradient(135deg, #a855f7 0%, #3b82f6 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+            ">iconnect.studio</span>
+        </a>
+        <div class="flex items-center gap-6">
+            <a class="text-white/60 hover:text-white transition-colors text-sm font-medium" href="work.html">Work</a>
+            <a class="text-white/60 hover:text-white transition-colors text-sm font-medium" href="about.html">About</a>
+            <a class="text-white/60 hover:text-white transition-colors text-sm font-medium" href="contact.html">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="flex-1 px-6 py-16">
+        
+        <div class="max-w-3xl mx-auto">
+            
+            <!-- Header -->
+            <div class="text-center mb-12">
+                <h1 class="text-4xl md:text-5xl font-light text-white mb-4">Let's Talk</h1>
+                <p class="text-white/60 text-lg font-light">
+                    Tell me about your project and we'll figure out what's possible.
+                </p>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="glass-card rounded-3xl p-8 md:p-12">
+                <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="space-y-6">
+                    
+                    <!-- Name -->
+                    <div>
+                        <label for="name" class="block text-white font-light mb-2">Name</label>
+                        <input 
+                            type="text" 
+                            id="name" 
+                            name="name" 
+                            required
+                            class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-primary-gold/50 focus:border-transparent transition-all"
+                            placeholder="Your name"
+                        >
+                    </div>
+
+                    <!-- Email -->
+                    <div>
+                        <label for="email" class="block text-white font-light mb-2">Email</label>
+                        <input 
+                            type="email" 
+                            id="email" 
+                            name="email" 
+                            required
+                            class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-primary-gold/50 focus:border-transparent transition-all"
+                            placeholder="your.email@example.com"
+                        >
+                    </div>
+
+                    <!-- Project Type -->
+                    <div>
+                        <label for="project-type" class="block text-white font-light mb-2">Project Type</label>
+                        <select 
+                            id="project-type" 
+                            name="project-type"
+                            class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white focus:outline-none focus:ring-2 focus:ring-primary-gold/50 focus:border-transparent transition-all"
+                        >
+                            <option value="">Select one...</option>
+                            <option value="ai-integration">AI Integration</option>
+                            <option value="payment-systems">Payment Systems</option>
+                            <option value="enterprise-architecture">Enterprise Architecture</option>
+                            <option value="saas-prototype">SaaS Prototype</option>
+                            <option value="legacy-modernization">Legacy System Modernization</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <!-- Message -->
+                    <div>
+                        <label for="message" class="block text-white font-light mb-2">Tell me about your project</label>
+                        <textarea 
+                            id="message" 
+                            name="message" 
+                            rows="6" 
+                            required
+                            class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-primary-gold/50 focus:border-transparent transition-all resize-none"
+                            placeholder="What problem are you trying to solve? What constraints are you working within?"
+                        ></textarea>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button 
+                        type="submit"
+                        class="w-full px-8 py-4 rounded-full bg-gradient-to-r from-amber-600 to-amber-700 text-white font-normal text-lg hover:shadow-[0_0_50px_rgba(201,168,124,0.5)] active:scale-95 transition-all"
+                    >
+                        Send Message
+                    </button>
+                </form>
+
+                <!-- Alternative Contact Methods -->
+                <div class="mt-12 pt-8 border-t border-white/10">
+                    <p class="text-white/60 text-sm font-light text-center mb-6">Or reach out directly:</p>
+                    <div class="flex flex-col sm:flex-row items-center justify-center gap-6">
+                        <a href="mailto:info@iconnect.studio" class="flex items-center gap-2 text-white/70 hover:text-white transition-colors">
+                            <span class="material-symbols-outlined">alternate_email</span>
+                            <span class="text-sm font-light">info@iconnect.studio</span>
+                        </a>
+                        <a href="https://www.linkedin.com/in/lisamk1/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-white/70 hover:text-white transition-colors">
+                            <span class="material-symbols-outlined">person</span>
+                            <span class="text-sm font-light">LinkedIn</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="mt-32 px-8 py-16 border-t border-white/10 bg-navy-deep/40 backdrop-blur-xl">
+        <div class="flex flex-col items-center gap-10">
+            <div class="flex gap-10">
+                <a class="text-white/50 hover:text-white transition-colors" href="https://www.linkedin.com/in/lisamk1/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                    <span class="material-symbols-outlined text-2xl">person</span>
+                </a>
+                <a class="text-white/50 hover:text-white transition-colors" href="mailto:info@iconnect.studio" aria-label="Email">
+                    <span class="material-symbols-outlined text-2xl">alternate_email</span>
+                </a>
+                <a class="text-white/50 hover:text-white transition-colors" href="contact.html" aria-label="Contact">
+                    <span class="material-symbols-outlined text-2xl">share</span>
+                </a>
+            </div>
+            <div class="text-center">
+                <p class="text-white/40 text-[10px] tracking-widest font-bold uppercase">
+                    © 2026 iConnect Studio · Lisa M. Kaminski
+                </p>
+                <p class="text-white/20 text-[9px] mt-2 font-medium">
+                    AI-Augmented Solutions Architecture
+                </p>
+            </div>
+        </div>
+    </footer>
+
+</div>
+
+<script>
+// Form submission handling (optional)
+document.querySelector('form').addEventListener('submit', function(e) {
+    // You can add custom validation or tracking here if needed
+    console.log('Form submitted');
+});
+</script>
+
+</body>
+</html>

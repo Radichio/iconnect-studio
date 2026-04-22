@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>iConnect Studio | Lisa M. Kaminski - Solutions Architecture & AI Integration</title>
+<meta name="description" content="Building production-ready systems from concept to deployment. Specializing in AI-augmented development, enterprise integrations, and scalable architecture.">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link rel="icon" type="image/png" href="icon-only.png">
+<script id="tailwind-config">
+    tailwind.config = {
+        darkMode: "class",
+        theme: {
+            extend: {
+                colors: {
+                    "primary": "#a855f7",
+                    "primary-blue": "#3b82f6",
+                    "primary-gold": "#c9a87c",
+                    "navy-deep": "#020817",
+                },
+                fontFamily: {
+                    "display": ["Inter", "sans-serif"]
+                },
+            },
+        },
+    }
+</script>
+<style type="text/tailwindcss">
+    .glass-card {
+        background: rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(40px);
+        -webkit-backdrop-filter: blur(40px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    /* Spinning Logo Animation */
+    .logo {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    
+    .logo-icon {
+        width: 32px;
+        height: 32px;
+        transition: transform 0.6s ease;
+        filter: brightness(1.5) saturate(1.2);
+    }
+    
+    .logo:hover .logo-icon {
+        transform: rotate(360deg);
+    }
+
+    .card-link {
+        position: relative;
+        transition: all 0.3s ease;
+    }
+
+    .card-link:hover {
+        text-decoration: none;
+    }
+
+    .card-link span {
+        transition: transform 0.3s ease;
+    }
+
+    .card-link:hover span {
+        transform: translateX(4px);
+    }
+</style>
+</head>
+<body class="bg-navy-deep font-display text-white selection:bg-primary-gold selection:text-navy-deep overflow-x-hidden">
+
+<!-- AI Generated Background Image -->
+<div class="fixed inset-0 z-0" style="
+    background-image: url('background.png');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+"></div>
+
+<!-- Overlay -->
+<div class="fixed inset-0 z-0 bg-gradient-to-b from-navy-deep/50 via-navy-deep/40 to-navy-deep/60"></div>
+
+<div class="relative z-10 flex min-h-screen w-full flex-col">
+    
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 flex items-center justify-between px-6 py-6 backdrop-blur-xl bg-navy-deep/40 border-b border-white/10">
+        <a href="index.html" class="logo">
+            <img src="icon-only.png" alt="iConnect Studio" class="logo-icon">
+            <span class="text-xl font-bold tracking-tight" style="
+                background: linear-gradient(135deg, #a855f7 0%, #3b82f6 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+            ">iconnect.studio</span>
+        </a>
+        <div class="flex items-center gap-6">
+            <a class="text-white/60 hover:text-white transition-colors text-sm font-medium" href="work.html">Work</a>
+            <a class="text-white/60 hover:text-white transition-colors text-sm font-medium" href="about.html">About</a>
+            <a class="text-white/60 hover:text-white transition-colors text-sm font-medium" href="contact.html">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="flex-1 px-6 py-16">
+        
+        <!-- Hero Section -->
+        <div class="max-w-5xl mx-auto text-center mb-24">
+            <h1 class="text-5xl md:text-6xl lg:text-7xl font-light text-white mb-6">
+                Solutions Architecture<br/>
+                <span style="
+                    background: linear-gradient(135deg, #a855f7 0%, #3b82f6 50%, #c9a87c 100%);
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                    background-clip: text;
+                ">& AI Integration</span>
+            </h1>
+            <p class="text-white/60 text-xl md:text-2xl font-light max-w-3xl mx-auto mb-12">
+                Building production-ready systems from concept to deployment. Specializing in AI-augmented development, enterprise integrations, and scalable architecture.
+            </p>
+            <a href="contact.html" class="inline-flex items-center justify-center px-8 py-4 rounded-full bg-gradient-to-r from-amber-600 to-amber-700 text-white font-normal text-lg hover:shadow-[0_0_50px_rgba(201,168,124,0.5)] active:scale-95 transition-all">
+                Let's Build Something
+            </a>
+        </div>
+
+        <!-- Feature Cards Grid -->
+        <div class="max-w-5xl mx-auto grid md:grid-cols-3 gap-6">
+            
+            <!-- Recent Work Card -->
+            <div class="glass-card rounded-3xl p-8 hover:bg-white/12 transition-all group">
+                <div class="mb-6">
+                    <div class="w-12 h-12 rounded-xl bg-purple-500/20 flex items-center justify-center mb-4">
+                        <span class="material-symbols-outlined text-3xl text-purple-400">code</span>
+                    </div>
+                    <h3 class="text-2xl font-light text-white mb-2">Recent Work</h3>
+                    <p class="text-white/60 text-sm font-light leading-relaxed">
+                        TeamSync AI, RCIC Manager, and enterprise systems. From AI prototypes to payment compliance platforms.
+                    </p>
+                </div>
+                <div class="mt-2">
+                    <a class="card-link text-primary-gold text-sm font-bold flex items-center gap-2 group" href="work.html">
+                        View Portfolio 
+                        <span class="material-symbols-outlined text-[20px] transition-transform duration-300">arrow_right_alt</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- About Card -->
+            <div class="glass-card rounded-3xl p-8 hover:bg-white/12 transition-all group">
+                <div class="mb-6">
+                    <div class="w-12 h-12 rounded-xl bg-blue-500/20 flex items-center justify-center mb-4">
+                        <span class="material-symbols-outlined text-3xl text-blue-400">person</span>
+                    </div>
+                    <h3 class="text-2xl font-light text-white mb-2">About</h3>
+                    <p class="text-white/60 text-sm font-light leading-relaxed">
+                        SEE the problem. SOLVE with technology. SCALE for impact. Enterprise operations meet AI-augmented development.
+                    </p>
+                </div>
+                <div class="mt-2">
+                    <a class="card-link text-primary-gold text-sm font-bold flex items-center gap-2 group" href="about.html">
+                        Learn More
+                        <span class="material-symbols-outlined text-[20px] transition-transform duration-300">arrow_right_alt</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Stack AI Card -->
+            <div class="glass-card rounded-3xl p-8 hover:bg-white/12 transition-all group">
+                <div class="mb-6">
+                    <div class="w-12 h-12 rounded-xl bg-primary-gold/20 flex items-center justify-center mb-4">
+                        <span class="material-symbols-outlined text-3xl text-primary-gold">chat_bubble</span>
+                    </div>
+                    <h3 class="text-2xl font-light text-white mb-2">Stack</h3>
+                    <p class="text-white/60 text-sm font-light leading-relaxed">
+                        AI assistant trained on my work and experience. Ask about technical capabilities, projects, or role fit.
+                    </p>
+                </div>
+                <div class="mt-2">
+                    <a class="card-link text-primary-gold text-sm font-bold flex items-center gap-2 group" href="chat.html">
+                        Ask AI About Me
+                        <span class="material-symbols-outlined text-[20px] transition-transform duration-300">arrow_right_alt</span>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="mt-32 px-8 py-16 border-t border-white/10 bg-navy-deep/40 backdrop-blur-xl">
+        <div class="flex flex-col items-center gap-10">
+            <div class="flex gap-10">
+                <a class="text-white/50 hover:text-white transition-colors" href="https://www.linkedin.com/in/lisamk1/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                    <span class="material-symbols-outlined text-2xl">person</span>
+                </a>
+                <a class="text-white/50 hover:text-white transition-colors" href="mailto:info@iconnect.studio" aria-label="Email">
+                    <span class="material-symbols-outlined text-2xl">alternate_email</span>
+                </a>
+                <a class="text-white/50 hover:text-white transition-colors" href="contact.html" aria-label="Contact">
+                    <span class="material-symbols-outlined text-2xl">share</span>
+                </a>
+            </div>
+            <div class="text-center">
+                <p class="text-white/40 text-[10px] tracking-widest font-bold uppercase">
+                    © 2026 iConnect Studio · Lisa M. Kaminski
+                </p>
+                <p class="text-white/20 text-[9px] mt-2 font-medium">
+                    AI-Augmented Solutions Architecture
+                </p>
+            </div>
+        </div>
+    </footer>
+
+</div>
+
+</body>
+</html>
