@@ -44,8 +44,8 @@
     }
     
     .logo-icon {
-        width: 32px;
-        height: 32px;
+        width: 48px;
+        height: 48px;
         transition: transform 0.6s ease;
         filter: brightness(2.5) saturate(1.2);
     }
@@ -218,24 +218,78 @@
             <!-- Page Header -->
             <div class="text-center mb-12">
                 <h1 class="text-4xl md:text-5xl font-light text-white mb-4">Case Studies</h1>
-                <p class="text-white/60 text-lg font-light mb-2">End-to-end solutions from concept to deployment</p>
-                <p class="text-white/40 text-sm font-light">Swipe or use arrows to browse projects</p>
+                <p class="text-white/60 text-lg font-light">End-to-end solutions from concept to deployment</p>
             </div>
 
-            <!-- Carousel Container -->
-            <div class="carousel-container relative">
+            <!-- Mini Card Grid -->
+            <div class="grid md:grid-cols-3 gap-6 mb-16 max-w-5xl mx-auto">
                 
-                <!-- Left Arrow -->
-                <button id="carousel-prev" class="carousel-arrow left" aria-label="Previous project">
-                    <span class="material-symbols-outlined text-2xl">chevron_left</span>
+                <!-- TeamSync Mini Card -->
+                <button onclick="expandProject('teamsync')" class="mini-card glass-card rounded-2xl p-6 text-left hover:scale-105 transition-all cursor-pointer group">
+                    <div class="mb-4">
+                        <img src="teamsync.png" alt="TeamSync AI" class="w-full rounded-lg opacity-90 group-hover:opacity-100 transition-opacity">
+                    </div>
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="px-3 py-1 rounded-full text-xs font-light bg-purple-500/20 text-purple-300 border border-purple-500/30">SaaS</span>
+                        <span class="px-3 py-1 rounded-full text-xs font-light bg-blue-500/20 text-blue-300 border border-blue-500/30">AI</span>
+                    </div>
+                    <h3 class="text-xl font-light text-white mb-2">Slack Team Optimization</h3>
+                    <p class="text-white/60 text-sm font-light mb-4">Real-time team analytics and chemistry insights</p>
+                    <div class="flex items-center gap-2 text-primary-gold text-sm font-normal">
+                        View Case Study
+                        <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                    </div>
                 </button>
 
-                <!-- Carousel Track -->
-                <div id="carousel-track" class="carousel-track">
+                <!-- RCIC Mini Card -->
+                <button onclick="expandProject('rcic')" class="mini-card glass-card rounded-2xl p-6 text-left hover:scale-105 transition-all cursor-pointer group">
+                    <div class="mb-4">
+                        <img src="rcicbillsimple.png" alt="RCIC Manager" class="w-full rounded-lg opacity-90 group-hover:opacity-100 transition-opacity">
+                    </div>
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="px-3 py-1 rounded-full text-xs font-light bg-amber-500/20 text-amber-300 border border-amber-500/30">Payments</span>
+                        <span class="px-3 py-1 rounded-full text-xs font-light bg-green-500/20 text-green-300 border border-green-500/30">Compliance</span>
+                    </div>
+                    <h3 class="text-xl font-light text-white mb-2">Multi-Processor Billing System</h3>
+                    <p class="text-white/60 text-sm font-light mb-4">Immigration case management with Canadian compliance</p>
+                    <div class="flex items-center gap-2 text-primary-gold text-sm font-normal">
+                        View Case Study
+                        <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                    </div>
+                </button>
 
-            <!-- Case Study 1: TeamSync AI -->
-            <div class="carousel-card">
-            <article class="glass-card rounded-3xl overflow-hidden">
+                <!-- Hydrological Dashboard Mini Card -->
+                <button onclick="expandProject('hydro')" class="mini-card glass-card rounded-2xl p-6 text-left hover:scale-105 transition-all cursor-pointer group">
+                    <div class="mb-4">
+                        <img src="dauphinlakewatch.png" alt="Hydrological Dashboard" class="w-full rounded-lg opacity-90 group-hover:opacity-100 transition-opacity">
+                    </div>
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="px-3 py-1 rounded-full text-xs font-light bg-green-500/20 text-green-300 border border-green-500/30">Civic Tech</span>
+                        <span class="px-3 py-1 rounded-full text-xs font-light bg-blue-500/20 text-blue-300 border border-blue-500/30">Data Viz</span>
+                    </div>
+                    <h3 class="text-xl font-light text-white mb-2">Hydrological Dashboard</h3>
+                    <p class="text-white/60 text-sm font-light mb-4">Real-time flood monitoring for Dauphin Lake</p>
+                    <div class="flex items-center gap-2 text-primary-gold text-sm font-normal">
+                        View Case Study
+                        <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                    </div>
+                </button>
+
+            </div>
+
+            <!-- Expanded Project Container -->
+            <div id="expanded-project" class="hidden max-w-6xl mx-auto">
+                
+                <!-- Close Button -->
+                <div class="text-right mb-4">
+                    <button onclick="closeProject()" class="glass-card px-6 py-3 rounded-full text-white/70 hover:text-white transition-all flex items-center gap-2 ml-auto">
+                        <span class="material-symbols-outlined text-sm">close</span>
+                        Close
+                    </button>
+                </div>
+
+            <!-- TeamSync AI Full Case Study -->
+            <article id="project-teamsync" class="glass-card rounded-3xl overflow-hidden project-content hidden">
                 
                 <!-- Header -->
                 <div class="p-8 md:p-12 pb-6">
@@ -710,11 +764,9 @@
 
                 </div>
             </article>
-            </div>
 
-            <!-- Case Study 2: RCIC Manager -->
-            <div class="carousel-card">
-            <article class="glass-card rounded-3xl overflow-hidden">
+            <!-- RCIC Manager Full Case Study -->
+            <article id="project-rcic" class="glass-card rounded-3xl overflow-hidden project-content hidden">
                 
                 <!-- Header -->
                 <div class="p-8 md:p-12 pb-6">
@@ -1238,11 +1290,9 @@
 
                 </div>
             </article>
-            </div>
 
-            <!-- Case Study 3: Hydrological Dashboard -->
-            <div class="carousel-card">
-            <article class="glass-card rounded-3xl overflow-hidden">
+            <!-- Hydrological Dashboard Full Case Study -->
+            <article id="project-hydro" class="glass-card rounded-3xl overflow-hidden project-content hidden">
                 
                 <!-- Header -->
                 <div class="p-8 md:p-12 pb-6">
@@ -1697,23 +1747,8 @@
 
                 </div>
             </article>
-            </div>
 
-                </div> <!-- End carousel-track -->
-
-                <!-- Right Arrow -->
-                <button id="carousel-next" class="carousel-arrow right" aria-label="Next project">
-                    <span class="material-symbols-outlined text-2xl">chevron_right</span>
-                </button>
-
-            </div> <!-- End carousel-container -->
-
-            <!-- Carousel Dots -->
-            <div class="carousel-dots">
-                <span class="carousel-dot active" data-index="0"></span>
-                <span class="carousel-dot" data-index="1"></span>
-                <span class="carousel-dot" data-index="2"></span>
-            </div>
+            </div> <!-- End expanded-project -->
 
             <!-- Bottom CTA -->
             <div class="text-center glass-card p-12 rounded-3xl">
@@ -1778,70 +1813,36 @@ function switchTab(caseStudy, tabName) {
     document.getElementById(`${caseStudy}-tab-${tabName}`).classList.add("active");
 }
 
-// Carousel Navigation
-const track = document.getElementById('carousel-track');
-const prevBtn = document.getElementById('carousel-prev');
-const nextBtn = document.getElementById('carousel-next');
-const dots = document.querySelectorAll('.carousel-dot');
-let currentIndex = 0;
-const totalCards = 3;
-
-function updateCarousel() {
-    const cardWidth = track.offsetWidth;
-    track.scrollTo({
-        left: cardWidth * currentIndex,
-        behavior: 'smooth'
-    });
+function expandProject(projectId) {
+    // Hide all projects
+    document.querySelectorAll('.project-content').forEach(p => p.classList.add('hidden'));
     
-    // Update dots
-    dots.forEach((dot, index) => {
-        if (index === currentIndex) {
-            dot.classList.add('active');
-        } else {
-            dot.classList.remove('active');
-        }
-    });
+    // Show selected project
+    document.getElementById(`project-${projectId}`).classList.remove('hidden');
     
-    // Update arrow states
-    prevBtn.disabled = currentIndex === 0;
-    nextBtn.disabled = currentIndex === totalCards - 1;
+    // Show expanded container
+    document.getElementById('expanded-project').classList.remove('hidden');
+    
+    // Scroll to expanded section
+    document.getElementById('expanded-project').scrollIntoView({ 
+        behavior: 'smooth', 
+        block: 'start' 
+    });
 }
 
-prevBtn.addEventListener('click', () => {
-    if (currentIndex > 0) {
-        currentIndex--;
-        updateCarousel();
-    }
-});
-
-nextBtn.addEventListener('click', () => {
-    if (currentIndex < totalCards - 1) {
-        currentIndex++;
-        updateCarousel();
-    }
-});
-
-dots.forEach((dot, index) => {
-    dot.addEventListener('click', () => {
-        currentIndex = index;
-        updateCarousel();
+function closeProject() {
+    // Hide expanded container
+    document.getElementById('expanded-project').classList.add('hidden');
+    
+    // Hide all projects
+    document.querySelectorAll('.project-content').forEach(p => p.classList.add('hidden'));
+    
+    // Scroll back to mini cards
+    document.querySelector('.mini-card').scrollIntoView({ 
+        behavior: 'smooth', 
+        block: 'center' 
     });
-});
-
-// Handle scroll snap (for mobile swipe)
-let scrollTimeout;
-track.addEventListener('scroll', () => {
-    clearTimeout(scrollTimeout);
-    scrollTimeout = setTimeout(() => {
-        const cardWidth = track.offsetWidth;
-        const scrollLeft = track.scrollLeft;
-        currentIndex = Math.round(scrollLeft / cardWidth);
-        updateCarousel();
-    }, 150);
-});
-
-// Initialize
-updateCarousel();
+}
 </script>
 
 </body>
