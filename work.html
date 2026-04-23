@@ -1129,7 +1129,7 @@
                             Technical Details
                         </button>
                         <button onclick="switchTab('dauphin', 'impact')" id="dauphin-tab-impact" class="tab-button px-6 py-3 text-sm font-light text-white/60 hover:text-white/90 transition-all rounded-t-xl">
-                            Community Impact
+                            In Action
                         </button>
                     </div>
                 </div>
@@ -1391,38 +1391,156 @@
 
                     </div>
 
-                    <!-- COMMUNITY IMPACT TAB -->
+                    <!-- IN ACTION TAB -->
                     <div id="dauphin-content-impact" class="tab-content hidden">
                         
-                        <h3 class="text-2xl font-light text-white mb-6">Mission: Community Safety</h3>
-                        <p class="text-white/70 font-light leading-relaxed mb-8">
-                            This project demonstrates civic technology at its best: taking public federal data and translating it into actionable community intelligence during a crisis. When provincial forecasts spoke in technical language, Dauphin Lake Watch spoke to the people whose homes were at risk.
-                        </p>
-
-                        <div class="glass-card p-8 rounded-xl mb-8">
-                            <h4 class="text-white text-lg font-normal mb-4">Why This Matters</h4>
-                            <p class="text-white/60 text-sm font-light leading-relaxed mb-4">
-                                Spring 2026 snowpack near Riding Mountain was the highest recorded in Manitoba—larger than the 2011 precursor that caused historic flooding. Dauphin Lake residents and cottage owners needed plain-language flood monitoring they could check from their phones.
-                            </p>
-                            <p class="text-white/60 text-sm font-light leading-relaxed">
-                                The data was public. The need was urgent. No one else was building the bridge. So I did.
-                            </p>
+                        <!-- Section: See It Working -->
+                        <div class="mb-12">
+                            <h3 class="text-2xl font-light text-white mb-6">See It Working</h3>
+                            
+                            <!-- Data Flow Diagram -->
+                            <div class="glass-card p-8 rounded-xl">
+                                <h4 class="text-white text-lg font-normal mb-6 text-center">Real-Time Monitoring Flow</h4>
+                                
+                                <div class="flex flex-col md:flex-row items-center justify-between gap-8">
+                                    <!-- Step 1: Gauges -->
+                                    <div class="flex flex-col items-center flex-1">
+                                        <div class="w-20 h-20 rounded-2xl bg-blue-500/20 border-2 border-blue-500 flex items-center justify-center mb-4">
+                                            <span class="material-symbols-outlined text-4xl text-blue-400">sensors</span>
+                                        </div>
+                                        <p class="text-white font-normal text-sm text-center mb-1">WSC Gauges</p>
+                                        <p class="text-white/60 text-xs text-center">11 stations</p>
+                                    </div>
+                                    
+                                    <div class="hidden md:block text-primary-gold text-2xl">→</div>
+                                    
+                                    <!-- Step 2: API -->
+                                    <div class="flex flex-col items-center flex-1">
+                                        <div class="w-20 h-20 rounded-2xl bg-green-500/20 border-2 border-green-500 flex items-center justify-center mb-4">
+                                            <span class="material-symbols-outlined text-4xl text-green-400">cloud</span>
+                                        </div>
+                                        <p class="text-white font-normal text-sm text-center mb-1">Environment Canada API</p>
+                                        <p class="text-white/60 text-xs text-center">5-min updates</p>
+                                    </div>
+                                    
+                                    <div class="hidden md:block text-primary-gold text-2xl">→</div>
+                                    
+                                    <!-- Step 3: Dashboard -->
+                                    <div class="flex flex-col items-center flex-1">
+                                        <div class="w-20 h-20 rounded-2xl bg-purple-500/20 border-2 border-purple-500 flex items-center justify-center mb-4">
+                                            <span class="material-symbols-outlined text-4xl text-purple-400">show_chart</span>
+                                        </div>
+                                        <p class="text-white font-normal text-sm text-center mb-1">Live Dashboard</p>
+                                        <p class="text-white/60 text-xs text-center">Real-time viz</p>
+                                    </div>
+                                    
+                                    <div class="hidden md:block text-primary-gold text-2xl">→</div>
+                                    
+                                    <!-- Step 4: Alerts -->
+                                    <div class="flex flex-col items-center flex-1">
+                                        <div class="w-20 h-20 rounded-2xl bg-amber-500/20 border-2 border-amber-500 flex items-center justify-center mb-4">
+                                            <span class="material-symbols-outlined text-4xl text-amber-400">notifications_active</span>
+                                        </div>
+                                        <p class="text-white font-normal text-sm text-center mb-1">Alert System</p>
+                                        <p class="text-white/60 text-xs text-center">Email/SMS</p>
+                                    </div>
+                                </div>
+                                
+                                <p class="text-white/50 text-xs text-center mt-8">Continuous 24/7 monitoring during spring flood season</p>
+                            </div>
                         </div>
 
-                        <h3 class="text-2xl font-light text-white mb-6">What Makes This Different</h3>
-                        <div class="grid md:grid-cols-2 gap-6">
-                            <div class="glass-card p-6 rounded-xl">
-                                <h4 class="text-white text-lg font-normal mb-3">From SaaS to Civic Service</h4>
-                                <p class="text-white/60 text-sm font-light leading-relaxed">
-                                    Unlike commercial projects (TeamSync AI, RCIC Manager), this is free public infrastructure. No business model. No revenue target. Just the recognition that technology can serve communities in crisis.
-                                </p>
-                            </div>
+                        <!-- Section: Status Level Visualization -->
+                        <div class="mb-12">
+                            <h3 class="text-2xl font-light text-white mb-6">Threshold-Based Alert System</h3>
+                            
+                            <!-- Status Levels -->
+                            <div class="grid md:grid-cols-3 gap-6">
+                                
+                                <!-- Green: Normal -->
+                                <div class="glass-card p-6 rounded-xl border-l-2 border-green-500">
+                                    <h4 class="text-white font-normal mb-4 flex items-center gap-2">
+                                        <span class="material-symbols-outlined text-green-400">check_circle</span>
+                                        Normal Operations
+                                    </h4>
+                                    <div class="space-y-4">
+                                        <div>
+                                            <div class="flex justify-between items-center mb-2">
+                                                <span class="text-white/70 text-sm">Lake Level</span>
+                                                <span class="text-green-400 font-normal text-sm">&lt;854.0 ft</span>
+                                            </div>
+                                            <div class="w-full bg-white/10 rounded-full h-3 overflow-hidden">
+                                                <div class="bg-gradient-to-r from-green-500 to-green-600 h-full rounded-full" style="width: 45%"></div>
+                                            </div>
+                                        </div>
+                                        <p class="text-white/50 text-xs mt-4">✓ Normal operating range</p>
+                                    </div>
+                                </div>
 
-                            <div class="glass-card p-6 rounded-xl">
-                                <h4 class="text-white text-lg font-normal mb-3">Speed in Crisis</h4>
-                                <p class="text-white/60 text-sm font-light leading-relaxed">
-                                    Built and deployed during active flood conditions. When spring melt started accelerating, the community needed monitoring *now*—not after weeks of planning. Real-world urgency drives real technical decisions.
-                                </p>
+                                <!-- Amber: Advisory -->
+                                <div class="glass-card p-6 rounded-xl border-l-2 border-amber-500">
+                                    <h4 class="text-white font-normal mb-4 flex items-center gap-2">
+                                        <span class="material-symbols-outlined text-amber-400">warning</span>
+                                        Advisory Level
+                                    </h4>
+                                    <div class="space-y-4">
+                                        <div>
+                                            <div class="flex justify-between items-center mb-2">
+                                                <span class="text-white/70 text-sm">Lake Level</span>
+                                                <span class="text-amber-400 font-normal text-sm">854.0-857.0 ft</span>
+                                            </div>
+                                            <div class="w-full bg-white/10 rounded-full h-3 overflow-hidden">
+                                                <div class="bg-gradient-to-r from-amber-500 to-amber-600 h-full rounded-full" style="width: 70%"></div>
+                                            </div>
+                                        </div>
+                                        <p class="text-white/50 text-xs mt-4">⚠️ Alerts triggered for subscribers</p>
+                                    </div>
+                                </div>
+
+                                <!-- Red: Flood Stage -->
+                                <div class="glass-card p-6 rounded-xl border-l-2 border-red-500">
+                                    <h4 class="text-white font-normal mb-4 flex items-center gap-2">
+                                        <span class="material-symbols-outlined text-red-400">crisis_alert</span>
+                                        Flood Stage
+                                    </h4>
+                                    <div class="space-y-4">
+                                        <div>
+                                            <div class="flex justify-between items-center mb-2">
+                                                <span class="text-white/70 text-sm">Lake Level</span>
+                                                <span class="text-red-400 font-normal text-sm">&gt;857.0 ft</span>
+                                            </div>
+                                            <div class="w-full bg-white/10 rounded-full h-3 overflow-hidden">
+                                                <div class="bg-gradient-to-r from-red-500 to-red-600 h-full rounded-full" style="width: 95%"></div>
+                                            </div>
+                                        </div>
+                                        <p class="text-white/50 text-xs mt-4">🚨 Emergency notifications active</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- Section: Performance Metrics -->
+                        <div>
+                            <h3 class="text-2xl font-light text-white mb-6">System Performance</h3>
+                            
+                            <div class="grid md:grid-cols-4 gap-6">
+                                <div class="glass-card p-6 rounded-xl text-center">
+                                    <div class="text-5xl font-light text-blue-400 mb-2">5min</div>
+                                    <div class="text-white/70 text-sm font-light">Update Interval</div>
+                                </div>
+                                <div class="glass-card p-6 rounded-xl text-center">
+                                    <div class="text-5xl font-light text-green-400 mb-2">11</div>
+                                    <div class="text-white/70 text-sm font-light">Monitoring Stations</div>
+                                </div>
+                                <div class="glass-card p-6 rounded-xl text-center">
+                                    <div class="text-5xl font-light text-purple-400 mb-2">24/7</div>
+                                    <div class="text-white/70 text-sm font-light">Uptime</div>
+                                </div>
+                                <div class="glass-card p-6 rounded-xl text-center">
+                                    <div class="text-5xl font-light text-primary-gold mb-2">Free</div>
+                                    <div class="text-white/70 text-sm font-light">Public Service</div>
+                                </div>
                             </div>
                         </div>
 
