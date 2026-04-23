@@ -97,25 +97,38 @@
         <!-- Sample Questions & Input -->
         <div class="px-6 py-6 space-y-4 bg-white/[0.04] border-t border-white/20 shrink-0">
             
-            <!-- Sample Question Chips -->
-            <div class="flex gap-2 overflow-x-auto no-scrollbar pb-2">
-                <button onclick="askSampleQuestion('What is your experience with AI integration?')" class="px-4 py-2 rounded-full bg-white/10 border border-white/20 text-white/70 text-xs font-light hover:bg-white/20 transition-colors whitespace-nowrap">
-                    AI integration?
+            <!-- Sample Question Chips with Scroll -->
+            <div class="relative">
+                <!-- Left Arrow -->
+                <button id="scrollLeft" onclick="scrollChips('left')" class="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-navy-deep/80 backdrop-blur-md border border-white/20 rounded-full w-8 h-8 flex items-center justify-center text-white/70 hover:text-white hover:bg-navy-deep transition-all shadow-lg opacity-0 pointer-events-none">
+                    <span class="material-symbols-outlined text-sm">chevron_left</span>
                 </button>
-                <button onclick="askSampleQuestion('What is your experience with payment integration?')" class="px-4 py-2 rounded-full bg-white/10 border border-white/20 text-white/70 text-xs font-light hover:bg-white/20 transition-colors whitespace-nowrap">
-                    Payment integration?
-                </button>
-                <button onclick="askSampleQuestion('Tell me about your enterprise experience')" class="px-4 py-2 rounded-full bg-white/10 border border-white/20 text-white/70 text-xs font-light hover:bg-white/20 transition-colors whitespace-nowrap">
-                    Enterprise experience?
-                </button>
-                <button onclick="askSampleQuestion('Tell me about the Hydrological Dashboard project')" class="px-4 py-2 rounded-full bg-white/10 border border-white/20 text-white/70 text-xs font-light hover:bg-white/20 transition-colors whitespace-nowrap">
-                    Hydrological Dashboard?
-                </button>
-                <button onclick="askSampleQuestion('Tell me about RCIC Manager')" class="px-4 py-2 rounded-full bg-white/10 border border-white/20 text-white/70 text-xs font-light hover:bg-white/20 transition-colors whitespace-nowrap">
-                    RCIC Manager?
-                </button>
-                <button onclick="askSampleQuestion('What technologies do you use?')" class="px-4 py-2 rounded-full bg-white/10 border border-white/20 text-white/70 text-xs font-light hover:bg-white/20 transition-colors whitespace-nowrap">
-                    Tech stack?
+
+                <!-- Scrollable Chips -->
+                <div id="chipContainer" class="flex gap-2 overflow-x-auto no-scrollbar pb-2 scroll-smooth px-8">
+                    <button onclick="askSampleQuestion('What is your experience with AI integration?')" class="px-4 py-2 rounded-full bg-white/10 border border-white/20 text-white/70 text-xs font-light hover:bg-white/20 transition-colors whitespace-nowrap">
+                        AI integration?
+                    </button>
+                    <button onclick="askSampleQuestion('What is your experience with payment integration?')" class="px-4 py-2 rounded-full bg-white/10 border border-white/20 text-white/70 text-xs font-light hover:bg-white/20 transition-colors whitespace-nowrap">
+                        Payment integration?
+                    </button>
+                    <button onclick="askSampleQuestion('Tell me about your enterprise experience')" class="px-4 py-2 rounded-full bg-white/10 border border-white/20 text-white/70 text-xs font-light hover:bg-white/20 transition-colors whitespace-nowrap">
+                        Enterprise experience?
+                    </button>
+                    <button onclick="askSampleQuestion('Tell me about the Hydrological Dashboard project')" class="px-4 py-2 rounded-full bg-white/10 border border-white/20 text-white/70 text-xs font-light hover:bg-white/20 transition-colors whitespace-nowrap">
+                        Hydrological Dashboard?
+                    </button>
+                    <button onclick="askSampleQuestion('Tell me about RCIC Manager')" class="px-4 py-2 rounded-full bg-white/10 border border-white/20 text-white/70 text-xs font-light hover:bg-white/20 transition-colors whitespace-nowrap">
+                        RCIC Manager?
+                    </button>
+                    <button onclick="askSampleQuestion('What technologies do you use?')" class="px-4 py-2 rounded-full bg-white/10 border border-white/20 text-white/70 text-xs font-light hover:bg-white/20 transition-colors whitespace-nowrap">
+                        Tech stack?
+                    </button>
+                </div>
+
+                <!-- Right Arrow -->
+                <button id="scrollRight" onclick="scrollChips('right')" class="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-navy-deep/80 backdrop-blur-md border border-white/20 rounded-full w-8 h-8 flex items-center justify-center text-white/70 hover:text-white hover:bg-navy-deep transition-all shadow-lg">
+                    <span class="material-symbols-outlined text-sm">chevron_right</span>
                 </button>
             </div>
 
@@ -278,6 +291,54 @@ document.getElementById('chatForm').addEventListener('submit', (e) => {
 function askSampleQuestion(question) {
     sendMessage(question);
 }
+
+// Chip scrolling
+function scrollChips(direction) {
+    const container = document.getElementById('chipContainer');
+    const scrollAmount = 200;
+    
+    if (direction === 'left') {
+        container.scrollLeft -= scrollAmount;
+    } else {
+        container.scrollLeft += scrollAmount;
+    }
+    
+    // Update arrow visibility after scroll
+    setTimeout(updateScrollArrows, 100);
+}
+
+// Update scroll arrow visibility
+function updateScrollArrows() {
+    const container = document.getElementById('chipContainer');
+    const leftArrow = document.getElementById('scrollLeft');
+    const rightArrow = document.getElementById('scrollRight');
+    
+    // Show left arrow if not at start
+    if (container.scrollLeft > 0) {
+        leftArrow.classList.remove('opacity-0', 'pointer-events-none');
+    } else {
+        leftArrow.classList.add('opacity-0', 'pointer-events-none');
+    }
+    
+    // Show right arrow if not at end
+    const isAtEnd = container.scrollLeft + container.clientWidth >= container.scrollWidth - 10;
+    if (isAtEnd) {
+        rightArrow.classList.add('opacity-0', 'pointer-events-none');
+    } else {
+        rightArrow.classList.remove('opacity-0', 'pointer-events-none');
+    }
+}
+
+// Initialize scroll arrows on load
+document.addEventListener('DOMContentLoaded', () => {
+    const container = document.getElementById('chipContainer');
+    
+    // Update arrows on scroll
+    container.addEventListener('scroll', updateScrollArrows);
+    
+    // Initial check
+    updateScrollArrows();
+});
 </script>
 
 </body>
