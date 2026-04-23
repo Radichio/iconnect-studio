@@ -1105,6 +1105,217 @@
                 </div>
             </article>
 
+            <!-- Case Study 3: Dauphin Lake Watch -->
+            <article class="glass-card rounded-3xl overflow-hidden">
+                
+                <!-- Header -->
+                <div class="p-8 md:p-12 pb-6">
+                    <div class="flex items-center gap-3 mb-6">
+                        <span class="px-4 py-1.5 rounded-full text-xs font-light bg-green-500/20 text-green-300 border border-green-500/30">Civic Tech</span>
+                        <span class="px-4 py-1.5 rounded-full text-xs font-light bg-blue-500/20 text-blue-300 border border-blue-500/30">Data Visualization</span>
+                    </div>
+
+                    <h2 class="text-3xl font-light text-white mb-4">Dauphin Lake Watch</h2>
+                    <p class="text-white/50 text-sm font-light mb-8">Independent Hydrological Monitoring Dashboard</p>
+                </div>
+
+                <!-- Tab Navigation -->
+                <div class="px-8 md:px-12 mb-0">
+                    <div class="flex gap-2 border-b border-white/10">
+                        <button onclick="switchTab('dauphin', 'overview')" id="dauphin-tab-overview" class="tab-button active px-6 py-3 text-sm font-light text-white/90 transition-all rounded-t-xl">
+                            Overview
+                        </button>
+                        <button onclick="switchTab('dauphin', 'architecture')" id="dauphin-tab-architecture" class="tab-button px-6 py-3 text-sm font-light text-white/60 hover:text-white/90 transition-all rounded-t-xl">
+                            Technical Details
+                        </button>
+                        <button onclick="switchTab('dauphin', 'impact')" id="dauphin-tab-impact" class="tab-button px-6 py-3 text-sm font-light text-white/60 hover:text-white/90 transition-all rounded-t-xl">
+                            Community Impact
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Tab Content Container -->
+                <div class="px-8 md:px-12 py-8 md:py-12">
+
+                    <!-- OVERVIEW TAB -->
+                    <div id="dauphin-content-overview" class="tab-content">
+                        
+                        <h3 class="text-2xl font-light text-white mb-6">The Challenge</h3>
+                        <p class="text-white/70 font-light leading-relaxed mb-8">
+                            Spring 2026: Manitoba's Dauphin Lake region faced record snowpack levels—larger than the 2011 precursor that caused historic flooding. Cottage owners and Ochre Beach residents needed real-time flood monitoring independent of provincial forecasts, but no plain-language tool existed.
+                        </p>
+
+                        <h3 class="text-2xl font-light text-white mb-6">The Solution</h3>
+                        <p class="text-white/70 font-light leading-relaxed mb-8">
+                            Built dauphinlakewatch.ca—a free, independent dashboard pulling live water level data from Water Survey of Canada every 5 minutes, 24/7. Translates federal gauge data into community-focused flood monitoring with threshold-based email and SMS alerts.
+                        </p>
+
+                        <!-- Key Features Grid -->
+                        <div class="grid md:grid-cols-2 gap-6 mb-8">
+                            <div class="glass-card p-6 rounded-xl">
+                                <h4 class="text-white text-lg font-normal mb-3">Real-Time Monitoring</h4>
+                                <ul class="text-white/60 text-sm font-light leading-relaxed space-y-2">
+                                    <li>• Live lake level tracking (feet ASL)</li>
+                                    <li>• 7-day hydrograph with trend analysis</li>
+                                    <li>• Updates every 5 minutes from WSC API</li>
+                                    <li>• Color-coded status: Normal through Flood Stage</li>
+                                </ul>
+                            </div>
+
+                            <div class="glass-card p-6 rounded-xl">
+                                <h4 class="text-white text-lg font-normal mb-3">Basin Intelligence</h4>
+                                <ul class="text-white/60 text-sm font-light leading-relaxed space-y-2">
+                                    <li>• 11 monitoring stations across watershed</li>
+                                    <li>• 7 tributary rivers with live flow data</li>
+                                    <li>• Mossy River dam outflow vs. capacity</li>
+                                    <li>• Spring snowpack and weather context</li>
+                                </ul>
+                            </div>
+
+                            <div class="glass-card p-6 rounded-xl">
+                                <h4 class="text-white text-lg font-normal mb-3">Alert System</h4>
+                                <ul class="text-white/60 text-sm font-light leading-relaxed space-y-2">
+                                    <li>• Email and SMS notifications</li>
+                                    <li>• Threshold-based triggers</li>
+                                    <li>• Sign up at dauphinlakewatch.ca/alerts</li>
+                                    <li>• Community-first safety tool</li>
+                                </ul>
+                            </div>
+
+                            <div class="glass-card p-6 rounded-xl">
+                                <h4 class="text-white text-lg font-normal mb-3">Free Public Service</h4>
+                                <ul class="text-white/60 text-sm font-light leading-relaxed space-y-2">
+                                    <li>• No paywalls, no accounts required</li>
+                                    <li>• Operating 24/7 during spring melt</li>
+                                    <li>• Independent of provincial forecasts</li>
+                                    <li>• Community safety mission</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Results -->
+                        <div>
+                            <h3 class="text-2xl font-light text-white mb-6">Results</h3>
+                            
+                            <div class="grid md:grid-cols-3 gap-6">
+                                <div class="glass-card p-6 rounded-xl text-center">
+                                    <div class="text-4xl font-light text-green-400 mb-2">24/7</div>
+                                    <div class="text-white/70 text-sm font-light">Live Monitoring</div>
+                                </div>
+                                <div class="glass-card p-6 rounded-xl text-center">
+                                    <div class="text-4xl font-light text-blue-400 mb-2">11</div>
+                                    <div class="text-white/70 text-sm font-light">Monitoring Stations</div>
+                                </div>
+                                <div class="glass-card p-6 rounded-xl text-center">
+                                    <div class="text-4xl font-light text-primary-gold mb-2">Free</div>
+                                    <div class="text-white/70 text-sm font-light">Public Service</div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- TECHNICAL DETAILS TAB -->
+                    <div id="dauphin-content-architecture" class="tab-content hidden">
+                        
+                        <h3 class="text-2xl font-light text-white mb-6">Technical Stack</h3>
+                        
+                        <div class="glass-card p-8 rounded-xl mb-8">
+                            <div class="grid md:grid-cols-2 gap-8">
+                                <div>
+                                    <h4 class="text-white text-lg font-normal mb-4">Frontend</h4>
+                                    <ul class="text-white/60 text-sm font-light leading-relaxed space-y-2">
+                                        <li>• React dashboard</li>
+                                        <li>• Real-time data visualization</li>
+                                        <li>• Responsive design for mobile alerts</li>
+                                        <li>• Glassmorphic UI matching regional aesthetic</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h4 class="text-white text-lg font-normal mb-4">Backend & Data</h4>
+                                    <ul class="text-white/60 text-sm font-light leading-relaxed space-y-2">
+                                        <li>• Environment Canada OGC API</li>
+                                        <li>• Water Survey of Canada integration</li>
+                                        <li>• 5-minute update intervals</li>
+                                        <li>• Email/SMS alert infrastructure</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h3 class="text-2xl font-light text-white mb-6">Data Integration</h3>
+                        <div class="glass-card p-8 rounded-xl mb-8">
+                            <h4 class="text-white text-lg font-normal mb-6 text-center">Monitoring Network</h4>
+                            <p class="text-white/60 text-sm font-light leading-relaxed mb-6">
+                                11 WSC stations across Dauphin Lake watershed:
+                            </p>
+                            <div class="grid grid-cols-2 md:grid-cols-3 gap-4 text-white/50 text-sm font-light">
+                                <div>• 05LJ009 (Lake Level)</div>
+                                <div>• 05LJ007 (Turtle River)</div>
+                                <div>• 05LJ012 (Wilson River)</div>
+                                <div>• 05LJ005 (Vermillion River)</div>
+                                <div>• 05LJ045 (Valley River)</div>
+                                <div>• 05LJ010 (Mink Creek)</div>
+                                <div>• 05LJ019 (Mossy River North)</div>
+                                <div>• 05LJ027 (East Mossy River)</div>
+                                <div>• 05LJ025 (Mossy River Outlet)</div>
+                                <div>• 05LH001 (Red Deer River)</div>
+                                <div>• 05LH005 (Ochre River)</div>
+                            </div>
+                        </div>
+
+                        <h3 class="text-2xl font-light text-white mb-6">Deployment</h3>
+                        <div class="glass-card p-6 rounded-xl">
+                            <ul class="text-white/60 text-sm font-light leading-relaxed space-y-2">
+                                <li>• Netlify hosting with auto-deployment</li>
+                                <li>• GitHub version control</li>
+                                <li>• Environment Canada attribution compliance</li>
+                                <li>• Live at dauphinlakewatch.ca</li>
+                            </ul>
+                        </div>
+
+                    </div>
+
+                    <!-- COMMUNITY IMPACT TAB -->
+                    <div id="dauphin-content-impact" class="tab-content hidden">
+                        
+                        <h3 class="text-2xl font-light text-white mb-6">Mission: Community Safety</h3>
+                        <p class="text-white/70 font-light leading-relaxed mb-8">
+                            This project demonstrates civic technology at its best: taking public federal data and translating it into actionable community intelligence during a crisis. When provincial forecasts spoke in technical language, Dauphin Lake Watch spoke to the people whose homes were at risk.
+                        </p>
+
+                        <div class="glass-card p-8 rounded-xl mb-8">
+                            <h4 class="text-white text-lg font-normal mb-4">Why This Matters</h4>
+                            <p class="text-white/60 text-sm font-light leading-relaxed mb-4">
+                                Spring 2026 snowpack near Riding Mountain was the highest recorded in Manitoba—larger than the 2011 precursor that caused historic flooding. Dauphin Lake residents and cottage owners needed plain-language flood monitoring they could check from their phones.
+                            </p>
+                            <p class="text-white/60 text-sm font-light leading-relaxed">
+                                The data was public. The need was urgent. No one else was building the bridge. So I did.
+                            </p>
+                        </div>
+
+                        <h3 class="text-2xl font-light text-white mb-6">What Makes This Different</h3>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="glass-card p-6 rounded-xl">
+                                <h4 class="text-white text-lg font-normal mb-3">From SaaS to Civic Service</h4>
+                                <p class="text-white/60 text-sm font-light leading-relaxed">
+                                    Unlike commercial projects (TeamSync AI, RCIC Manager), this is free public infrastructure. No business model. No revenue target. Just the recognition that technology can serve communities in crisis.
+                                </p>
+                            </div>
+
+                            <div class="glass-card p-6 rounded-xl">
+                                <h4 class="text-white text-lg font-normal mb-3">Speed in Crisis</h4>
+                                <p class="text-white/60 text-sm font-light leading-relaxed">
+                                    Built and deployed during active flood conditions. When spring melt started accelerating, the community needed monitoring *now*—not after weeks of planning. Real-world urgency drives real technical decisions.
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </article>
+
             <!-- Bottom CTA -->
             <div class="text-center glass-card p-12 rounded-3xl">
                 <h2 class="text-2xl font-light text-white mb-4">Have a Similar Challenge?</h2>
