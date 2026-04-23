@@ -1105,7 +1105,7 @@
                 </div>
             </article>
 
-            <!-- Case Study 3: Dauphin Lake Watch -->
+            <!-- Case Study 3: Hydrological Dashboard -->
             <article class="glass-card rounded-3xl overflow-hidden">
                 
                 <!-- Header -->
@@ -1115,8 +1115,8 @@
                         <span class="px-4 py-1.5 rounded-full text-xs font-light bg-blue-500/20 text-blue-300 border border-blue-500/30">Data Visualization</span>
                     </div>
 
-                    <h2 class="text-3xl font-light text-white mb-4">Dauphin Lake Watch</h2>
-                    <p class="text-white/50 text-sm font-light mb-8">Independent Hydrological Monitoring Dashboard</p>
+                    <h2 class="text-3xl font-light text-white mb-4">Hydrological Dashboard</h2>
+                    <p class="text-white/50 text-sm font-light mb-8">Real-Time Flood Monitoring for Dauphin Lake, Manitoba</p>
                 </div>
 
                 <!-- Tab Navigation -->
@@ -1140,75 +1140,96 @@
                     <!-- OVERVIEW TAB -->
                     <div id="dauphin-content-overview" class="tab-content">
                         
-                        <h3 class="text-2xl font-light text-white mb-6">The Challenge</h3>
+                        <h3 class="text-2xl font-light text-white mb-6 flex items-center gap-2">
+                            <span class="material-symbols-outlined text-red-400">crisis_alert</span>
+                            The Challenge
+                        </h3>
                         <p class="text-white/70 font-light leading-relaxed mb-8">
                             Spring 2026: Manitoba's Dauphin Lake region faced record snowpack levels—larger than the 2011 precursor that caused historic flooding. Cottage owners and Ochre Beach residents needed real-time flood monitoring independent of provincial forecasts, but no plain-language tool existed.
                         </p>
 
-                        <h3 class="text-2xl font-light text-white mb-6">The Solution</h3>
+                        <h3 class="text-2xl font-light text-white mb-6 flex items-center gap-2">
+                            <span class="material-symbols-outlined text-blue-400">lightbulb</span>
+                            The Solution
+                        </h3>
                         <p class="text-white/70 font-light leading-relaxed mb-8">
-                            Built dauphinlakewatch.ca—a free, independent dashboard pulling live water level data from Water Survey of Canada every 5 minutes, 24/7. Translates federal gauge data into community-focused flood monitoring with threshold-based email and SMS alerts.
+                            Built dauphinlakewatch.ca—a free, independent hydrological dashboard pulling live water level data from Water Survey of Canada every 5 minutes, 24/7. Translates federal gauge data into community-focused flood monitoring with threshold-based alerts.
                         </p>
 
                         <!-- Key Features Grid -->
                         <div class="grid md:grid-cols-2 gap-6 mb-8">
-                            <div class="glass-card p-6 rounded-xl">
-                                <h4 class="text-white text-lg font-normal mb-3">Real-Time Monitoring</h4>
-                                <ul class="text-white/60 text-sm font-light leading-relaxed space-y-2">
-                                    <li>• Live lake level tracking (feet ASL)</li>
-                                    <li>• 7-day hydrograph with trend analysis</li>
-                                    <li>• Updates every 5 minutes from WSC API</li>
-                                    <li>• Color-coded status: Normal through Flood Stage</li>
+                            <div class="glass-card p-6 rounded-xl border-l-2 border-blue-500">
+                                <h4 class="text-white text-base font-normal mb-4 flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-blue-400">water_drop</span>
+                                    Real-Time Monitoring
+                                </h4>
+                                <ul class="text-white/70 text-sm font-light space-y-2.5">
+                                    <li>Live lake level tracking (feet ASL)</li>
+                                    <li>7-day hydrograph with trend analysis</li>
+                                    <li>Updates every 5 minutes from WSC API</li>
+                                    <li>Color-coded status: Normal through Flood Stage</li>
                                 </ul>
                             </div>
 
-                            <div class="glass-card p-6 rounded-xl">
-                                <h4 class="text-white text-lg font-normal mb-3">Basin Intelligence</h4>
-                                <ul class="text-white/60 text-sm font-light leading-relaxed space-y-2">
-                                    <li>• 11 monitoring stations across watershed</li>
-                                    <li>• 7 tributary rivers with live flow data</li>
-                                    <li>• Mossy River dam outflow vs. capacity</li>
-                                    <li>• Spring snowpack and weather context</li>
+                            <div class="glass-card p-6 rounded-xl border-l-2 border-green-500">
+                                <h4 class="text-white text-base font-normal mb-4 flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-green-400">sensors</span>
+                                    Basin Intelligence
+                                </h4>
+                                <ul class="text-white/70 text-sm font-light space-y-2.5">
+                                    <li>11 monitoring stations across watershed</li>
+                                    <li>7 tributary rivers with live flow data</li>
+                                    <li>Mossy River dam outflow vs. capacity</li>
+                                    <li>Spring snowpack and weather context</li>
                                 </ul>
                             </div>
 
-                            <div class="glass-card p-6 rounded-xl">
-                                <h4 class="text-white text-lg font-normal mb-3">Alert System</h4>
-                                <ul class="text-white/60 text-sm font-light leading-relaxed space-y-2">
-                                    <li>• Email and SMS notifications</li>
-                                    <li>• Threshold-based triggers</li>
-                                    <li>• Sign up at dauphinlakewatch.ca/alerts</li>
-                                    <li>• Community-first safety tool</li>
+                            <div class="glass-card p-6 rounded-xl border-l-2 border-amber-500">
+                                <h4 class="text-white text-base font-normal mb-4 flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-amber-400">notifications</span>
+                                    Alert System
+                                </h4>
+                                <ul class="text-white/70 text-sm font-light space-y-2.5">
+                                    <li>Email and SMS notifications</li>
+                                    <li>Threshold-based triggers</li>
+                                    <li>Sign up at dauphinlakewatch.ca/alerts</li>
+                                    <li>Community-first safety tool</li>
                                 </ul>
                             </div>
 
-                            <div class="glass-card p-6 rounded-xl">
-                                <h4 class="text-white text-lg font-normal mb-3">Free Public Service</h4>
-                                <ul class="text-white/60 text-sm font-light leading-relaxed space-y-2">
-                                    <li>• No paywalls, no accounts required</li>
-                                    <li>• Operating 24/7 during spring melt</li>
-                                    <li>• Independent of provincial forecasts</li>
-                                    <li>• Community safety mission</li>
+                            <div class="glass-card p-6 rounded-xl border-l-2 border-purple-500">
+                                <h4 class="text-white text-base font-normal mb-4 flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-purple-400">public</span>
+                                    Free Public Service
+                                </h4>
+                                <ul class="text-white/70 text-sm font-light space-y-2.5">
+                                    <li>No paywalls, no accounts required</li>
+                                    <li>Operating 24/7 during spring melt</li>
+                                    <li>Independent of provincial forecasts</li>
+                                    <li>Community safety mission</li>
                                 </ul>
                             </div>
                         </div>
 
                         <!-- Results -->
                         <div>
-                            <h3 class="text-2xl font-light text-white mb-6">Results</h3>
+                            <h3 class="text-lg font-normal text-white mb-3 flex items-center gap-2">
+                                <span class="material-symbols-outlined text-green-400">check_circle</span>
+                                The Result
+                            </h3>
                             
-                            <div class="grid md:grid-cols-3 gap-6">
-                                <div class="glass-card p-6 rounded-xl text-center">
-                                    <div class="text-4xl font-light text-green-400 mb-2">24/7</div>
-                                    <div class="text-white/70 text-sm font-light">Live Monitoring</div>
+                            <div class="grid md:grid-cols-3 gap-4">
+                                <div class="text-center p-4">
+                                    <div class="text-3xl font-light text-green-400 mb-2">24/7</div>
+                                    <div class="text-white/50 text-sm font-light">Live Monitoring</div>
                                 </div>
-                                <div class="glass-card p-6 rounded-xl text-center">
-                                    <div class="text-4xl font-light text-blue-400 mb-2">11</div>
-                                    <div class="text-white/70 text-sm font-light">Monitoring Stations</div>
+                                <div class="text-center p-4">
+                                    <div class="text-3xl font-light text-blue-400 mb-2">11</div>
+                                    <div class="text-white/50 text-sm font-light">Monitoring Stations</div>
                                 </div>
-                                <div class="glass-card p-6 rounded-xl text-center">
-                                    <div class="text-4xl font-light text-primary-gold mb-2">Free</div>
-                                    <div class="text-white/70 text-sm font-light">Public Service</div>
+                                <div class="text-center p-4">
+                                    <div class="text-3xl font-light text-primary-gold mb-2">Free</div>
+                                    <div class="text-white/50 text-sm font-light">Public Service</div>
                                 </div>
                             </div>
                         </div>
@@ -1218,60 +1239,154 @@
                     <!-- TECHNICAL DETAILS TAB -->
                     <div id="dauphin-content-architecture" class="tab-content hidden">
                         
-                        <h3 class="text-2xl font-light text-white mb-6">Technical Stack</h3>
-                        
+                        <h3 class="text-2xl font-light text-white mb-4">System Architecture</h3>
+                        <p class="text-white/70 font-light leading-relaxed mb-6">
+                            Real-time hydrological monitoring integrating federal gauge data with community-focused alerts. Built for speed and reliability during active flood conditions.
+                        </p>
+
+                        <!-- Data Flow Diagram -->
                         <div class="glass-card p-8 rounded-xl mb-8">
-                            <div class="grid md:grid-cols-2 gap-8">
-                                <div>
-                                    <h4 class="text-white text-lg font-normal mb-4">Frontend</h4>
-                                    <ul class="text-white/60 text-sm font-light leading-relaxed space-y-2">
-                                        <li>• React dashboard</li>
-                                        <li>• Real-time data visualization</li>
-                                        <li>• Responsive design for mobile alerts</li>
-                                        <li>• Glassmorphic UI matching regional aesthetic</li>
-                                    </ul>
+                            <h4 class="text-white text-lg font-normal mb-6 flex items-center gap-2">
+                                <span class="material-symbols-outlined text-primary">account_tree</span>
+                                Data Flow
+                            </h4>
+                            <div class="space-y-4">
+                                <div class="flex items-start gap-4">
+                                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-primary/20 border border-primary/40 flex items-center justify-center">
+                                        <span class="text-primary text-sm font-normal">1</span>
+                                    </div>
+                                    <div class="flex-1">
+                                        <p class="text-white font-normal text-base">Water Survey of Canada gauges (11 stations)</p>
+                                        <p class="text-white/60 text-sm font-light mt-1">Real-time measurements across lake and tributaries</p>
+                                    </div>
                                 </div>
-                                <div>
-                                    <h4 class="text-white text-lg font-normal mb-4">Backend & Data</h4>
-                                    <ul class="text-white/60 text-sm font-light leading-relaxed space-y-2">
-                                        <li>• Environment Canada OGC API</li>
-                                        <li>• Water Survey of Canada integration</li>
-                                        <li>• 5-minute update intervals</li>
-                                        <li>• Email/SMS alert infrastructure</li>
-                                    </ul>
+                                
+                                <div class="flex items-start gap-4">
+                                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-primary/20 border border-primary/40 flex items-center justify-center">
+                                        <span class="text-primary text-sm font-normal">2</span>
+                                    </div>
+                                    <div class="flex-1">
+                                        <p class="text-white font-normal text-base">Environment Canada OGC API</p>
+                                        <p class="text-white/60 text-sm font-light mt-1">5-minute update intervals, JSON data format</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start gap-4">
+                                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-primary/20 border border-primary/40 flex items-center justify-center">
+                                        <span class="text-primary text-sm font-normal">3</span>
+                                    </div>
+                                    <div class="flex-1">
+                                        <p class="text-white font-normal text-base">Dashboard processing engine</p>
+                                        <p class="text-white/60 text-sm font-light mt-1">React frontend, real-time data parsing and visualization</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start gap-4">
+                                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-primary/20 border border-primary/40 flex items-center justify-center">
+                                        <span class="text-primary text-sm font-normal">4</span>
+                                    </div>
+                                    <div class="flex-1">
+                                        <p class="text-white font-normal text-base">Threshold monitoring system</p>
+                                        <p class="text-white/60 text-sm font-light mt-1">Color-coded status: Normal → Advisory → Flood Stage</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start gap-4">
+                                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-primary/20 border border-primary/40 flex items-center justify-center">
+                                        <span class="text-primary text-sm font-normal">5</span>
+                                    </div>
+                                    <div class="flex-1">
+                                        <p class="text-white font-normal text-base">Alert distribution</p>
+                                        <p class="text-white/60 text-sm font-light mt-1">Email and SMS notifications when thresholds crossed</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start gap-4">
+                                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-primary/20 border border-primary/40 flex items-center justify-center">
+                                        <span class="text-primary text-sm font-normal">6</span>
+                                    </div>
+                                    <div class="flex-1">
+                                        <p class="text-white font-normal text-base">Community access</p>
+                                        <p class="text-white/60 text-sm font-light mt-1">Free public dashboard, no accounts required</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
-                        <h3 class="text-2xl font-light text-white mb-6">Data Integration</h3>
-                        <div class="glass-card p-8 rounded-xl mb-8">
-                            <h4 class="text-white text-lg font-normal mb-6 text-center">Monitoring Network</h4>
+                        <!-- Technical Components -->
+                        <div class="grid md:grid-cols-2 gap-6 mb-8">
+                            
+                            <div class="glass-card p-6 rounded-xl border-l-2 border-blue-500">
+                                <h4 class="text-white text-base font-normal mb-4 flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-blue-400">show_chart</span>
+                                    Frontend Dashboard
+                                </h4>
+                                <ul class="text-white/70 text-sm font-light space-y-2.5">
+                                    <li>React real-time visualization</li>
+                                    <li>7-day hydrograph with trend lines</li>
+                                    <li>Responsive design for mobile alerts</li>
+                                    <li>Color-coded threshold indicators</li>
+                                </ul>
+                            </div>
+
+                            <div class="glass-card p-6 rounded-xl border-l-2 border-green-500">
+                                <h4 class="text-white text-base font-normal mb-4 flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-green-400">cloud</span>
+                                    Data Integration
+                                </h4>
+                                <ul class="text-white/70 text-sm font-light space-y-2.5">
+                                    <li>Environment Canada OGC API</li>
+                                    <li>Water Survey of Canada gauges</li>
+                                    <li>5-minute real-time updates</li>
+                                    <li>Weather context integration</li>
+                                </ul>
+                            </div>
+
+                            <div class="glass-card p-6 rounded-xl border-l-2 border-amber-500">
+                                <h4 class="text-white text-base font-normal mb-4 flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-amber-400">notifications_active</span>
+                                    Alert Infrastructure
+                                </h4>
+                                <ul class="text-white/70 text-sm font-light space-y-2.5">
+                                    <li>Email and SMS notification system</li>
+                                    <li>Threshold-based triggers</li>
+                                    <li>Subscriber management</li>
+                                    <li>Emergency broadcast capability</li>
+                                </ul>
+                            </div>
+
+                            <div class="glass-card p-6 rounded-xl border-l-2 border-purple-500">
+                                <h4 class="text-white text-base font-normal mb-4 flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-purple-400">public</span>
+                                    Deployment
+                                </h4>
+                                <ul class="text-white/70 text-sm font-light space-y-2.5">
+                                    <li>Netlify hosting with CDN</li>
+                                    <li>GitHub version control</li>
+                                    <li>Auto-deployment pipeline</li>
+                                    <li>Live at dauphinlakewatch.ca</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <h3 class="text-2xl font-light text-white mb-6">Monitoring Network</h3>
+                        <div class="glass-card p-8 rounded-xl">
                             <p class="text-white/60 text-sm font-light leading-relaxed mb-6">
-                                11 WSC stations across Dauphin Lake watershed:
+                                11 WSC stations across Dauphin Lake watershed providing comprehensive basin coverage:
                             </p>
                             <div class="grid grid-cols-2 md:grid-cols-3 gap-4 text-white/50 text-sm font-light">
-                                <div>• 05LJ009 (Lake Level)</div>
-                                <div>• 05LJ007 (Turtle River)</div>
-                                <div>• 05LJ012 (Wilson River)</div>
-                                <div>• 05LJ005 (Vermillion River)</div>
-                                <div>• 05LJ045 (Valley River)</div>
-                                <div>• 05LJ010 (Mink Creek)</div>
-                                <div>• 05LJ019 (Mossy River North)</div>
-                                <div>• 05LJ027 (East Mossy River)</div>
-                                <div>• 05LJ025 (Mossy River Outlet)</div>
-                                <div>• 05LH001 (Red Deer River)</div>
-                                <div>• 05LH005 (Ochre River)</div>
+                                <div>05LJ009 (Lake Level)</div>
+                                <div>05LJ007 (Turtle River)</div>
+                                <div>05LJ012 (Wilson River)</div>
+                                <div>05LJ005 (Vermillion River)</div>
+                                <div>05LJ045 (Valley River)</div>
+                                <div>05LJ010 (Mink Creek)</div>
+                                <div>05LJ019 (Mossy River North)</div>
+                                <div>05LJ027 (East Mossy River)</div>
+                                <div>05LJ025 (Mossy River Outlet)</div>
+                                <div>05LH001 (Red Deer River)</div>
+                                <div>05LH005 (Ochre River)</div>
                             </div>
-                        </div>
-
-                        <h3 class="text-2xl font-light text-white mb-6">Deployment</h3>
-                        <div class="glass-card p-6 rounded-xl">
-                            <ul class="text-white/60 text-sm font-light leading-relaxed space-y-2">
-                                <li>• Netlify hosting with auto-deployment</li>
-                                <li>• GitHub version control</li>
-                                <li>• Environment Canada attribution compliance</li>
-                                <li>• Live at dauphinlakewatch.ca</li>
-                            </ul>
                         </div>
 
                     </div>
