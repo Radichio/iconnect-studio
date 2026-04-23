@@ -145,14 +145,14 @@
                 <!-- Tab Navigation -->
                 <div class="px-8 md:px-12 mb-0">
                     <div class="flex gap-2 border-b border-white/10">
-                        <button onclick="switchTab('teamsync', 'overview')" id="teamsync-tab-overview" class="tab-button active px-6 py-3 text-sm font-light text-white/90 transition-all rounded-t-xl">
+                        <button onclick="switchTab('teamsync', 'action')" id="teamsync-tab-action" class="tab-button active px-6 py-3 text-sm font-light text-white/90 transition-all rounded-t-xl">
+                            In Action
+                        </button>
+                        <button onclick="switchTab('teamsync', 'overview')" id="teamsync-tab-overview" class="tab-button px-6 py-3 text-sm font-light text-white/60 hover:text-white/90 transition-all rounded-t-xl">
                             Overview
                         </button>
                         <button onclick="switchTab('teamsync', 'architecture')" id="teamsync-tab-architecture" class="tab-button px-6 py-3 text-sm font-light text-white/60 hover:text-white/90 transition-all rounded-t-xl">
                             Architecture
-                        </button>
-                        <button onclick="switchTab('teamsync', 'action')" id="teamsync-tab-action" class="tab-button px-6 py-3 text-sm font-light text-white/60 hover:text-white/90 transition-all rounded-t-xl">
-                            In Action
                         </button>
                     </div>
                 </div>
@@ -161,7 +161,7 @@
                 <div class="px-8 md:px-12 py-8 md:py-12">
 
                     <!-- Overview Tab -->
-                    <div id="teamsync-content-overview" class="tab-content space-y-8">
+                    <div id="teamsync-content-overview" class="tab-content hidden space-y-8">
                         
                         <!-- Problem -->
                         <div>
@@ -423,7 +423,7 @@
                     </div>
 
                     <!-- In Action Tab -->
-                    <div id="teamsync-content-action" class="tab-content hidden">
+                    <div id="teamsync-content-action" class="tab-content">
                         
                         <!-- Hero Dashboard Image -->
                         <div class="mb-12">
@@ -622,14 +622,14 @@
                 <!-- Tab Navigation -->
                 <div class="px-8 md:px-12 mb-0">
                     <div class="flex gap-2 border-b border-white/10">
-                        <button onclick="switchTab('rcic', 'overview')" id="rcic-tab-overview" class="tab-button active px-6 py-3 text-sm font-light text-white/90 transition-all rounded-t-xl">
+                        <button onclick="switchTab('rcic', 'action')" id="rcic-tab-action" class="tab-button active px-6 py-3 text-sm font-light text-white/90 transition-all rounded-t-xl">
+                            In Action
+                        </button>
+                        <button onclick="switchTab('rcic', 'overview')" id="rcic-tab-overview" class="tab-button px-6 py-3 text-sm font-light text-white/60 hover:text-white/90 transition-all rounded-t-xl">
                             Overview
                         </button>
                         <button onclick="switchTab('rcic', 'architecture')" id="rcic-tab-architecture" class="tab-button px-6 py-3 text-sm font-light text-white/60 hover:text-white/90 transition-all rounded-t-xl">
                             Architecture
-                        </button>
-                        <button onclick="switchTab('rcic', 'action')" id="rcic-tab-action" class="tab-button px-6 py-3 text-sm font-light text-white/60 hover:text-white/90 transition-all rounded-t-xl">
-                            In Action
                         </button>
                     </div>
                 </div>
@@ -638,7 +638,7 @@
                 <div class="px-8 md:px-12 py-8 md:py-12">
 
                     <!-- Overview Tab -->
-                    <div id="rcic-content-overview" class="tab-content space-y-8">
+                    <div id="rcic-content-overview" class="tab-content hidden space-y-8">
                         
                         <!-- Problem -->
                         <div>
@@ -900,7 +900,20 @@
                     </div>
 
                     <!-- In Action Tab -->
-                    <div id="rcic-content-action" class="tab-content hidden">
+                    <div id="rcic-content-action" class="tab-content">
+                        
+                        <!-- Hero Dashboard Image -->
+                        <div class="mb-12">
+                            <h3 class="text-2xl font-light text-white mb-6">Live Platform</h3>
+                            <div class="glass-card p-4 rounded-xl">
+                                <img src="rcicbillsimple.png" 
+                                     alt="RCIC Manager Dashboard - Desktop and Mobile Views" 
+                                     class="w-full rounded-lg">
+                                <p class="text-white/50 text-xs text-center mt-4">
+                                    Immigration case management with multi-processor billing
+                                </p>
+                            </div>
+                        </div>
                         
                         <!-- Section: Payment Processing Flow -->
                         <div class="mb-12">
