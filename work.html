@@ -221,8 +221,13 @@
                 <p class="text-white/60 text-lg font-light">End-to-end solutions from concept to deployment</p>
             </div>
 
-            <!-- Mini Card Grid -->
-            <div class="grid md:grid-cols-3 gap-6 mb-16 max-w-5xl mx-auto">
+            <!-- SaaS Platforms Section Label -->
+            <div class="max-w-5xl mx-auto mb-4 px-2">
+                <p class="text-xs font-light tracking-widest uppercase text-white/40">SaaS Platforms</p>
+            </div>
+
+            <!-- Mini Card Grid - SaaS -->
+            <div class="grid md:grid-cols-3 gap-6 mb-12 max-w-5xl mx-auto">
                 
                 <!-- TeamSync Mini Card -->
                 <button onclick="expandProject('teamsync')" class="mini-card glass-card rounded-2xl p-6 text-left hover:scale-105 transition-all cursor-pointer group">
@@ -269,6 +274,50 @@
                     </div>
                     <h3 class="text-xl font-light text-white mb-2">Case & Billing Mgmt</h3>
                     <p class="text-white/60 text-sm font-light mb-4">Immigration case management with Canadian compliance</p>
+                    <div class="flex items-center gap-2 text-primary-gold text-sm font-normal">
+                        View Case Study
+                        <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                    </div>
+                </button>
+
+            </div>
+
+            <!-- Marketing Websites Section Label -->
+            <div class="max-w-5xl mx-auto mb-4 px-2">
+                <p class="text-xs font-light tracking-widest uppercase text-white/40">Marketing Websites</p>
+            </div>
+
+            <!-- Mini Card Grid - Marketing Websites -->
+            <div class="grid md:grid-cols-2 gap-6 mb-16 max-w-3xl mx-auto">
+
+                <!-- Gracious Signs Mini Card -->
+                <button onclick="expandProject('gracious')" class="mini-card glass-card rounded-2xl p-6 text-left hover:scale-105 transition-all cursor-pointer group">
+                    <div class="mb-4">
+                        <img src="gracioussigns.png" alt="Gracious Signs" class="w-full rounded-lg opacity-90 group-hover:opacity-100 transition-opacity">
+                    </div>
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="px-3 py-1 rounded-full text-xs font-light bg-orange-500/20 text-orange-300 border border-orange-500/30">Astro</span>
+                        <span class="px-3 py-1 rounded-full text-xs font-light bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">Sveltia</span>
+                    </div>
+                    <h3 class="text-xl font-light text-white mb-2">Gracious Signs</h3>
+                    <p class="text-white/60 text-sm font-light mb-4">Custom signs Kelowna &mdash; modern static rebuild</p>
+                    <div class="flex items-center gap-2 text-primary-gold text-sm font-normal">
+                        View Case Study
+                        <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                    </div>
+                </button>
+
+                <!-- Hot Shot Entertainment Mini Card -->
+                <button onclick="expandProject('hotshot')" class="mini-card glass-card rounded-2xl p-6 text-left hover:scale-105 transition-all cursor-pointer group">
+                    <div class="mb-4">
+                        <img src="hotshotent.png" alt="Hot Shot Entertainment" class="w-full rounded-lg opacity-90 group-hover:opacity-100 transition-opacity">
+                    </div>
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="px-3 py-1 rounded-full text-xs font-light bg-yellow-500/20 text-yellow-300 border border-yellow-500/30">Interactive</span>
+                        <span class="px-3 py-1 rounded-full text-xs font-light bg-blue-500/20 text-blue-300 border border-blue-500/30">Netlify</span>
+                    </div>
+                    <h3 class="text-xl font-light text-white mb-2">Hot Shot Entertainment</h3>
+                    <p class="text-white/60 text-sm font-light mb-4">DJ/MC site with live availability calendar</p>
                     <div class="flex items-center gap-2 text-primary-gold text-sm font-normal">
                         View Case Study
                         <span class="material-symbols-outlined text-sm">arrow_forward</span>
@@ -1743,6 +1792,354 @@
                             </div>
                         </div>
 
+                    </div>
+
+                </div>
+            </article>
+
+            <!-- Gracious Signs Full Case Study -->
+            <article id="project-gracious" class="glass-card rounded-3xl overflow-hidden project-content hidden">
+
+                <!-- Header -->
+                <div class="p-8 md:p-12 pb-6">
+                    <div class="flex items-center gap-3 mb-6 flex-wrap">
+                        <span class="px-4 py-1.5 rounded-full text-xs font-light bg-orange-500/20 text-orange-300 border border-orange-500/30">Astro</span>
+                        <span class="px-4 py-1.5 rounded-full text-xs font-light bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">Sveltia CMS</span>
+                        <span class="px-4 py-1.5 rounded-full text-xs font-light bg-blue-500/20 text-blue-300 border border-blue-500/30">Netlify</span>
+                        <span class="px-4 py-1.5 rounded-full text-xs font-light bg-teal-500/20 text-teal-300 border border-teal-500/30">Tailwind</span>
+                    </div>
+                    <h2 class="text-3xl md:text-4xl font-light text-white mb-4">Gracious Signs</h2>
+                    <p class="text-white/70 font-light text-lg italic">A custom sign shop's full migration off WordPress to a modern static stack &mdash; without losing a single SEO URL.</p>
+                </div>
+
+                <!-- Content -->
+                <div class="px-8 md:px-12 pb-8 md:pb-12 space-y-12">
+
+                    <!-- Hero Mockup -->
+                    <div>
+                        <div class="glass-card p-4 rounded-xl">
+                            <img src="gracioussigns.png" alt="Gracious Signs &mdash; Desktop and Mobile" class="w-full rounded-lg">
+                            <p class="text-white/50 text-xs text-center mt-4">gracioussigns.com &mdash; live, fast, and editable by the client</p>
+                        </div>
+                    </div>
+
+                    <!-- The Challenge -->
+                    <div class="glass-card p-6 md:p-8 rounded-xl border-l-4 border-red-500">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="material-symbols-outlined text-red-300 text-3xl">crisis_alert</span>
+                            <h3 class="text-2xl font-light text-white">The Challenge</h3>
+                        </div>
+                        <p class="text-white/70 font-light leading-relaxed">
+                            The client's site was a Jenga tower. WordPress with 50+ plugins, a heavy page builder, RevSlider, and a WooCommerce install doing nothing. Backend admin loads were over seven seconds. Mobile PageSpeed scored 38. Image-heavy hero sliders dragged the whole experience down. Every plugin update risked breaking another. The site was functional for visitors but punishing to maintain &mdash; and the SEO investment built over months was at constant risk.
+                        </p>
+                    </div>
+
+                    <!-- The Approach -->
+                    <div class="glass-card p-6 md:p-8 rounded-xl border-l-4 border-blue-500">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="material-symbols-outlined text-blue-300 text-3xl">lightbulb</span>
+                            <h3 class="text-2xl font-light text-white">The Approach</h3>
+                        </div>
+                        <p class="text-white/70 font-light leading-relaxed mb-4">
+                            Two phases. First, stabilize: aggressive WordPress cleanup, plugin audit, image compression, RevSlider tuning. That work alone moved mobile PageSpeed from 38 to 55 and fixed the layout shift issues.
+                        </p>
+                        <p class="text-white/70 font-light leading-relaxed">
+                            Then, the bigger call &mdash; kill WordPress entirely and rebuild on a modern static stack. Every indexed URL was preserved through careful content mapping. The client kept editing control through a clean Git-based CMS instead of a sluggish admin panel. No vendor lock-in. No database. Content lives as plain Markdown in the repo.
+                        </p>
+                    </div>
+
+                    <!-- Tech Stack -->
+                    <div>
+                        <h3 class="text-2xl font-light text-white mb-6">Tech Stack</h3>
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div class="glass-card p-5 rounded-xl">
+                                <div class="flex items-start gap-3">
+                                    <span class="material-symbols-outlined text-orange-300 text-2xl mt-1">rocket_launch</span>
+                                    <div>
+                                        <h4 class="text-white font-normal mb-1">Astro 5</h4>
+                                        <p class="text-white/60 text-sm font-light">Zero JavaScript by default, static HTML output, perfect for content + portfolio sites</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="glass-card p-5 rounded-xl">
+                                <div class="flex items-start gap-3">
+                                    <span class="material-symbols-outlined text-teal-300 text-2xl mt-1">brush</span>
+                                    <div>
+                                        <h4 class="text-white font-normal mb-1">Tailwind CSS</h4>
+                                        <p class="text-white/60 text-sm font-light">Utility-first styling, no bloat, fully responsive</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="glass-card p-5 rounded-xl">
+                                <div class="flex items-start gap-3">
+                                    <span class="material-symbols-outlined text-cyan-300 text-2xl mt-1">edit_note</span>
+                                    <div>
+                                        <h4 class="text-white font-normal mb-1">Sveltia CMS</h4>
+                                        <p class="text-white/60 text-sm font-light">Git-based editing, 5&times; smaller bundle than Decap, mobile-friendly admin</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="glass-card p-5 rounded-xl">
+                                <div class="flex items-start gap-3">
+                                    <span class="material-symbols-outlined text-blue-300 text-2xl mt-1">cloud</span>
+                                    <div>
+                                        <h4 class="text-white font-normal mb-1">Netlify</h4>
+                                        <p class="text-white/60 text-sm font-light">Auto-deploy on content change, global CDN, Netlify Forms, Image CDN</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Results -->
+                    <div>
+                        <h3 class="text-2xl font-light text-white mb-6">Results</h3>
+                        <div class="grid md:grid-cols-2 gap-4 mb-4">
+                            <div class="glass-card p-6 rounded-xl text-center">
+                                <div class="text-3xl font-light text-green-300 mb-1">38 &rarr; 55+</div>
+                                <p class="text-white/60 text-xs font-light">Mobile PageSpeed (phase 1)</p>
+                            </div>
+                            <div class="glass-card p-6 rounded-xl text-center">
+                                <div class="text-3xl font-light text-green-300 mb-1">7.44s &rarr; instant</div>
+                                <p class="text-white/60 text-xs font-light">Admin loads &mdash; Git-based editing</p>
+                            </div>
+                            <div class="glass-card p-6 rounded-xl text-center">
+                                <div class="text-3xl font-light text-amber-300 mb-1">45+</div>
+                                <p class="text-white/60 text-xs font-light">Google reviews &mdash; "Excellent"</p>
+                            </div>
+                            <div class="glass-card p-6 rounded-xl text-center">
+                                <div class="text-3xl font-light text-blue-300 mb-1">100%</div>
+                                <p class="text-white/60 text-xs font-light">SEO URLs preserved at cutover</p>
+                            </div>
+                        </div>
+                        <div class="glass-card p-5 rounded-xl">
+                            <p class="text-white/70 font-light text-sm leading-relaxed">
+                                <span class="material-symbols-outlined text-green-300 text-base align-middle mr-1">check_circle</span>
+                                Client now updates content without developer involvement &mdash; clean form-based editing, instant preview, auto-deploy on save.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Build Velocity -->
+                    <div class="glass-card p-6 md:p-8 rounded-xl border-l-4 border-amber-500">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="material-symbols-outlined text-amber-300 text-3xl">bolt</span>
+                            <h3 class="text-2xl font-light text-white">Build Velocity</h3>
+                        </div>
+                        <p class="text-white/70 font-light leading-relaxed">
+                            Architecture, migration, and launch &mdash; measured in weeks, not months. AI-augmented development compressed what would normally be a multi-month rebuild into a tight, focused sprint.
+                        </p>
+                    </div>
+
+                    <!-- Live Link -->
+                    <div class="text-center pt-4">
+                        <a href="https://gracioussigns.com" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-primary-gold/20 text-primary-gold border border-primary-gold/40 hover:bg-primary-gold/30 transition-all font-normal">
+                            <span class="material-symbols-outlined">open_in_new</span>
+                            Visit gracioussigns.com
+                        </a>
+                    </div>
+
+                </div>
+            </article>
+
+            <!-- Hot Shot Entertainment Full Case Study -->
+            <article id="project-hotshot" class="glass-card rounded-3xl overflow-hidden project-content hidden">
+
+                <!-- Header -->
+                <div class="p-8 md:p-12 pb-6">
+                    <div class="flex items-center gap-3 mb-6 flex-wrap">
+                        <span class="px-4 py-1.5 rounded-full text-xs font-light bg-slate-500/20 text-slate-300 border border-slate-500/30">Static</span>
+                        <span class="px-4 py-1.5 rounded-full text-xs font-light bg-yellow-500/20 text-yellow-300 border border-yellow-500/30">Interactive</span>
+                        <span class="px-4 py-1.5 rounded-full text-xs font-light bg-blue-500/20 text-blue-300 border border-blue-500/30">Netlify</span>
+                    </div>
+                    <h2 class="text-3xl md:text-4xl font-light text-white mb-4">Hot Shot Entertainment</h2>
+                    <p class="text-white/70 font-light text-lg italic">A DJ/MC website that does more than show photos &mdash; visitors check live availability, build playlists, and the owner manages everything from his own dashboard.</p>
+                </div>
+
+                <!-- Content -->
+                <div class="px-8 md:px-12 pb-8 md:pb-12 space-y-12">
+
+                    <!-- Hero Mockup -->
+                    <div>
+                        <div class="glass-card p-4 rounded-xl">
+                            <img src="hotshotent.png" alt="Hot Shot Entertainment &mdash; Desktop and Mobile" class="w-full rounded-lg">
+                            <p class="text-white/50 text-xs text-center mt-4">hotshotent.com &mdash; live availability, playlist builder, and owner dashboard</p>
+                        </div>
+                    </div>
+
+                    <!-- The Challenge -->
+                    <div class="glass-card p-6 md:p-8 rounded-xl border-l-4 border-red-500">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="material-symbols-outlined text-red-300 text-3xl">crisis_alert</span>
+                            <h3 class="text-2xl font-light text-white">The Challenge</h3>
+                        </div>
+                        <p class="text-white/70 font-light leading-relaxed">
+                            The client needed a site that worked harder than a typical business card website. Booking inquiries needed friction stripped out. Visitors needed to know &mdash; instantly, without phone tag &mdash; whether their date was open. Couples wanted to share their musical vision before the consultation, not during it. And the owner needed to manage all of this himself, without calling a developer every time he booked a Saturday.
+                        </p>
+                    </div>
+
+                    <!-- What We Built -->
+                    <div>
+                        <h3 class="text-2xl font-light text-white mb-6">What We Built</h3>
+                        <p class="text-white/70 font-light leading-relaxed mb-6">This isn't a brochure site. It's a working set of tools:</p>
+                        <div class="space-y-4">
+
+                            <div class="glass-card p-6 rounded-xl">
+                                <div class="flex items-start gap-4">
+                                    <span class="material-symbols-outlined text-yellow-300 text-3xl">calendar_month</span>
+                                    <div>
+                                        <h4 class="text-white font-normal mb-2">Live availability calendar</h4>
+                                        <p class="text-white/60 font-light text-sm">Visitors see booked, held, and open dates at a glance. Tap any open date to jump straight to the inquiry form with that date pre-filled.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="glass-card p-6 rounded-xl">
+                                <div class="flex items-start gap-4">
+                                    <span class="material-symbols-outlined text-yellow-300 text-3xl">lock_person</span>
+                                    <div>
+                                        <h4 class="text-white font-normal mb-2">Password-protected manager dashboard</h4>
+                                        <p class="text-white/60 font-light text-sm">The owner marks dates booked or on-hold himself, from any browser, no developer call required.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="glass-card p-6 rounded-xl">
+                                <div class="flex items-start gap-4">
+                                    <span class="material-symbols-outlined text-yellow-300 text-3xl">queue_music</span>
+                                    <div>
+                                        <h4 class="text-white font-normal mb-2">"Plan Your Soundtrack" playlist builder</h4>
+                                        <p class="text-white/60 font-light text-sm">Couples build a must-play song list, choose a vibe, map their key moments, then send the whole package to the inbox as part of their inquiry.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="glass-card p-6 rounded-xl">
+                                <div class="flex items-start gap-4">
+                                    <span class="material-symbols-outlined text-yellow-300 text-3xl">smartphone</span>
+                                    <div>
+                                        <h4 class="text-white font-normal mb-2">Sticky mobile call bar</h4>
+                                        <p class="text-white/60 font-light text-sm">Tap-to-call and tap-to-email always within thumb reach on mobile.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="glass-card p-6 rounded-xl">
+                                <div class="flex items-start gap-4">
+                                    <span class="material-symbols-outlined text-yellow-300 text-3xl">forward_to_inbox</span>
+                                    <div>
+                                        <h4 class="text-white font-normal mb-2">Netlify Forms integration</h4>
+                                        <p class="text-white/60 font-light text-sm">Inquiries, playlists, and contact submissions all land in the inbox with zero plugin overhead.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Tech Stack -->
+                    <div>
+                        <h3 class="text-2xl font-light text-white mb-6">Tech Stack</h3>
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div class="glass-card p-5 rounded-xl">
+                                <div class="flex items-start gap-3">
+                                    <span class="material-symbols-outlined text-slate-300 text-2xl mt-1">code</span>
+                                    <div>
+                                        <h4 class="text-white font-normal mb-1">HTML5 / CSS3 / Vanilla JS</h4>
+                                        <p class="text-white/60 text-sm font-light">No framework, no build step, no bloat</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="glass-card p-5 rounded-xl">
+                                <div class="flex items-start gap-3">
+                                    <span class="material-symbols-outlined text-teal-300 text-2xl mt-1">brush</span>
+                                    <div>
+                                        <h4 class="text-white font-normal mb-1">Tailwind CSS</h4>
+                                        <p class="text-white/60 text-sm font-light">Utility-first, brand-locked color tokens (dark + gold)</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="glass-card p-5 rounded-xl">
+                                <div class="flex items-start gap-3">
+                                    <span class="material-symbols-outlined text-blue-300 text-2xl mt-1">cloud</span>
+                                    <div>
+                                        <h4 class="text-white font-normal mb-1">Netlify</h4>
+                                        <p class="text-white/60 text-sm font-light">Hosting, Forms, instant deploys from Git</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="glass-card p-5 rounded-xl">
+                                <div class="flex items-start gap-3">
+                                    <span class="material-symbols-outlined text-white/80 text-2xl mt-1">commit</span>
+                                    <div>
+                                        <h4 class="text-white font-normal mb-1">GitHub</h4>
+                                        <p class="text-white/60 text-sm font-light">Source of truth, every change versioned</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Results -->
+                    <div>
+                        <h3 class="text-2xl font-light text-white mb-6">Results</h3>
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div class="glass-card p-6 rounded-xl">
+                                <div class="flex items-start gap-3">
+                                    <span class="material-symbols-outlined text-green-300 text-2xl mt-1">bolt</span>
+                                    <div>
+                                        <h4 class="text-white font-normal mb-1">Single overnight build</h4>
+                                        <p class="text-white/60 text-sm font-light">From spec to live site in one focused session</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="glass-card p-6 rounded-xl">
+                                <div class="flex items-start gap-3">
+                                    <span class="material-symbols-outlined text-green-300 text-2xl mt-1">handyman</span>
+                                    <div>
+                                        <h4 class="text-white font-normal mb-1">Working tools, not a brochure</h4>
+                                        <p class="text-white/60 text-sm font-light">Interactive booking tools the typical DJ/MC site doesn't have</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="glass-card p-6 rounded-xl">
+                                <div class="flex items-start gap-3">
+                                    <span class="material-symbols-outlined text-green-300 text-2xl mt-1">person_check</span>
+                                    <div>
+                                        <h4 class="text-white font-normal mb-1">Owner autonomy</h4>
+                                        <p class="text-white/60 text-sm font-light">Schedule managed without developer involvement</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="glass-card p-6 rounded-xl">
+                                <div class="flex items-start gap-3">
+                                    <span class="material-symbols-outlined text-green-300 text-2xl mt-1">smartphone</span>
+                                    <div>
+                                        <h4 class="text-white font-normal mb-1">Mobile-first</h4>
+                                        <p class="text-white/60 text-sm font-light">Sticky call bar, tap-to-call, hamburger nav, instant load</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Build Velocity -->
+                    <div class="glass-card p-6 md:p-8 rounded-xl border-l-4 border-amber-500">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="material-symbols-outlined text-amber-300 text-3xl">bolt</span>
+                            <h3 class="text-2xl font-light text-white">Build Velocity</h3>
+                        </div>
+                        <p class="text-white/70 font-light leading-relaxed">
+                            One night. Spec to deploy. AI-augmented development applied to a clear scope with the right stack &mdash; no framework overhead, no CMS to wire up, just clean static files and Netlify.
+                        </p>
+                    </div>
+
+                    <!-- Live Link -->
+                    <div class="text-center pt-4">
+                        <a href="https://hotshotent.com" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-primary-gold/20 text-primary-gold border border-primary-gold/40 hover:bg-primary-gold/30 transition-all font-normal">
+                            <span class="material-symbols-outlined">open_in_new</span>
+                            Visit hotshotent.com
+                        </a>
                     </div>
 
                 </div>
