@@ -273,7 +273,7 @@
                         <span class="px-3 py-1 rounded-full text-xs font-light bg-green-500/20 text-green-300 border border-green-500/30">Compliance</span>
                     </div>
                     <h3 class="text-xl font-light text-white mb-2">Case & Billing Mgmt</h3>
-                    <p class="text-white/60 text-sm font-light mb-4">Immigration case management with Canadian compliance</p>
+                    <p class="text-white/60 text-sm font-light mb-4">Case management with multi-processor billing and Canadian compliance</p>
                     <div class="flex items-center gap-2 text-primary-gold text-sm font-normal">
                         View Case Study
                         <span class="material-symbols-outlined text-sm">arrow_forward</span>
@@ -371,71 +371,49 @@
 
                     <!-- Overview Tab -->
                     <div id="teamsync-content-overview" class="tab-content hidden space-y-8">
-                        
-                        <!-- Problem -->
-                        <div>
-                            <h3 class="text-lg font-normal text-white mb-3 flex items-center gap-2">
+
+                        <!-- Situation -->
+                        <div class="glass-card p-6 rounded-xl border-l-2 border-red-500">
+                            <h3 class="text-2xl font-light text-white mb-4 flex items-center gap-2">
                                 <span class="material-symbols-outlined text-red-400">crisis_alert</span>
-                                The Problem
+                                Situation
                             </h3>
-                            <p class="text-white/70 font-light leading-relaxed">A psychiatrist client needed a platform to optimize team dynamics using psychological assessment frameworks. The challenge wasn't just technical—it was translating complex mental health research into algorithms that HR managers could actually use without overwhelming them.</p>
+                            <p class="text-white/70 font-light leading-relaxed">
+                                Managers assemble teams by gut, with no objective read on whether people will work well together and no way to see it before the team is live. The client had a team-chemistry instrument validated through real-world participant testing, but no product that put it in a manager's hands inside the tools they already use.
+                            </p>
                         </div>
 
-                        <!-- Solution -->
-                        <div>
-                            <h3 class="text-lg font-normal text-white mb-3 flex items-center gap-2">
+                        <!-- Decision -->
+                        <div class="glass-card p-6 rounded-xl border-l-2 border-blue-500">
+                            <h3 class="text-2xl font-light text-white mb-4 flex items-center gap-2">
                                 <span class="material-symbols-outlined text-blue-400">lightbulb</span>
-                                The Solution
+                                Decision
                             </h3>
-                            <p class="text-white/70 font-light leading-relaxed mb-4">I designed proprietary team chemistry algorithms that analyze dynamics in real-time, built Slack integrations for seamless data collection, and created intuitive dashboards that surface actionable insights without requiring psychology expertise.</p>
-                            
-                            <div class="grid md:grid-cols-2 gap-4 mt-6">
-                                <div class="glass-card p-4 rounded-xl border-l-2 border-purple-500">
-                                    <h4 class="text-white text-sm font-normal mb-2">Key Features</h4>
-                                    <ul class="text-white/60 text-sm font-light space-y-1.5">
-                                        <li>• Drag-and-drop team optimization</li>
-                                        <li>• Real-time chemistry analysis</li>
-                                        <li>• Slack integration for data collection</li>
-                                        <li>• Actionable insights dashboard</li>
-                                    </ul>
-                                </div>
-                                <div class="glass-card p-4 rounded-xl border-l-2 border-blue-500">
-                                    <h4 class="text-white text-sm font-normal mb-2">Tech Stack</h4>
-                                    <ul class="text-white/60 text-sm font-light space-y-1.5">
-                                        <li>• React (frontend)</li>
-                                        <li>• Supabase (backend + auth)</li>
-                                        <li>• Slack API integration</li>
-                                        <li>• Proprietary algorithms</li>
-                                    </ul>
-                                </div>
-                            </div>
+                            <p class="text-white/70 font-light leading-relaxed">
+                                Built it Slack-native, where teams already work, rather than a standalone app to adopt. Capped the chemistry score at 88% because the validated data never produced scores in the 90s &mdash; fidelity to reality over flattering numbers. Built a descending-score guarantee so ranked team options never show confusing ties. Delivered a functional demo in six weeks on top of the validated instrument. <em class="text-white/50">Rejected:</em> a separate app, an uncapped score that would mislead, and shipping a chemistry score that hadn't been validated.
+                            </p>
                         </div>
 
-                        <!-- Result -->
-                        <div>
-                            <h3 class="text-lg font-normal text-white mb-3 flex items-center gap-2">
+                        <!-- Risk -->
+                        <div class="glass-card p-6 rounded-xl border-l-2 border-amber-500">
+                            <h3 class="text-2xl font-light text-white mb-4 flex items-center gap-2">
+                                <span class="material-symbols-outlined text-amber-400">shield</span>
+                                Risk
+                            </h3>
+                            <p class="text-white/70 font-light leading-relaxed">
+                                The biggest risk wasn't technical &mdash; it was scope drift in a direction the underlying validation data couldn't defend. She held the build to what the science actually supported, even when the pressure was to ship more. She also designed against false confidence by anchoring scores to validation data rather than letting the model overstate.
+                            </p>
+                        </div>
+
+                        <!-- Change -->
+                        <div class="glass-card p-6 rounded-xl border-l-2 border-green-500">
+                            <h3 class="text-2xl font-light text-white mb-4 flex items-center gap-2">
                                 <span class="material-symbols-outlined text-green-400">check_circle</span>
-                                The Result
+                                Change <span class="text-white/40 text-sm font-light italic ml-1">(projected &mdash; investor-ready demo)</span>
                             </h3>
-                            <div class="grid md:grid-cols-3 gap-4">
-                                <div class="text-center p-4">
-                                    <div class="text-3xl font-light text-green-400 mb-2">6 weeks</div>
-                                    <div class="text-white/50 text-sm font-light">vs 6 months traditional</div>
-                                </div>
-                                <div class="text-center p-4">
-                                    <div class="text-3xl font-light text-blue-400 mb-2">Investor-ready</div>
-                                    <div class="text-white/50 text-sm font-light">Demo quality platform</div>
-                                </div>
-                                <div class="text-center p-4">
-                                    <div class="text-3xl font-light text-purple-400 mb-2">Full-stack</div>
-                                    <div class="text-white/50 text-sm font-light">Architecture + build</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- CTA -->
-                        <div class="pt-6 border-t border-white/10">
-                            <p class="text-white/60 text-sm font-light">Need a similar SaaS platform or AI integration? <a href="contact.html" class="text-primary-gold hover:underline">Let's discuss your project</a></p>
+                            <p class="text-white/70 font-light leading-relaxed">
+                                A manager can see team chemistry before committing to a configuration, compare clearly-ranked options, and act without psychology expertise &mdash; and the validation discipline makes the tool defensible to a buyer or investor, not merely slick.
+                            </p>
                         </div>
 
                     </div>
@@ -636,7 +614,7 @@
                         
                         <!-- Hero Dashboard Image -->
                         <div class="mb-12">
-                            <h3 class="text-2xl font-light text-white mb-6">Live Platform</h3>
+                            <h3 class="text-2xl font-light text-white mb-6">Functional Demo</h3>
                             <div class="glass-card p-4 rounded-xl">
                                 <img src="teamsync.png" 
                                      alt="TeamSync AI Dashboard - Desktop and Mobile Views" 
@@ -848,71 +826,49 @@
 
                     <!-- Overview Tab -->
                     <div id="rcic-content-overview" class="tab-content hidden space-y-8">
-                        
-                        <!-- Problem -->
-                        <div>
-                            <h3 class="text-lg font-normal text-white mb-3 flex items-center gap-2">
+
+                        <!-- Situation -->
+                        <div class="glass-card p-6 rounded-xl border-l-2 border-red-500">
+                            <h3 class="text-2xl font-light text-white mb-4 flex items-center gap-2">
                                 <span class="material-symbols-outlined text-red-400">crisis_alert</span>
-                                The Problem
+                                Situation
                             </h3>
-                            <p class="text-white/70 font-light leading-relaxed">A Canadian professional services firm needed a billing system that could handle multiple payment processors (credit cards, pre-authorized debits, e-Transfer) while maintaining strict compliance with trust accounting rules, PIPEDA privacy laws, and GST/HST regulations.</p>
+                            <p class="text-white/70 font-light leading-relaxed">
+                                A regulated Canadian professional-services firm needed billing simple enough for a non-technical solo practitioner to run, yet compliant with strict trust-accounting rules and Canadian data-residency law. The incumbent vendors were predatory, which is what prompted building an alternative. The real problem: make strict compliance invisible to the user while keeping an immutable audit trail.
+                            </p>
                         </div>
 
-                        <!-- Solution -->
-                        <div>
-                            <h3 class="text-lg font-normal text-white mb-3 flex items-center gap-2">
+                        <!-- Decision -->
+                        <div class="glass-card p-6 rounded-xl border-l-2 border-blue-500">
+                            <h3 class="text-2xl font-light text-white mb-4 flex items-center gap-2">
                                 <span class="material-symbols-outlined text-blue-400">lightbulb</span>
-                                The Solution
+                                Decision
                             </h3>
-                            <p class="text-white/70 font-light leading-relaxed mb-4">I architected a multi-processor payment system with an abstraction layer that unified Stripe (credit cards), Rotessa (PAD), and Interac (e-Transfer) behind a single interface. Built-in trust accounting ensures compliance, while webhook reconciliation handles the complexity of multiple payment sources.</p>
-                            
-                            <div class="grid md:grid-cols-2 gap-4 mt-6">
-                                <div class="glass-card p-4 rounded-xl border-l-2 border-amber-500">
-                                    <h4 class="text-white text-sm font-normal mb-2">Payment Integration</h4>
-                                    <ul class="text-white/60 text-sm font-light space-y-1.5">
-                                        <li>• Stripe (credit cards)</li>
-                                        <li>• Rotessa (pre-authorized debit)</li>
-                                        <li>• Interac e-Transfer</li>
-                                        <li>• Webhook reconciliation</li>
-                                    </ul>
-                                </div>
-                                <div class="glass-card p-4 rounded-xl border-l-2 border-green-500">
-                                    <h4 class="text-white text-sm font-normal mb-2">Compliance Features</h4>
-                                    <ul class="text-white/60 text-sm font-light space-y-1.5">
-                                        <li>• Trust accounting rules</li>
-                                        <li>• PIPEDA data privacy</li>
-                                        <li>• GST/HST calculation</li>
-                                        <li>• Audit trail logging</li>
-                                    </ul>
-                                </div>
-                            </div>
+                            <p class="text-white/70 font-light leading-relaxed">
+                                Unified three payment methods &mdash; card, pre-authorized debit, and Interac e-Transfer &mdash; behind one interface, because ~95% of the real users pay by Interac and avoid card fees; built for how they actually pay, not a card-first default. Built for scale from day one. Kept client data resident in Canada. Automated the tax split between professional fees and government disbursements. <em class="text-white/50">Rejected:</em> a single-processor card-first design, a manual-first MVP ("build it to grow fast"), a cheaper money-transfer service that wasn't actually a processor, and convenient US-hosted defaults.
+                            </p>
                         </div>
 
-                        <!-- Result -->
-                        <div>
-                            <h3 class="text-lg font-normal text-white mb-3 flex items-center gap-2">
+                        <!-- Risk -->
+                        <div class="glass-card p-6 rounded-xl border-l-2 border-amber-500">
+                            <h3 class="text-2xl font-light text-white mb-4 flex items-center gap-2">
+                                <span class="material-symbols-outlined text-amber-400">shield</span>
+                                Risk
+                            </h3>
+                            <p class="text-white/70 font-light leading-relaxed">
+                                A trust-accounting error puts the user's professional standing in regulatory jeopardy. She designed around it with an immutable audit trail and automatic separation of held versus earned funds &mdash; so compliance is enforced by the system, not left to the user's diligence &mdash; and kept data in Canada to meet privacy law.
+                            </p>
+                        </div>
+
+                        <!-- Change -->
+                        <div class="glass-card p-6 rounded-xl border-l-2 border-green-500">
+                            <h3 class="text-2xl font-light text-white mb-4 flex items-center gap-2">
                                 <span class="material-symbols-outlined text-green-400">check_circle</span>
-                                The Result
+                                Change <span class="text-white/40 text-sm font-light italic ml-1">(projected &mdash; pre-launch, releasing soon)</span>
                             </h3>
-                            <div class="grid md:grid-cols-3 gap-4">
-                                <div class="text-center p-4">
-                                    <div class="text-3xl font-light text-green-400 mb-2">Production</div>
-                                    <div class="text-white/50 text-sm font-light">Ready for deployment</div>
-                                </div>
-                                <div class="text-center p-4">
-                                    <div class="text-3xl font-light text-amber-400 mb-2">3 Processors</div>
-                                    <div class="text-white/50 text-sm font-light">Unified integration</div>
-                                </div>
-                                <div class="text-center p-4">
-                                    <div class="text-3xl font-light text-green-400 mb-2">Compliant</div>
-                                    <div class="text-white/50 text-sm font-light">Canadian regulations</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- CTA -->
-                        <div class="pt-6 border-t border-white/10">
-                            <p class="text-white/60 text-sm font-light">Need payment integration or compliance expertise? <a href="contact.html" class="text-primary-gold hover:underline">Let's talk</a></p>
+                            <p class="text-white/70 font-light leading-relaxed">
+                                For the firm adopting it: billing that's faster and safer to run, with compliance handled automatically rather than manually policed, and built to scale as the firm grows.
+                            </p>
                         </div>
 
                     </div>
@@ -1113,13 +1069,13 @@
                         
                         <!-- Hero Dashboard Image -->
                         <div class="mb-12">
-                            <h3 class="text-2xl font-light text-white mb-6">Live Platform</h3>
+                            <h3 class="text-2xl font-light text-white mb-6">Pre-Launch Preview</h3>
                             <div class="glass-card p-4 rounded-xl">
                                 <img src="rcicbillsimple.png" 
-                                     alt="RCIC Manager Dashboard - Desktop and Mobile Views" 
+                                     alt="Multi-Processor Billing System - Desktop and Mobile Views" 
                                      class="w-full rounded-lg">
                                 <p class="text-white/50 text-xs text-center mt-4">
-                                    Immigration case management with multi-processor billing
+                                    Case management with multi-processor billing &mdash; pre-launch, releasing soon
                                 </p>
                             </div>
                         </div>
@@ -1373,100 +1329,50 @@
                 <div class="px-8 md:px-12 py-8 md:py-12">
 
                     <!-- OVERVIEW TAB -->
-                    <div id="dauphin-content-overview" class="tab-content hidden">
-                        
-                        <h3 class="text-2xl font-light text-white mb-6 flex items-center gap-2">
-                            <span class="material-symbols-outlined text-red-400">crisis_alert</span>
-                            The Challenge
-                        </h3>
-                        <p class="text-white/70 font-light leading-relaxed mb-8">
-                            Spring 2026: Manitoba's Dauphin Lake region faced record snowpack levels—larger than the 2011 precursor that caused historic flooding. Cottage owners and Ochre Beach residents needed real-time flood monitoring independent of provincial forecasts, but no plain-language tool existed.
-                        </p>
+                    <div id="dauphin-content-overview" class="tab-content hidden space-y-8">
 
-                        <h3 class="text-2xl font-light text-white mb-6 flex items-center gap-2">
-                            <span class="material-symbols-outlined text-blue-400">lightbulb</span>
-                            The Solution
-                        </h3>
-                        <p class="text-white/70 font-light leading-relaxed mb-8">
-                            Built dauphinlakewatch.ca—a free, independent hydrological dashboard pulling live water level data from Water Survey of Canada every 5 minutes, 24/7. Translates federal gauge data into community-focused flood monitoring with threshold-based alerts.
-                        </p>
-
-                        <!-- Key Features Grid -->
-                        <div class="grid md:grid-cols-2 gap-6 mb-8">
-                            <div class="glass-card p-6 rounded-xl border-l-2 border-blue-500">
-                                <h4 class="text-white text-base font-normal mb-4 flex items-center gap-2">
-                                    <span class="material-symbols-outlined text-blue-400">water_drop</span>
-                                    Real-Time Monitoring
-                                </h4>
-                                <ul class="text-white/70 text-sm font-light space-y-2.5">
-                                    <li>Live lake level tracking (feet ASL)</li>
-                                    <li>7-day hydrograph with trend analysis</li>
-                                    <li>Updates every 5 minutes from WSC API</li>
-                                    <li>Color-coded status: Normal through Flood Stage</li>
-                                </ul>
-                            </div>
-
-                            <div class="glass-card p-6 rounded-xl border-l-2 border-green-500">
-                                <h4 class="text-white text-base font-normal mb-4 flex items-center gap-2">
-                                    <span class="material-symbols-outlined text-green-400">sensors</span>
-                                    Basin Intelligence
-                                </h4>
-                                <ul class="text-white/70 text-sm font-light space-y-2.5">
-                                    <li>11 monitoring stations across watershed</li>
-                                    <li>7 tributary rivers with live flow data</li>
-                                    <li>Mossy River dam outflow vs. capacity</li>
-                                    <li>Spring snowpack and weather context</li>
-                                </ul>
-                            </div>
-
-                            <div class="glass-card p-6 rounded-xl border-l-2 border-amber-500">
-                                <h4 class="text-white text-base font-normal mb-4 flex items-center gap-2">
-                                    <span class="material-symbols-outlined text-amber-400">notifications</span>
-                                    Alert System
-                                </h4>
-                                <ul class="text-white/70 text-sm font-light space-y-2.5">
-                                    <li>Email and SMS notifications</li>
-                                    <li>Threshold-based triggers</li>
-                                    <li>Sign up at dauphinlakewatch.ca/alerts</li>
-                                    <li>Community-first safety tool</li>
-                                </ul>
-                            </div>
-
-                            <div class="glass-card p-6 rounded-xl border-l-2 border-purple-500">
-                                <h4 class="text-white text-base font-normal mb-4 flex items-center gap-2">
-                                    <span class="material-symbols-outlined text-purple-400">public</span>
-                                    Free Public Service
-                                </h4>
-                                <ul class="text-white/70 text-sm font-light space-y-2.5">
-                                    <li>No paywalls, no accounts required</li>
-                                    <li>Operating 24/7 during spring melt</li>
-                                    <li>Independent of provincial forecasts</li>
-                                    <li>Community safety mission</li>
-                                </ul>
-                            </div>
+                        <!-- Situation -->
+                        <div class="glass-card p-6 rounded-xl border-l-2 border-red-500">
+                            <h3 class="text-2xl font-light text-white mb-4 flex items-center gap-2">
+                                <span class="material-symbols-outlined text-red-400">crisis_alert</span>
+                                Situation
+                            </h3>
+                            <p class="text-white/70 font-light leading-relaxed">
+                                A 3,420 sq mi watershed drains through seven tributaries into shallow Dauphin Lake, feeding five beach communities, farmland, and a fishery. The 2011 flood (lake at 860.76 ft) is living memory, and 2026 opened with the highest snowpack in the record. The only official picture was provincial PDF outlooks and raw federal gauge data no resident reads. The problem wasn't building a dashboard &mdash; it was turning existing data into something a property owner could act on, in a season that looked like it might rival 2011.
+                            </p>
                         </div>
 
-                        <!-- Results -->
-                        <div>
-                            <h3 class="text-lg font-normal text-white mb-3 flex items-center gap-2">
-                                <span class="material-symbols-outlined text-green-400">check_circle</span>
-                                The Result
+                        <!-- Decision -->
+                        <div class="glass-card p-6 rounded-xl border-l-2 border-blue-500">
+                            <h3 class="text-2xl font-light text-white mb-4 flex items-center gap-2">
+                                <span class="material-symbols-outlined text-blue-400">lightbulb</span>
+                                Decision
                             </h3>
-                            
-                            <div class="grid md:grid-cols-3 gap-4">
-                                <div class="text-center p-4">
-                                    <div class="text-3xl font-light text-green-400 mb-2">24/7</div>
-                                    <div class="text-white/50 text-sm font-light">Live Monitoring</div>
-                                </div>
-                                <div class="text-center p-4">
-                                    <div class="text-3xl font-light text-blue-400 mb-2">11</div>
-                                    <div class="text-white/50 text-sm font-light">Monitoring Stations</div>
-                                </div>
-                                <div class="text-center p-4">
-                                    <div class="text-3xl font-light text-primary-gold mb-2">Free</div>
-                                    <div class="text-white/50 text-sm font-light">Public Service</div>
-                                </div>
-                            </div>
+                            <p class="text-white/70 font-light leading-relaxed">
+                                Trust authoritative instrument data and degrade gracefully &mdash; if the live API drops, show verified readings and point to the official source rather than break. Watch the leading indicator (seven tributaries, converted to a projected rate of change) instead of the lagging lake. Forecast in four probability bands tied to actions, and revise publicly as conditions change. Complement the province, never impersonate it. Hold the scope to monitoring and lock both domains. <em class="text-white/50">Rejected:</em> single-source feeds, a lone lake-level readout, deterministic predictions, and "all things Dauphin Lake" scope.
+                            </p>
+                        </div>
+
+                        <!-- Risk -->
+                        <div class="glass-card p-6 rounded-xl border-l-2 border-amber-500">
+                            <h3 class="text-2xl font-light text-white mb-4 flex items-center gap-2">
+                                <span class="material-symbols-outlined text-amber-400">shield</span>
+                                Risk
+                            </h3>
+                            <p class="text-white/70 font-light leading-relaxed">
+                                Reliability through a storm's network stress (designed-in fallback); accuracy with honest uncertainty (probability bands, an explicit wind caveat, the not-official disclaimer); graduated action guidance so the tool neither cries wolf nor under-warns; zero-cost durability so it can't die from a hosting bill.
+                            </p>
+                        </div>
+
+                        <!-- Change -->
+                        <div class="glass-card p-6 rounded-xl border-l-2 border-green-500">
+                            <h3 class="text-2xl font-light text-white mb-4 flex items-center gap-2">
+                                <span class="material-symbols-outlined text-green-400">check_circle</span>
+                                Change
+                            </h3>
+                            <p class="text-white/70 font-light leading-relaxed">
+                                A watershed with no independent monitor now has one place turning federal data into plain-language, action-tied guidance, refreshed every 15 minutes against the 2011/2013/2014 record. Through a record snowpack, the basin was handled and the lake never reached the most-likely peak band &mdash; and the tool made that calm legible in real time. Good judgment here looks like nothing happening; the tool made the "nothing happened" visible.
+                            </p>
                         </div>
 
                     </div>
@@ -1491,7 +1397,7 @@
                                         <span class="text-primary text-sm font-normal">1</span>
                                     </div>
                                     <div class="flex-1">
-                                        <p class="text-white font-normal text-base">Water Survey of Canada gauges (11 stations)</p>
+                                        <p class="text-white font-normal text-base">Water Survey of Canada gauges (9 stations)</p>
                                         <p class="text-white/60 text-sm font-light mt-1">Real-time measurements across lake and tributaries</p>
                                     </div>
                                 </div>
@@ -1502,7 +1408,7 @@
                                     </div>
                                     <div class="flex-1">
                                         <p class="text-white font-normal text-base">Environment Canada OGC API</p>
-                                        <p class="text-white/60 text-sm font-light mt-1">5-minute update intervals, JSON data format</p>
+                                        <p class="text-white/60 text-sm font-light mt-1">15-minute update intervals, JSON data format</p>
                                     </div>
                                 </div>
                                 
@@ -1572,7 +1478,7 @@
                                 <ul class="text-white/70 text-sm font-light space-y-2.5">
                                     <li>Environment Canada OGC API</li>
                                     <li>Water Survey of Canada gauges</li>
-                                    <li>5-minute real-time updates</li>
+                                    <li>15-minute real-time updates</li>
                                     <li>Weather context integration</li>
                                 </ul>
                             </div>
@@ -1607,7 +1513,7 @@
                         <h3 class="text-2xl font-light text-white mb-6">Monitoring Network</h3>
                         <div class="glass-card p-8 rounded-xl">
                             <p class="text-white/60 text-sm font-light leading-relaxed mb-6">
-                                11 WSC stations across Dauphin Lake watershed providing comprehensive basin coverage:
+                                9 WSC stations across Dauphin Lake watershed providing comprehensive basin coverage:
                             </p>
                             <div class="grid grid-cols-2 md:grid-cols-3 gap-4 text-white/50 text-sm font-light">
                                 <div>05LJ009 (Lake Level)</div>
@@ -1657,7 +1563,7 @@
                                             <span class="material-symbols-outlined text-4xl text-blue-400">sensors</span>
                                         </div>
                                         <p class="text-white font-normal text-sm text-center mb-1">WSC Gauges</p>
-                                        <p class="text-white/60 text-xs text-center">11 stations</p>
+                                        <p class="text-white/60 text-xs text-center">9 stations</p>
                                     </div>
                                     
                                     <div class="hidden md:block text-primary-gold text-2xl">→</div>
@@ -1735,7 +1641,7 @@
                                         <div>
                                             <div class="flex justify-between items-center mb-2">
                                                 <span class="text-white/70 text-sm">Lake Level</span>
-                                                <span class="text-amber-400 font-normal text-sm">854.0-857.0 ft</span>
+                                                <span class="text-amber-400 font-normal text-sm">854.0-858.0 ft</span>
                                             </div>
                                             <div class="w-full bg-white/10 rounded-full h-3 overflow-hidden">
                                                 <div class="bg-gradient-to-r from-amber-500 to-amber-600 h-full rounded-full" style="width: 70%"></div>
@@ -1755,7 +1661,7 @@
                                         <div>
                                             <div class="flex justify-between items-center mb-2">
                                                 <span class="text-white/70 text-sm">Lake Level</span>
-                                                <span class="text-red-400 font-normal text-sm">&gt;857.0 ft</span>
+                                                <span class="text-red-400 font-normal text-sm">&gt;858.0 ft</span>
                                             </div>
                                             <div class="w-full bg-white/10 rounded-full h-3 overflow-hidden">
                                                 <div class="bg-gradient-to-r from-red-500 to-red-600 h-full rounded-full" style="width: 95%"></div>
@@ -1774,11 +1680,11 @@
                             
                             <div class="grid md:grid-cols-4 gap-6">
                                 <div class="glass-card p-6 rounded-xl text-center">
-                                    <div class="text-5xl font-light text-blue-400 mb-2">5min</div>
+                                    <div class="text-5xl font-light text-blue-400 mb-2">15min</div>
                                     <div class="text-white/70 text-sm font-light">Update Interval</div>
                                 </div>
                                 <div class="glass-card p-6 rounded-xl text-center">
-                                    <div class="text-5xl font-light text-green-400 mb-2">11</div>
+                                    <div class="text-5xl font-light text-green-400 mb-2">9</div>
                                     <div class="text-white/70 text-sm font-light">Monitoring Stations</div>
                                 </div>
                                 <div class="glass-card p-6 rounded-xl text-center">
@@ -1823,28 +1729,47 @@
                         </div>
                     </div>
 
-                    <!-- The Challenge -->
+                    <!-- Situation -->
                     <div class="glass-card p-6 md:p-8 rounded-xl border-l-4 border-red-500">
                         <div class="flex items-center gap-3 mb-4">
                             <span class="material-symbols-outlined text-red-300 text-3xl">crisis_alert</span>
-                            <h3 class="text-2xl font-light text-white">The Challenge</h3>
+                            <h3 class="text-2xl font-light text-white">Situation</h3>
                         </div>
                         <p class="text-white/70 font-light leading-relaxed">
-                            The client's site was a Jenga tower. WordPress with 50+ plugins, a heavy page builder, RevSlider, and a WooCommerce install doing nothing. Backend admin loads were over seven seconds. Mobile PageSpeed scored 38. Image-heavy hero sliders dragged the whole experience down. Every plugin update risked breaking another. The site was functional for visitors but punishing to maintain &mdash; and the SEO investment built over months was at constant risk.
+                            A local sign business's website was a fragile WordPress "Jenga tower" &mdash; a heavy theme, a page builder, a slider plugin, an unused store, and dozens of plugins stacked so that fixing one risked breaking another. The admin was painfully slow, mobile performance was poor, and months of SEO ranking were at constant risk from the next plugin update.
                         </p>
                     </div>
 
-                    <!-- The Approach -->
+                    <!-- Decision -->
                     <div class="glass-card p-6 md:p-8 rounded-xl border-l-4 border-blue-500">
                         <div class="flex items-center gap-3 mb-4">
                             <span class="material-symbols-outlined text-blue-300 text-3xl">lightbulb</span>
-                            <h3 class="text-2xl font-light text-white">The Approach</h3>
+                            <h3 class="text-2xl font-light text-white">Decision</h3>
                         </div>
-                        <p class="text-white/70 font-light leading-relaxed mb-4">
-                            Two phases. First, stabilize: aggressive WordPress cleanup, plugin audit, image compression, RevSlider tuning. That work alone moved mobile PageSpeed from 38 to 55 and fixed the layout shift issues.
-                        </p>
                         <p class="text-white/70 font-light leading-relaxed">
-                            Then, the bigger call &mdash; kill WordPress entirely and rebuild on a modern static stack. Every indexed URL was preserved through careful content mapping. The client kept editing control through a clean Git-based CMS instead of a sluggish admin panel. No vendor lock-in. No database. Content lives as plain Markdown in the repo.
+                            Stabilized the existing site first &mdash; a plugin audit and image work that alone lifted mobile PageSpeed from 38 to 55 and fixed layout shift. Then made the bigger call: kill WordPress entirely and rebuild on a static stack. Chose a Git-based CMS delivered as a CDN script rather than an installed dependency, so the live site has zero runtime dependence on it. <em class="text-white/50">Rejected:</em> continuing to patch WordPress, and even a clean WordPress rebuild &mdash; the platform itself was the problem.
+                        </p>
+                    </div>
+
+                    <!-- Risk -->
+                    <div class="glass-card p-6 md:p-8 rounded-xl border-l-4 border-amber-500">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="material-symbols-outlined text-amber-300 text-3xl">shield</span>
+                            <h3 class="text-2xl font-light text-white">Risk</h3>
+                        </div>
+                        <p class="text-white/70 font-light leading-relaxed">
+                            The real risk was losing months of SEO at cutover &mdash; managed with 301 redirects for every changed URL, verbatim content on identical slugs, a resubmitted sitemap, and two weeks of daily monitoring. Security: WordPress is the most-attacked CMS, and removing the server, database, and PHP eliminated the attack surface. A non-technical client who still edits content: handled with a simpler CMS and a short training.
+                        </p>
+                    </div>
+
+                    <!-- Change -->
+                    <div class="glass-card p-6 md:p-8 rounded-xl border-l-4 border-green-500">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="material-symbols-outlined text-green-300 text-3xl">check_circle</span>
+                            <h3 class="text-2xl font-light text-white">Change</h3>
+                        </div>
+                        <p class="text-white/70 font-light leading-relaxed">
+                            The site went from a seven-second admin and a fragile plugin stack to instant static loads, automatic modern image formats, and zero hosting cost &mdash; every SEO URL preserved. The client edits content without a developer, and the ongoing relationship shifts from "keep the site alive" to "grow the business."
                         </p>
                     </div>
 
@@ -1967,21 +1892,28 @@
                         </div>
                     </div>
 
-                    <!-- The Challenge -->
+                    <!-- Situation -->
                     <div class="glass-card p-6 md:p-8 rounded-xl border-l-4 border-red-500">
                         <div class="flex items-center gap-3 mb-4">
                             <span class="material-symbols-outlined text-red-300 text-3xl">crisis_alert</span>
-                            <h3 class="text-2xl font-light text-white">The Challenge</h3>
+                            <h3 class="text-2xl font-light text-white">Situation</h3>
                         </div>
                         <p class="text-white/70 font-light leading-relaxed">
-                            The client needed a site that worked harder than a typical business card website. Booking inquiries needed friction stripped out. Visitors needed to know &mdash; instantly, without phone tag &mdash; whether their date was open. Couples wanted to share their musical vision before the consultation, not during it. And the owner needed to manage all of this himself, without calling a developer every time he booked a Saturday.
+                            A DJ/MC needed more than a brochure. Booking ran on phone tag; prospective clients couldn't see whether their date was open without calling; and the owner &mdash; non-technical &mdash; needed to manage his own availability without a developer on call.
                         </p>
                     </div>
 
-                    <!-- What We Built -->
+                    <!-- Decision -->
                     <div>
-                        <h3 class="text-2xl font-light text-white mb-6">What We Built</h3>
-                        <p class="text-white/70 font-light leading-relaxed mb-6">This isn't a brochure site. It's a working set of tools:</p>
+                        <div class="glass-card p-6 md:p-8 rounded-xl border-l-4 border-blue-500 mb-6">
+                            <div class="flex items-center gap-3 mb-4">
+                                <span class="material-symbols-outlined text-blue-300 text-3xl">lightbulb</span>
+                                <h3 class="text-2xl font-light text-white">Decision</h3>
+                            </div>
+                            <p class="text-white/70 font-light leading-relaxed">
+                                Built working tools rather than a brochure. Made the calendar event-agnostic &mdash; available, booked, or hold &mdash; after rejecting a wedding-only framing, because the owner also works socials, school dances, grads, and MC events. Chose vanilla JavaScript with no framework or build step, appropriate to a small interactive site. <em class="text-white/50">Rejected:</em> a display-only site, a wedding-only assumption, and framework overhead.
+                            </p>
+                        </div>
                         <div class="space-y-4">
 
                             <div class="glass-card p-6 rounded-xl">
@@ -2035,6 +1967,28 @@
                             </div>
 
                         </div>
+                    </div>
+
+                    <!-- Risk -->
+                    <div class="glass-card p-6 md:p-8 rounded-xl border-l-4 border-amber-500">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="material-symbols-outlined text-amber-300 text-3xl">shield</span>
+                            <h3 class="text-2xl font-light text-white">Risk</h3>
+                        </div>
+                        <p class="text-white/70 font-light leading-relaxed">
+                            A non-technical owner managing live availability could break things or fall back to developer calls &mdash; handled with a simple password-protected dashboard he runs himself. Booking friction is removed by a sticky tap-to-call bar and a calendar that pre-fills the inquiry with the chosen date.
+                        </p>
+                    </div>
+
+                    <!-- Change -->
+                    <div class="glass-card p-6 md:p-8 rounded-xl border-l-4 border-green-500">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="material-symbols-outlined text-green-300 text-3xl">check_circle</span>
+                            <h3 class="text-2xl font-light text-white">Change</h3>
+                        </div>
+                        <p class="text-white/70 font-light leading-relaxed">
+                            The owner manages his own schedule with no developer involvement, prospective clients self-serve availability instantly, and the site carries interactive booking tools most DJ/MC sites don't &mdash; built in a single overnight session.
+                        </p>
                     </div>
 
                     <!-- Tech Stack -->
