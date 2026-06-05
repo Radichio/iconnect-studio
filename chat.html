@@ -87,7 +87,7 @@
                 </div>
                 <div class="flex-1 flex-col max-w-[85%]">
                     <div class="glass-bubble rounded-2xl rounded-tl-none px-4 py-3 text-white/80 text-sm font-light leading-relaxed">
-                        Hi! I'm Stack, trained on Lisa's work and experience. Ask me about her technical capabilities, projects, or whether she'd be a good fit for your role.
+                        Hi! I'm Stack, trained on Lisa's work and experience. Ask me about her projects, how she thinks through a hard problem, or whether she'd be a good fit for your role.
                     </div>
                 </div>
             </div>
@@ -106,22 +106,22 @@
 
                 <!-- Scrollable Chips -->
                 <div id="chipContainer" class="flex gap-2 overflow-x-auto no-scrollbar pb-2 scroll-smooth px-8">
-                    <button onclick="askSampleQuestion('What is your experience with AI integration?')" class="px-4 py-2 rounded-full bg-white/10 border border-white/20 text-white/70 text-xs font-light hover:bg-white/20 transition-colors whitespace-nowrap">
-                        AI integration?
+                    <button onclick="askSampleQuestion('What is the toughest judgment call Lisa has made on a project?')" class="px-4 py-2 rounded-full bg-white/10 border border-white/20 text-white/70 text-xs font-light hover:bg-white/20 transition-colors whitespace-nowrap">
+                        Toughest call?
                     </button>
-                    <button onclick="askSampleQuestion('What is your experience with payment integration?')" class="px-4 py-2 rounded-full bg-white/10 border border-white/20 text-white/70 text-xs font-light hover:bg-white/20 transition-colors whitespace-nowrap">
-                        Payment integration?
+                    <button onclick="askSampleQuestion('How does Lisa handle uncertainty and risk in a build?')" class="px-4 py-2 rounded-full bg-white/10 border border-white/20 text-white/70 text-xs font-light hover:bg-white/20 transition-colors whitespace-nowrap">
+                        Handling risk?
                     </button>
-                    <button onclick="askSampleQuestion('Tell me about your enterprise experience')" class="px-4 py-2 rounded-full bg-white/10 border border-white/20 text-white/70 text-xs font-light hover:bg-white/20 transition-colors whitespace-nowrap">
-                        Enterprise experience?
+                    <button onclick="askSampleQuestion('What has Lisa deliberately chosen NOT to build, and why?')" class="px-4 py-2 rounded-full bg-white/10 border border-white/20 text-white/70 text-xs font-light hover:bg-white/20 transition-colors whitespace-nowrap">
+                        What she won't build?
                     </button>
-                    <button onclick="askSampleQuestion('Tell me about the Hydrological Dashboard project')" class="px-4 py-2 rounded-full bg-white/10 border border-white/20 text-white/70 text-xs font-light hover:bg-white/20 transition-colors whitespace-nowrap">
-                        Hydrological Dashboard?
+                    <button onclick="askSampleQuestion('Walk me through the Dauphin Lake Watch project')" class="px-4 py-2 rounded-full bg-white/10 border border-white/20 text-white/70 text-xs font-light hover:bg-white/20 transition-colors whitespace-nowrap">
+                        Dauphin Lake Watch?
                     </button>
-                    <button onclick="askSampleQuestion('Tell me about RCIC Manager')" class="px-4 py-2 rounded-full bg-white/10 border border-white/20 text-white/70 text-xs font-light hover:bg-white/20 transition-colors whitespace-nowrap">
-                        RCIC Manager?
+                    <button onclick="askSampleQuestion('What is her experience with AI and payment integration?')" class="px-4 py-2 rounded-full bg-white/10 border border-white/20 text-white/70 text-xs font-light hover:bg-white/20 transition-colors whitespace-nowrap">
+                        AI &amp; payments?
                     </button>
-                    <button onclick="askSampleQuestion('What technologies do you use?')" class="px-4 py-2 rounded-full bg-white/10 border border-white/20 text-white/70 text-xs font-light hover:bg-white/20 transition-colors whitespace-nowrap">
+                    <button onclick="askSampleQuestion('What technologies does she use?')" class="px-4 py-2 rounded-full bg-white/10 border border-white/20 text-white/70 text-xs font-light hover:bg-white/20 transition-colors whitespace-nowrap">
                         Tech stack?
                     </button>
                 </div>
@@ -162,6 +162,40 @@
 
 <script>
 let messagesRemaining = 10;
+
+// ===== Stack Inquiry Logging — captures every chat for Lisa's intelligence =====
+// Session tracking: links multiple questions from one visitor in a single email thread
+function getStackSession() {
+    let sessionId = sessionStorage.getItem('stackSessionId');
+    if (!sessionId) {
+        sessionId = `s_${Date.now()}_${Math.random().toString(36).substring(2, 9)}`;
+        sessionStorage.setItem('stackSessionId', sessionId);
+    }
+    const msgCount = parseInt(sessionStorage.getItem('stackMsgCount') || '0', 10) + 1;
+    sessionStorage.setItem('stackMsgCount', msgCount.toString());
+    return { sessionId, messageNumber: msgCount };
+}
+
+// Fire-and-forget submission to Netlify Forms — never blocks the UI
+function logStackInquiry(data) {
+    try {
+        const formData = new URLSearchParams({
+            'form-name': 'stack-inquiries',
+            ...data
+        });
+        fetch('/', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: formData.toString()
+        }).catch(err => {
+            // Silent fail — logging must never disrupt user experience
+            console.warn('Inquiry log failed:', err);
+        });
+    } catch (err) {
+        console.warn('Inquiry log error:', err);
+    }
+}
+// ===== End logging block =====
 
 // Send message function
 async function sendMessage(message) {
@@ -249,6 +283,24 @@ async function sendMessage(message) {
         `;
         messageContainer.appendChild(stackMessageDiv);
         messageContainer.scrollTop = messageContainer.scrollHeight;
+
+        // Log the inquiry to Netlify Forms — captures intelligence for Lisa
+        // Fire-and-forget: never blocks UI, fails silently if it can't reach
+        const { sessionId, messageNumber } = getStackSession();
+        logStackInquiry({
+            question: message,
+            response: responseText,
+            timestamp: new Date().toISOString(),
+            sessionId: sessionId,
+            messageNumber: messageNumber.toString(),
+            userAgent: navigator.userAgent || '',
+            referrer: document.referrer || '(direct)',
+            language: navigator.language || '',
+            viewport: `${window.innerWidth}x${window.innerHeight}`,
+            screenSize: `${screen.width}x${screen.height}`,
+            timezone: Intl.DateTimeFormat().resolvedOptions().timeZone || '',
+            rateLimit: `${messagesRemaining} remaining`
+        });
 
     } catch (error) {
         console.error('Error:', error);
@@ -340,6 +392,27 @@ document.addEventListener('DOMContentLoaded', () => {
     updateScrollArrows();
 });
 </script>
+
+<!-- =============================================================== -->
+<!-- Netlify Forms detection — hidden static form for Stack inquiry  -->
+<!-- intelligence logging. Never displayed. Each chat triggers a POST -->
+<!-- to this form, which Netlify processes and emails to Lisa.        -->
+<!-- =============================================================== -->
+<form name="stack-inquiries" netlify netlify-honeypot="bot-field" hidden>
+    <input type="text" name="question" />
+    <textarea name="response"></textarea>
+    <input type="text" name="timestamp" />
+    <input type="text" name="sessionId" />
+    <input type="text" name="messageNumber" />
+    <input type="text" name="userAgent" />
+    <input type="text" name="referrer" />
+    <input type="text" name="language" />
+    <input type="text" name="viewport" />
+    <input type="text" name="screenSize" />
+    <input type="text" name="timezone" />
+    <input type="text" name="rateLimit" />
+    <input type="text" name="bot-field" />
+</form>
 
 </body>
 </html>
