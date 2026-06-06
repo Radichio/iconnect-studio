@@ -53,6 +53,20 @@
     .logo:hover .logo-icon {
         transform: rotate(360deg);
     }
+    
+    /* Fix dropdown option visibility against dark theme */
+    /* Browser defaults paint <option> elements white-on-white in the popup; */
+    /* override to match the navy-deep theme so all specialties are readable. */
+    select option {
+        background-color: #020817;
+        color: #ffffff;
+    }
+    select option:hover,
+    select option:focus,
+    select option:checked {
+        background-color: #3b82f6;
+        color: #ffffff;
+    }
 </style>
 </head>
 <body class="bg-navy-deep font-display text-white selection:bg-primary-gold selection:text-navy-deep overflow-x-hidden">
