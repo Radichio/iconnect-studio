@@ -78,7 +78,7 @@
         </div>
 
         <!-- Messages -->
-        <div id="messageContainer" class="flex-1 overflow-y-auto p-6 space-y-6 no-scrollbar">
+        <div id="messageContainer" role="log" aria-live="polite" class="flex-1 overflow-y-auto p-6 space-y-6 no-scrollbar">
             
             <!-- Welcome Message -->
             <div class="flex items-start gap-3">
@@ -118,6 +118,9 @@
                     <button onclick="askSampleQuestion('Walk me through the Dauphin Lake Watch project')" class="px-4 py-2 rounded-full bg-white/10 border border-white/20 text-white/70 text-xs font-light hover:bg-white/20 transition-colors whitespace-nowrap">
                         Dauphin Lake Watch?
                     </button>
+                    <button onclick="askSampleQuestion('How would Lisa handle live agricultural or sensor data for a farm operation?')" class="px-4 py-2 rounded-full bg-white/10 border border-white/20 text-white/70 text-xs font-light hover:bg-white/20 transition-colors whitespace-nowrap">
+                        Agri &amp; live data?
+                    </button>
                     <button onclick="askSampleQuestion('What is her experience with AI and payment integration?')" class="px-4 py-2 rounded-full bg-white/10 border border-white/20 text-white/70 text-xs font-light hover:bg-white/20 transition-colors whitespace-nowrap">
                         AI &amp; payments?
                     </button>
@@ -137,6 +140,7 @@
                 <input 
                     type="text" 
                     id="messageInput" 
+                    maxlength="2000"
                     placeholder="Ask about technical skills, projects, or role fit..."
                     class="flex-1 px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-primary-gold/50 focus:border-transparent transition-all text-sm"
                 >
@@ -162,6 +166,69 @@
 
 <script>
 let messagesRemaining = 10;
+
+// ===== Conversation memory — the thread Stack actually sees =====
+const chatHistory = [];
+const MAX_HISTORY_MESSAGES = 20; // last 10 exchanges
+
+// ===== Safe rendering =====
+// All visitor and model text enters the DOM as text nodes, never as HTML.
+// URLs on whitelisted hosts become real links; everything else stays plain text.
+const LINK_HOSTS = ['iconnect.studio', 'www.iconnect.studio', 'dauphinlakewatch.ca', 'www.dauphinlakewatch.ca'];
+
+function renderSafeText(container, text) {
+    const urlPattern = /(https?:\/\/[^\s]+|(?:iconnect\.studio|dauphinlakewatch\.ca)\/[^\s]*|(?:iconnect\.studio|dauphinlakewatch\.ca)(?=[\s.,;:!?)]|$))/g;
+    let lastIndex = 0;
+    let match;
+    while ((match = urlPattern.exec(text)) !== null) {
+        if (match.index > lastIndex) {
+            container.appendChild(document.createTextNode(text.slice(lastIndex, match.index)));
+        }
+        let raw = match[0];
+        // Trim trailing punctuation that's sentence, not URL
+        const trimmed = raw.replace(/[.,;:!?)]+$/, '');
+        const trailing = raw.slice(trimmed.length);
+        const href = trimmed.startsWith('http') ? trimmed : 'https://' + trimmed;
+        let host = '';
+        try { host = new URL(href).hostname; } catch (e) { host = ''; }
+        if (LINK_HOSTS.includes(host)) {
+            const a = document.createElement('a');
+            a.href = href;
+            a.target = '_blank';
+            a.rel = 'noopener noreferrer';
+            a.className = 'underline text-primary-gold hover:text-white transition-colors';
+            a.textContent = trimmed;
+            container.appendChild(a);
+        } else {
+            container.appendChild(document.createTextNode(trimmed));
+        }
+        if (trailing) container.appendChild(document.createTextNode(trailing));
+        lastIndex = match.index + raw.length;
+    }
+    if (lastIndex < text.length) {
+        container.appendChild(document.createTextNode(text.slice(lastIndex)));
+    }
+}
+
+// Graceful failure — every error path ends with a way to reach Lisa
+function appendErrorBubble(messageContainer, friendlyText) {
+    const errorDiv = document.createElement('div');
+    errorDiv.className = 'flex items-start gap-3';
+    errorDiv.innerHTML = `
+        <div class="bg-red-500/20 rounded-full w-8 h-8 shrink-0 border border-red-500/40 flex items-center justify-center">
+            <span class="material-symbols-outlined text-red-400 text-sm">error</span>
+        </div>
+        <div class="flex-1 flex-col max-w-[85%]">
+            <div class="glass-bubble rounded-2xl rounded-tl-none px-4 py-3 bg-red-500/10 border-red-500/30">
+                <p class="text-white/80 text-sm font-light"></p>
+                <p class="text-white/60 text-sm font-light mt-2">Or reach Lisa directly: <a href="mailto:info@iconnect.studio" class="underline text-primary-gold hover:text-white transition-colors">info@iconnect.studio</a></p>
+            </div>
+        </div>
+    `;
+    errorDiv.querySelector('p').textContent = friendlyText;
+    messageContainer.appendChild(errorDiv);
+    messageContainer.scrollTop = messageContainer.scrollHeight;
+}
 
 // ===== Stack Inquiry Logging — captures every chat for Lisa's intelligence =====
 // Session tracking: links multiple questions from one visitor in a single email thread
@@ -198,7 +265,7 @@ function logStackInquiry(data) {
 // ===== End logging block =====
 
 // Send message function
-async function sendMessage(message) {
+async function sendMessage(message, source = 'typed') {
     const messageContainer = document.getElementById('messageContainer');
     const sendButton = document.getElementById('sendButton');
     const messageInput = document.getElementById('messageInput');
@@ -207,26 +274,31 @@ async function sendMessage(message) {
     sendButton.disabled = true;
     messageInput.disabled = true;
 
-    // Add user message
+    // Add user message — text rendered safely, never as HTML
     const userMessageDiv = document.createElement('div');
     userMessageDiv.className = 'flex items-start gap-3 justify-end';
     userMessageDiv.innerHTML = `
         <div class="flex-1 flex-col items-end max-w-[85%]">
             <div class="glass-bubble rounded-2xl rounded-tr-none px-4 py-3 bg-primary-gold/20 border-primary-gold/30 ml-auto">
-                <p class="text-white/90 text-sm font-light leading-relaxed">${message}</p>
+                <p class="text-white/90 text-sm font-light leading-relaxed whitespace-pre-wrap"></p>
             </div>
         </div>
         <div class="bg-white/10 rounded-full w-8 h-8 shrink-0 border border-white/20 flex items-center justify-center">
             <span class="material-symbols-outlined text-white text-sm">person</span>
         </div>
     `;
+    userMessageDiv.querySelector('p').textContent = message;
     messageContainer.appendChild(userMessageDiv);
     messageContainer.scrollTop = messageContainer.scrollHeight;
+
+    // Record the visitor's turn
+    chatHistory.push({ role: 'user', content: message });
 
     // Add loading indicator
     const loadingDiv = document.createElement('div');
     loadingDiv.className = 'flex items-start gap-3';
     loadingDiv.id = 'loading';
+    loadingDiv.setAttribute('aria-label', 'Stack is typing');
     loadingDiv.innerHTML = `
         <div class="bg-primary-gold/20 rounded-full w-8 h-8 shrink-0 border border-primary-gold/40 flex items-center justify-center">
             <span class="text-xs font-bold text-primary-gold">STK</span>
@@ -245,21 +317,25 @@ async function sendMessage(message) {
     messageContainer.scrollTop = messageContainer.scrollHeight;
 
     try {
-        // Call API
+        // Call API — send the whole visible thread, capped to the last turns
         const response = await fetch('/.netlify/functions/chat', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ message })
+            body: JSON.stringify({ messages: chatHistory.slice(-MAX_HISTORY_MESSAGES) })
         });
 
-        const data = await response.json();
+        const data = await response.json().catch(() => ({}));
 
         // Remove loading
         document.getElementById('loading').remove();
 
         if (!response.ok) {
-            throw new Error(data.error || 'Failed to get response');
-        }
+            if (response.status === 429) {
+                messagesRemaining = 0;
+                document.getElementById('rateLimitText').textContent = '0 messages remaining this hour';
+            }
+            appendErrorBubble(messageContainer, data.error || 'Stack could not process that. Please try again.');
+        } else {
 
         // Update rate limit
         if (response.headers.get('X-RateLimit-Remaining')) {
@@ -267,7 +343,7 @@ async function sendMessage(message) {
             document.getElementById('rateLimitText').textContent = `${messagesRemaining} messages remaining this hour`;
         }
 
-        // Add Stack response
+        // Add Stack response — text rendered safely; site URLs become links
         const stackMessageDiv = document.createElement('div');
         stackMessageDiv.className = 'flex items-start gap-3';
         const responseText = data.content?.[0]?.text || 'Sorry, I encountered an error.';
@@ -277,12 +353,16 @@ async function sendMessage(message) {
             </div>
             <div class="flex-1 flex-col max-w-[85%]">
                 <div class="glass-bubble rounded-2xl rounded-tl-none px-4 py-3">
-                    <p class="text-white/80 text-sm font-light leading-relaxed whitespace-pre-wrap">${responseText}</p>
+                    <p class="text-white/80 text-sm font-light leading-relaxed whitespace-pre-wrap"></p>
                 </div>
             </div>
         `;
+        renderSafeText(stackMessageDiv.querySelector('p'), responseText);
         messageContainer.appendChild(stackMessageDiv);
         messageContainer.scrollTop = messageContainer.scrollHeight;
+
+        // Record Stack's turn so follow-ups have context
+        chatHistory.push({ role: 'assistant', content: responseText });
 
         // Log the inquiry to Netlify Forms — captures intelligence for Lisa
         // Fire-and-forget: never blocks UI, fails silently if it can't reach
@@ -290,6 +370,7 @@ async function sendMessage(message) {
         logStackInquiry({
             question: message,
             response: responseText,
+            source: source,
             timestamp: new Date().toISOString(),
             sessionId: sessionId,
             messageNumber: messageNumber.toString(),
@@ -302,24 +383,13 @@ async function sendMessage(message) {
             rateLimit: `${messagesRemaining} remaining`
         });
 
+        }
+
     } catch (error) {
         console.error('Error:', error);
-        document.getElementById('loading').remove();
-        
-        const errorDiv = document.createElement('div');
-        errorDiv.className = 'flex items-start gap-3';
-        errorDiv.innerHTML = `
-            <div class="bg-red-500/20 rounded-full w-8 h-8 shrink-0 border border-red-500/40 flex items-center justify-center">
-                <span class="material-symbols-outlined text-red-400 text-sm">error</span>
-            </div>
-            <div class="flex-1 flex-col max-w-[85%]">
-                <div class="glass-bubble rounded-2xl rounded-tl-none px-4 py-3 bg-red-500/10 border-red-500/30">
-                    <p class="text-white/80 text-sm font-light">${error.message}</p>
-                </div>
-            </div>
-        `;
-        messageContainer.appendChild(errorDiv);
-        messageContainer.scrollTop = messageContainer.scrollHeight;
+        const loading = document.getElementById('loading');
+        if (loading) loading.remove();
+        appendErrorBubble(messageContainer, 'Stack could not be reached. Check your connection and try again.');
     }
 
     // Re-enable input
@@ -341,7 +411,7 @@ document.getElementById('chatForm').addEventListener('submit', (e) => {
 
 // Sample questions
 function askSampleQuestion(question) {
-    sendMessage(question);
+    sendMessage(question, 'chip');
 }
 
 // Chip scrolling
@@ -401,6 +471,7 @@ document.addEventListener('DOMContentLoaded', () => {
 <form name="stack-inquiries" netlify netlify-honeypot="bot-field" hidden>
     <input type="text" name="question" />
     <textarea name="response"></textarea>
+    <input type="text" name="source" />
     <input type="text" name="timestamp" />
     <input type="text" name="sessionId" />
     <input type="text" name="messageNumber" />
