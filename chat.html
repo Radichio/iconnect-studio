@@ -178,7 +178,8 @@ let messagesRemaining = 10;
 
 // ===== Conversation memory — the thread Stack actually sees =====
 const chatHistory = [];
-const MAX_HISTORY_MESSAGES = 20; // last 10 exchanges
+const MAX_HISTORY_MESSAGES = 20;
+let isSending = false; // re-entrancy guard: ignore new sends while a reply is generating // last 10 exchanges
 
 // ===== Safe rendering =====
 // All visitor and model text enters the DOM as text nodes, never as HTML.
@@ -275,6 +276,8 @@ function logStackInquiry(data) {
 
 // Send message function
 async function sendMessage(message, source = 'typed') {
+    if (isSending) return; // a reply is already in flight — ignore chip/enter/send
+    isSending = true;
     const messageContainer = document.getElementById('messageContainer');
     const sendButton = document.getElementById('sendButton');
     const messageInput = document.getElementById('messageInput');
@@ -282,6 +285,7 @@ async function sendMessage(message, source = 'typed') {
     // Disable input
     sendButton.disabled = true;
     messageInput.disabled = true;
+    document.getElementById('chipContainer')?.classList.add('opacity-40', 'pointer-events-none');
 
     // Add user message — text rendered safely, never as HTML
     const userMessageDiv = document.createElement('div');
@@ -335,8 +339,8 @@ async function sendMessage(message, source = 'typed') {
 
         const data = await response.json().catch(() => ({}));
 
-        // Remove loading
-        document.getElementById('loading').remove();
+        // Remove this request's own loading node
+        loadingDiv.remove();
 
         if (!response.ok) {
             if (response.status === 429) {
@@ -396,16 +400,17 @@ async function sendMessage(message, source = 'typed') {
 
     } catch (error) {
         console.error('Error:', error);
-        const loading = document.getElementById('loading');
-        if (loading) loading.remove();
+        loadingDiv.remove();
         appendErrorBubble(messageContainer, 'Stack could not be reached. Check your connection and try again.');
     }
 
     // Re-enable input
     sendButton.disabled = false;
     messageInput.disabled = false;
+    document.getElementById('chipContainer')?.classList.remove('opacity-40', 'pointer-events-none');
     messageInput.value = '';
     messageInput.focus();
+    isSending = false;
 }
 
 // Form submission
