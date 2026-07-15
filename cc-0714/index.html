@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>Career Catalyst · Team-Informed Intake — iConnect Studio concept</title>
+<style>
+  :root{
+    --ink:#17153A; --sub:#6B6A80; --faint:#9A99AD;
+    --paper:#FAFAFC; --panel:#FFFFFF; --line:#E7E6F0; --line2:#D8D6E8;
+    --brand:#5333ED; --brand-soft:#EEEBFD; --brand-deep:#37279E;
+    --good:#0E8A6A; --good-soft:#E4F4EF;
+    --mid:#B26A00; --mid-soft:#FBF1E0;
+    --track:#EFEEF6;
+    --mono:ui-monospace,"SF Mono","Cascadia Mono","Segoe UI Mono",Menlo,monospace;
+    --sans:"Avenir Next","Segoe UI Variable Text","Segoe UI",system-ui,-apple-system,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.55}
+  ::selection{background:var(--brand-soft)}
+  .frame{max-width:1280px;margin:0 auto;padding:28px 36px 48px}
+
+  /* top bar */
+  .top{display:flex;align-items:center;gap:16px;padding-bottom:20px;border-bottom:1px solid var(--line)}
+  .mark{width:34px;height:34px;border-radius:9px;background:var(--brand);display:flex;align-items:center;justify-content:center;flex:none}
+  .mark svg{display:block}
+  .prod{font-size:17px;font-weight:600;letter-spacing:-.01em}
+  .prod span{color:var(--sub);font-weight:500}
+  .crumb{font-size:12.5px;color:var(--sub);margin-top:1px}
+  .badges{margin-left:auto;display:flex;gap:8px;align-items:center}
+  .pill{font-family:var(--mono);font-size:11.5px;letter-spacing:.04em;padding:5px 12px;border-radius:999px;white-space:nowrap}
+  .pill.concept{background:var(--brand-soft);color:var(--brand-deep)}
+  .pill.synth{background:#FFF;border:1px solid var(--line2);color:var(--sub)}
+
+  /* pipeline spine */
+  .spine{display:flex;gap:22px;flex-wrap:wrap;padding:12px 0 2px;font-family:var(--mono);font-size:10.5px;letter-spacing:.09em;color:var(--faint)}
+  .spine span{white-space:nowrap}
+  .spine a{color:var(--sub);text-decoration:none;white-space:nowrap;border-bottom:1px dotted var(--line2);padding-bottom:2px}
+  .spine a:hover{color:var(--brand-deep);border-bottom-color:var(--brand-deep)}
+  .spine .on{color:var(--brand-deep);font-weight:600;border-bottom:2px solid var(--brand);padding-bottom:2px}
+
+  /* metrics strip */
+  .metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:22px 0}
+  .metric{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 18px}
+  .metric .k{font-size:12px;color:var(--sub);letter-spacing:.02em}
+  .metric .v{font-family:var(--mono);font-size:26px;font-weight:600;margin-top:4px;letter-spacing:-.02em}
+  .metric .v small{font-size:13px;color:var(--faint);font-weight:500;margin-left:4px}
+  .metric .n{font-size:11.5px;color:var(--faint);margin-top:2px}
+
+  /* main grid */
+  .grid{display:grid;grid-template-columns:290px minmax(340px,1fr) minmax(380px,1.15fr);gap:16px;align-items:start}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:14px}
+  .card h3{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--sub);padding:14px 18px 0}
+
+  /* company + team rail */
+  .role{padding:14px 18px 16px;border-bottom:1px solid var(--line)}
+  .role .r1{font-size:15px;font-weight:600;letter-spacing:-.01em}
+  .role .r2{font-size:12.5px;color:var(--sub);margin-top:3px}
+  .members{padding:10px 12px 4px;display:flex;flex-direction:column;gap:8px}
+  .member{display:flex;align-items:flex-start;gap:12px;padding:12px 12px;border:1px solid var(--line);border-radius:11px;background:#fff}
+  .av{width:38px;height:38px;border-radius:50%;background:var(--brand-soft);color:var(--brand-deep);display:flex;align-items:center;justify-content:center;font-size:12.5px;font-weight:600;flex:none}
+  .member .who{flex:1;min-width:0}
+  .member .nm{font-size:14px;font-weight:600;letter-spacing:-.01em}
+  .member .meta{font-size:11.5px;color:var(--sub);margin-top:1px}
+  .traits{display:flex;flex-wrap:wrap;gap:5px;margin-top:7px}
+  .trait{font-size:10.5px;padding:3px 8px;border-radius:999px;border:1px solid var(--line2);color:var(--sub);background:#fff}
+
+  .tprofile{padding:6px 18px 8px}
+  .tb{margin-bottom:12px}
+  .tb .lr{display:flex;justify-content:space-between;font-size:12.5px;margin-bottom:5px}
+  .tb .lr b{font-weight:500}
+  .tb .lr output{font-family:var(--mono);font-weight:600;color:var(--ink)}
+  .bar{height:6px;border-radius:3px;background:var(--track);overflow:hidden;position:relative}
+  .bar i{display:block;height:100%;border-radius:3px;background:var(--brand)}
+  .srcnote{font-size:11px;color:var(--faint);padding:2px 18px 16px;line-height:1.5}
+
+  /* gap analysis */
+  .gaps{padding:8px 18px 4px}
+  .hint{font-size:12px;color:var(--faint);margin:6px 0 14px;line-height:1.5}
+  .gap{margin-bottom:15px}
+  .gap .lr{display:flex;justify-content:space-between;align-items:center;font-size:13px;margin-bottom:5px}
+  .gap .lr b{font-weight:500}
+  .gv{display:flex;align-items:center;gap:8px}
+  .gv output{font-family:var(--mono);font-weight:600}
+  .chip{font-size:10.5px;padding:2.5px 9px;border-radius:999px;letter-spacing:.02em}
+  .chip.ok{background:var(--good-soft);color:#0A6B53}
+  .chip.watch{background:var(--mid-soft);color:#8A5300}
+  .chip.near{background:#fff;border:1px solid var(--line2);color:var(--sub)}
+  .gbar{height:6px;border-radius:3px;background:var(--track);position:relative}
+  .gbar i{display:block;height:100%;border-radius:3px;background:var(--brand);max-width:100%}
+  .tick{position:absolute;top:-3px;bottom:-3px;width:2px;background:var(--ink);opacity:.5;border-radius:1px}
+  .legend{font-size:11px;color:var(--faint);padding:0 18px 8px}
+  .legend b{display:inline-block;width:16px;height:6px;border-radius:3px;background:var(--brand);vertical-align:middle;margin-right:5px}
+  .legend u{display:inline-block;width:2px;height:11px;background:var(--ink);opacity:.5;vertical-align:middle;margin:0 5px 0 14px;text-decoration:none}
+  .why{margin:6px 18px 18px;background:var(--paper);border:1px solid var(--line);border-radius:11px;padding:14px 16px}
+  .why .t{font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--brand-deep);margin-bottom:6px}
+  .why p{font-size:13px;line-height:1.65;color:#3C3A55}
+
+  /* spec panel */
+  .dhead{display:flex;align-items:center;gap:14px;padding:16px 20px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+  .dhead .nm{font-size:16.5px;font-weight:600;letter-spacing:-.01em}
+  .dhead .meta{font-size:12.5px;color:var(--sub);margin-top:1px}
+  .seg{margin-left:auto;display:flex;border:1px solid var(--line2);border-radius:9px;overflow:hidden;flex:none}
+  .segbtn{font:inherit;font-size:12.5px;padding:7px 14px;background:#fff;border:none;cursor:pointer;color:var(--sub);font-weight:500}
+  .segbtn:focus-visible{outline:2px solid var(--brand);outline-offset:-2px}
+  .segbtn.on{background:var(--brand);color:#fff;font-weight:600}
+  .dbody{padding:16px 20px 20px}
+
+  /* founder's ask view */
+  .ask{border:1px solid var(--line2);border-left:3px solid var(--mid);border-radius:11px;padding:16px 18px;background:#fff}
+  .ask p{font-size:14px;line-height:1.7;color:#3C3A55;font-style:italic}
+  .ask .cap{font-size:11.5px;color:var(--faint);margin-top:10px;font-style:normal}
+  .issues{margin-top:14px;display:flex;flex-wrap:wrap;gap:7px}
+  .flag{font-size:11.5px;padding:4px 10px;border-radius:999px;border:1px solid var(--line2);color:var(--sub);background:#fff}
+  .flag.watch{background:var(--mid-soft);color:#8A5300;border-color:#F0DFC0}
+  .flag.up{background:var(--good-soft);color:#0A6B53;border-color:#CBE9DF}
+  .nudge{margin-top:16px;font-size:12.5px;color:var(--brand-deep);background:var(--brand-soft);border-radius:9px;padding:10px 14px}
+
+  /* team-informed spec view */
+  .lines{display:flex;flex-direction:column;gap:8px}
+  .line{display:flex;align-items:flex-start;gap:11px;padding:11px 13px;border:1px solid var(--line);border-radius:10px;background:#fff}
+  .line.off{opacity:.55}
+  .line input[type=checkbox]{width:16px;height:16px;margin-top:2px;accent-color:var(--brand);cursor:pointer;flex:none}
+  .tag{font-family:var(--mono);font-size:9.5px;letter-spacing:.06em;padding:3px 8px;border-radius:6px;flex:none;margin-top:1px;white-space:nowrap}
+  .tag.must{background:var(--brand-soft);color:var(--brand-deep)}
+  .tag.should{background:#fff;border:1px solid var(--line2);color:var(--sub)}
+  .tag.cal{background:var(--mid-soft);color:#8A5300}
+  .tag.skip{background:var(--track);color:var(--faint)}
+  .line .tx{flex:1;min-width:0}
+  .line .req{font-size:13.5px;font-weight:600;letter-spacing:-.01em}
+  .line .rsn{font-size:11.5px;color:var(--sub);margin-top:1px}
+  .approve{display:flex;justify-content:space-between;align-items:center;margin-top:14px;font-size:12.5px;color:var(--sub)}
+  .approve output{font-family:var(--mono);font-weight:600;color:var(--ink)}
+  .cta{font:inherit;font-size:13px;font-weight:600;color:#fff;background:var(--brand);border:none;border-radius:9px;padding:10px 16px;cursor:pointer}
+  .cta:hover{background:var(--brand-deep)}
+  .cta:focus-visible{outline:2px solid var(--brand-deep);outline-offset:2px}
+  .cta:disabled{background:var(--good);cursor:default}
+
+  footer{margin-top:26px;padding-top:16px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;font-size:12px;color:var(--faint)}
+  footer b{color:var(--sub);font-weight:600}
+
+  @media (max-width:1080px){.grid{grid-template-columns:270px 1fr}.detail{grid-column:1/-1}}
+</style>
+</head>
+<body>
+<div class="frame">
+
+  <div class="top">
+    <div class="mark" aria-hidden="true">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 12.5 8 4l3 5 4-6.5" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="3" cy="14.5" r="1.6" fill="#fff"/></svg>
+    </div>
+    <div>
+      <div class="prod">Career Catalyst <span>· Predictive Match</span></div>
+      <div class="crumb">Roles / New role — “Prairie SaaS Co.” / Team-informed intake</div>
+    </div>
+    <div class="badges">
+      <span class="pill concept">CONCEPT · iCONNECT STUDIO</span>
+      <span class="pill synth">SYNTHETIC DATA</span>
+    </div>
+  </div>
+
+  <div class="spine" aria-label="Pipeline stage">
+    <span class="on">01 DEFINE</span><span>02 FIND</span><a href="shortlist.html">03 CHOOSE</a><span>04 WIN</span><span>05 KEEP</span><span>06 PROVE</span>
+  </div>
+
+  <div class="metrics">
+    <div class="metric"><div class="k">Founding team profiled</div><div class="v">2</div><div class="n">20-min structured intake · self-reported</div></div>
+    <div class="metric"><div class="k">Below-benchmark capabilities</div><div class="v">3<small>of 5</small></div><div class="n">frontend, cloud deploy, product eng</div></div>
+    <div class="metric"><div class="k">Spec deltas vs. founder’s ask</div><div class="v">5</div><div class="n">2 removed · 2 recalibrated · 1 added</div></div>
+    <div class="metric"><div class="k">Est. band correction</div><div class="v">−$22<small>K</small></div><div class="n">illustrative — seniority recalibration</div></div>
+  </div>
+
+  <div class="grid">
+
+    <div class="card">
+      <div class="role">
+        <div class="r1">“Prairie SaaS Co.”</div>
+        <div class="r2">Demo company · Seed stage · B2B SaaS · Winnipeg hybrid · defining its first hire</div>
+      </div>
+      <h3>Who’s already on the team</h3>
+      <div class="members">
+        <div class="member">
+          <span class="av">CE</span>
+          <div class="who">
+            <div class="nm">Founder · CEO</div>
+            <div class="meta">8 yrs · product &amp; sales · domain expert</div>
+            <div class="traits"><span class="trait">High pace</span><span class="trait">Customer-facing</span><span class="trait">Low process</span></div>
+          </div>
+        </div>
+        <div class="member">
+          <span class="av">CT</span>
+          <div class="who">
+            <div class="nm">Co-founder · CTO</div>
+            <div class="meta">9 yrs · backend &amp; data · deep-work</div>
+            <div class="traits"><span class="trait">Async-heavy</span><span class="trait">Systems depth</span><span class="trait">High autonomy</span></div>
+          </div>
+        </div>
+      </div>
+      <h3>Team working profile</h3>
+      <div class="tprofile">
+        <div class="tb"><div class="lr"><b>Pace</b><output>88</output></div><div class="bar"><i style="width:88%"></i></div></div>
+        <div class="tb"><div class="lr"><b>Process discipline</b><output>31</output></div><div class="bar"><i style="width:31%"></i></div></div>
+        <div class="tb"><div class="lr"><b>Real-time collaboration</b><output>25</output></div><div class="bar"><i style="width:25%"></i></div></div>
+        <div class="tb"><div class="lr"><b>Autonomy</b><output>90</output></div><div class="bar"><i style="width:90%"></i></div></div>
+      </div>
+      <div class="srcnote">Self-reported via structured intake, on dimensions aligned to Canada’s OaSIS work-context taxonomy. No psychometric instrument required at pilot stage.</div>
+    </div>
+
+    <div class="card">
+      <h3>Team coverage vs. stage benchmark</h3>
+      <div class="gaps">
+        <p class="hint">Purple = what the team already covers. The dark tick = the capability level stage-comparable companies had at first-hire time (synthetic benchmark for demo).</p>
+        <div class="gap"><div class="lr"><b>Backend &amp; data</b><span class="gv"><output>92</output><em class="chip ok">covered</em></span></div><div class="gbar"><i style="width:92%"></i><span class="tick" style="left:78%"></span></div></div>
+        <div class="gap"><div class="lr"><b>Frontend · React</b><span class="gv"><output>26</output><em class="chip watch">gap</em></span></div><div class="gbar"><i style="width:26%"></i><span class="tick" style="left:76%"></span></div></div>
+        <div class="gap"><div class="lr"><b>Cloud deploy · CI/CD</b><span class="gv"><output>44</output><em class="chip watch">gap</em></span></div><div class="gbar"><i style="width:44%"></i><span class="tick" style="left:70%"></span></div></div>
+        <div class="gap"><div class="lr"><b>Product engineering</b><span class="gv"><output>55</output><em class="chip watch">gap</em></span></div><div class="gbar"><i style="width:55%"></i><span class="tick" style="left:72%"></span></div></div>
+        <div class="gap"><div class="lr"><b>Customer-facing iteration</b><span class="gv"><output>62</output><em class="chip near">near</em></span></div><div class="gbar"><i style="width:62%"></i><span class="tick" style="left:66%"></span></div></div>
+      </div>
+      <div class="legend"><b></b>team coverage<u></u>stage benchmark</div>
+      <div class="why">
+        <div class="t">WORKING-STYLE BALANCE — MODEL READ</div>
+        <p>This team skews fast and loose — pace 88, process 31, real-time 25. In stage-comparable teams that kept their first hire past 18 months, that hire raised delivery structure without dropping the pace. Recommended profile: brings lightweight process, comfortable driving sync rituals, high adaptability. <b>Complement, not clone.</b></p>
+      </div>
+    </div>
+
+    <div class="card detail">
+      <div class="dhead">
+        <div>
+          <div class="nm">Founding full-stack developer</div>
+          <div class="meta">Role spec · generated from team gaps + stage benchmark</div>
+        </div>
+        <div class="seg" role="tablist" aria-label="Spec view">
+          <button class="segbtn on" id="tabAsk" role="tab" aria-selected="true">Founder’s ask</button>
+          <button class="segbtn" id="tabSpec" role="tab" aria-selected="false">Team-informed</button>
+        </div>
+      </div>
+      <div class="dbody">
+
+        <div id="askView">
+          <div class="ask">
+            <p>“Senior Full-Stack Rockstar — 10+ years. React, Node, AWS, ML/AI, mobile, DevOps, a bit of design. Wears every hat, thrives in chaos. Competitive salary.”</p>
+            <div class="cap">As submitted by the founder — before team data.</div>
+          </div>
+          <div class="issues">
+            <span class="flag watch">Seniority over-specced: 10+ yrs vs. survivor pattern 4–7</span>
+            <span class="flag watch">ML already covered in-team (CTO)</span>
+            <span class="flag watch">Mobile isn’t on the 18-month roadmap</span>
+            <span class="flag watch">Missing: the delivery-structure need the team’s data shows</span>
+            <span class="flag">Salary band misaligned to the calibrated spec</span>
+          </div>
+          <div class="nudge">The model found 5 issues in this ask. Switch to <b>Team-informed</b> to see the spec the data writes — every line stays founder-approvable.</div>
+        </div>
+
+        <div id="specView" style="display:none">
+          <div class="lines">
+            <label class="line"><input type="checkbox" class="ap" checked><span class="tag must">MUST</span><span class="tx"><span class="req">React + modern frontend</span><span class="rsn"> — largest gap: team 26 vs. benchmark 76</span></span></label>
+            <label class="line"><input type="checkbox" class="ap" checked><span class="tag must">MUST</span><span class="tx"><span class="req">Cloud deployment · CI/CD</span><span class="rsn"> — gap: 44 vs. 70</span></span></label>
+            <label class="line"><input type="checkbox" class="ap" checked><span class="tag must">MUST</span><span class="tx"><span class="req">Brings lightweight delivery structure</span><span class="rsn"> — team-composition gap the founder didn’t ask for</span></span></label>
+            <label class="line"><input type="checkbox" class="ap" checked><span class="tag should">SHOULD</span><span class="tx"><span class="req">Product-minded iteration</span><span class="rsn"> — pairs with the CEO’s customer-facing pace</span></span></label>
+            <label class="line"><input type="checkbox" class="ap" checked><span class="tag should">SHOULD</span><span class="tx"><span class="req">Seed-stage exposure (≤20-person org)</span><span class="rsn"> — retention pattern at this stage</span></span></label>
+            <label class="line"><input type="checkbox" class="ap" checked><span class="tag cal">CALIBRATED</span><span class="tx"><span class="req">4–7 yrs experience</span><span class="rsn"> — founder asked 10+ · est. −$22K band correction</span></span></label>
+            <div class="line off"><span class="tag skip" style="margin-left:27px">NOT REQ</span><span class="tx"><span class="req">ML experience</span><span class="rsn"> — covered in-team (CTO)</span></span></div>
+            <div class="line off"><span class="tag skip" style="margin-left:27px">NOT REQ</span><span class="tx"><span class="req">Mobile</span><span class="rsn"> — not on the 18-month roadmap</span></span></div>
+          </div>
+          <div class="why" style="margin:16px 0 0">
+            <div class="t">WHY THIS SPEC — MODEL EXPLANATION</div>
+            <p>Derived from three inputs: the team’s measured skill coverage, its working-style composition, and the capability mix of stage-comparable companies at first-hire time. Two founder requirements were removed as covered or off-roadmap; one the founder never asked for was added because the team’s composition demands it. The model drafts — people decide.</p>
+          </div>
+          <div class="approve">
+            <span>Founder approved <output id="ok">6</output> / 6 requirements — nothing ships unreviewed.</span>
+            <button class="cta" id="send">Approve spec → send to shortlisting</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <div><b>Concept prototype.</b> Synthetic data throughout. The model drafts — founders approve every line.</div>
+    <div><b>iConnect Studio</b> · Lisa M. Kaminski · Predictive systems for talent</div>
+  </footer>
+</div>
+
+<script>
+const $ = id => document.getElementById(id);
+const tabAsk = $("tabAsk"), tabSpec = $("tabSpec");
+function show(view){
+  const spec = view === "spec";
+  $("askView").style.display = spec ? "none" : "";
+  $("specView").style.display = spec ? "" : "none";
+  tabAsk.classList.toggle("on", !spec);
+  tabSpec.classList.toggle("on", spec);
+  tabAsk.setAttribute("aria-selected", String(!spec));
+  tabSpec.setAttribute("aria-selected", String(spec));
+}
+tabAsk.onclick = () => show("ask");
+tabSpec.onclick = () => show("spec");
+
+const boxes = [...document.querySelectorAll(".ap")];
+boxes.forEach(b => b.addEventListener("change", () => {
+  $("ok").textContent = boxes.filter(x => x.checked).length;
+}));
+
+$("send").onclick = e => {
+  e.preventDefault();
+  const n = boxes.filter(x => x.checked).length;
+  const btn = $("send");
+  btn.textContent = "Spec locked · " + n + " requirements → opening shortlist…";
+  btn.disabled = true;
+  setTimeout(() => { location.href = "shortlist.html"; }, 900);
+};
+</script>
+</body>
+</html>

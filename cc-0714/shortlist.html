@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>Career Catalyst · Predictive Match — iConnect Studio concept</title>
+<style>
+  :root{
+    --ink:#17153A; --sub:#6B6A80; --faint:#9A99AD;
+    --paper:#FAFAFC; --panel:#FFFFFF; --line:#E7E6F0; --line2:#D8D6E8;
+    --brand:#5333ED; --brand-soft:#EEEBFD; --brand-deep:#37279E;
+    --good:#0E8A6A; --good-soft:#E4F4EF;
+    --mid:#B26A00; --mid-soft:#FBF1E0;
+    --track:#EFEEF6;
+    --mono:ui-monospace,"SF Mono","Cascadia Mono","Segoe UI Mono",Menlo,monospace;
+    --sans:"Avenir Next","Segoe UI Variable Text","Segoe UI",system-ui,-apple-system,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.55}
+  ::selection{background:var(--brand-soft)}
+  .frame{max-width:1280px;margin:0 auto;padding:28px 36px 48px}
+
+  /* top bar */
+  .top{display:flex;align-items:center;gap:16px;padding-bottom:20px;border-bottom:1px solid var(--line)}
+  .mark{width:34px;height:34px;border-radius:9px;background:var(--brand);display:flex;align-items:center;justify-content:center;flex:none}
+  .mark svg{display:block}
+  .prod{font-size:17px;font-weight:600;letter-spacing:-.01em}
+  .prod span{color:var(--sub);font-weight:500}
+  .crumb{font-size:12.5px;color:var(--sub);margin-top:1px}
+  .badges{margin-left:auto;display:flex;gap:8px;align-items:center}
+  .pill{font-family:var(--mono);font-size:11.5px;letter-spacing:.04em;padding:5px 12px;border-radius:999px;white-space:nowrap}
+  .pill.concept{background:var(--brand-soft);color:var(--brand-deep)}
+  .pill.synth{background:#FFF;border:1px solid var(--line2);color:var(--sub)}
+
+  /* pipeline spine */
+  .spine{display:flex;gap:22px;flex-wrap:wrap;padding:12px 0 2px;font-family:var(--mono);font-size:10.5px;letter-spacing:.09em;color:var(--faint)}
+  .spine span{white-space:nowrap}
+  .spine a{color:var(--sub);text-decoration:none;white-space:nowrap;border-bottom:1px dotted var(--line2);padding-bottom:2px}
+  .spine a:hover{color:var(--brand-deep);border-bottom-color:var(--brand-deep)}
+  .spine .on{color:var(--brand-deep);font-weight:600;border-bottom:2px solid var(--brand);padding-bottom:2px}
+
+  /* metrics strip */
+  .metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:22px 0}
+  .metric{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 18px}
+  .metric .k{font-size:12px;color:var(--sub);letter-spacing:.02em}
+  .metric .v{font-family:var(--mono);font-size:26px;font-weight:600;margin-top:4px;letter-spacing:-.02em}
+  .metric .v small{font-size:13px;color:var(--faint);font-weight:500;margin-left:4px}
+  .metric .n{font-size:11.5px;color:var(--faint);margin-top:2px}
+
+  /* main grid */
+  .grid{display:grid;grid-template-columns:290px minmax(340px,1fr) minmax(360px,1.15fr);gap:16px;align-items:start}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:14px}
+  .card h3{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--sub);padding:14px 18px 0}
+
+  /* role + tuning rail */
+  .role{padding:14px 18px 16px;border-bottom:1px solid var(--line)}
+  .role .r1{font-size:15px;font-weight:600;letter-spacing:-.01em}
+  .role .r2{font-size:12.5px;color:var(--sub);margin-top:3px}
+  .tune{padding:6px 18px 18px}
+  .tune p.hint{font-size:12px;color:var(--faint);margin:8px 0 14px;line-height:1.5}
+  .w{margin-bottom:16px}
+  .w label{display:flex;justify-content:space-between;font-size:12.5px;color:var(--ink);font-weight:500;margin-bottom:6px}
+  .w label output{font-family:var(--mono);color:var(--brand-deep);font-weight:600}
+  input[type=range]{appearance:none;-webkit-appearance:none;width:100%;height:22px;background:transparent;cursor:pointer}
+  input[type=range]:focus-visible{outline:2px solid var(--brand);outline-offset:4px;border-radius:4px}
+  input[type=range]::-webkit-slider-runnable-track{height:4px;border-radius:2px;background:linear-gradient(to right,var(--brand) var(--fill,50%),var(--track) var(--fill,50%))}
+  input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:16px;height:16px;border-radius:50%;background:#fff;border:2px solid var(--brand);margin-top:-6px}
+  input[type=range]::-moz-range-track{height:4px;border-radius:2px;background:var(--track)}
+  input[type=range]::-moz-range-progress{height:4px;border-radius:2px;background:var(--brand)}
+  input[type=range]::-moz-range-thumb{width:12px;height:12px;border-radius:50%;background:#fff;border:2px solid var(--brand)}
+  .reset{font:inherit;font-size:12.5px;color:var(--brand-deep);background:var(--brand-soft);border:none;border-radius:8px;padding:7px 12px;cursor:pointer;font-weight:500}
+  .reset:hover{background:#E2DDFB}
+  .reset:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
+
+  /* candidate list */
+  .list{padding:8px 10px 12px;display:flex;flex-direction:column;gap:8px}
+  .cand{display:flex;align-items:center;gap:13px;padding:13px 14px;border:1px solid var(--line);border-radius:11px;background:#fff;cursor:pointer;text-align:left;width:100%;font:inherit;transition:border-color .15s}
+  .cand:hover{border-color:var(--line2)}
+  .cand:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
+  .cand.sel{border-color:var(--brand);box-shadow:0 0 0 1px var(--brand)}
+  .av{width:40px;height:40px;border-radius:50%;background:var(--brand-soft);color:var(--brand-deep);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;flex:none}
+  .cand .who{flex:1;min-width:0}
+  .cand .nm{font-size:14.5px;font-weight:600;letter-spacing:-.01em}
+  .cand .meta{font-size:12px;color:var(--sub);margin-top:1px}
+  .rank{font-family:var(--mono);font-size:11px;color:var(--faint);width:18px;flex:none}
+  .score{text-align:right;flex:none;min-width:56px}
+  .score b{font-family:var(--mono);font-size:23px;font-weight:600;letter-spacing:-.02em;display:block;line-height:1.1}
+  .score i{font-style:normal;font-size:10.5px;color:var(--faint);letter-spacing:.05em}
+  .s-hi b{color:var(--good)} .s-md b{color:var(--mid)} .s-lo b{color:var(--sub)}
+  .listnote{font-size:11.5px;color:var(--faint);padding:0 18px 14px}
+
+  /* detail panel */
+  .dhead{display:flex;align-items:center;gap:14px;padding:16px 20px;border-bottom:1px solid var(--line)}
+  .dhead .av{width:46px;height:46px;font-size:14px}
+  .dhead .nm{font-size:16.5px;font-weight:600;letter-spacing:-.01em}
+  .dhead .meta{font-size:12.5px;color:var(--sub)}
+  .dscore{margin-left:auto;text-align:right}
+  .dscore b{font-family:var(--mono);font-size:34px;font-weight:600;letter-spacing:-.03em;line-height:1}
+  .dscore i{font-style:normal;font-size:11px;color:var(--faint);letter-spacing:.06em;display:block;margin-top:2px}
+  .dbody{padding:16px 20px 20px}
+  .sig{margin-bottom:14px}
+  .sig .lr{display:flex;justify-content:space-between;font-size:13px;margin-bottom:5px}
+  .sig .lr b{font-weight:500}
+  .sig .lr output{font-family:var(--mono);font-weight:600;color:var(--ink)}
+  .bar{height:6px;border-radius:3px;background:var(--track);overflow:hidden}
+  .bar i{display:block;height:100%;border-radius:3px;background:var(--brand);transition:width .35s ease}
+  .why{margin-top:18px;background:var(--paper);border:1px solid var(--line);border-radius:11px;padding:14px 16px}
+  .why .t{font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--brand-deep);margin-bottom:6px}
+  .why p{font-size:13.5px;line-height:1.65;color:#3C3A55}
+  .flags{margin-top:14px;display:flex;flex-wrap:wrap;gap:7px}
+  .flag{font-size:11.5px;padding:4px 10px;border-radius:999px;border:1px solid var(--line2);color:var(--sub);background:#fff}
+  .flag.up{background:var(--good-soft);color:#0A6B53;border-color:#CBE9DF}
+  .flag.watch{background:var(--mid-soft);color:#8A5300;border-color:#F0DFC0}
+
+  footer{margin-top:26px;padding-top:16px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;font-size:12px;color:var(--faint)}
+  footer b{color:var(--sub);font-weight:600}
+
+  @media (max-width:1080px){.grid{grid-template-columns:270px 1fr}.detail{grid-column:1/-1}}
+  @media (prefers-reduced-motion:reduce){.bar i{transition:none}.cand{transition:none}}
+</style>
+</head>
+<body>
+<div class="frame">
+
+  <div class="top">
+    <div class="mark" aria-hidden="true">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 12.5 8 4l3 5 4-6.5" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="3" cy="14.5" r="1.6" fill="#fff"/></svg>
+    </div>
+    <div>
+      <div class="prod">Career Catalyst <span>· Predictive Match</span></div>
+      <div class="crumb">Roles / Founding full-stack developer / Shortlist</div>
+    </div>
+    <div class="badges">
+      <span class="pill concept">CONCEPT · iCONNECT STUDIO</span>
+      <span class="pill synth">SYNTHETIC DATA</span>
+    </div>
+  </div>
+
+  <div class="spine" aria-label="Pipeline stage">
+    <a href="index.html">01 DEFINE</a><span>02 FIND</span><span class="on">03 CHOOSE</span><span>04 WIN</span><span>05 KEEP</span><span>06 PROVE</span>
+  </div>
+
+  <div class="metrics">
+    <div class="metric"><div class="k">Applicant pool</div><div class="v">38</div><div class="n">received via program intake</div></div>
+    <div class="metric"><div class="k">Surfaced for review</div><div class="v">4</div><div class="n">predictive triage, human decides</div></div>
+    <div class="metric"><div class="k">Screening time</div><div class="v">−22<small>hrs</small></div><div class="n">illustrative estimate per role</div></div>
+    <div class="metric"><div class="k">Shortlist retention forecast</div><div class="v" id="mRet">—</div><div class="n">18-month, model estimate</div></div>
+  </div>
+
+  <div class="grid">
+
+    <div class="card">
+      <div class="role">
+        <div class="r1">Founding full-stack developer</div>
+        <div class="r2">“Prairie SaaS Co.” — demo role · Seed stage · React / cloud · Winnipeg hybrid</div>
+      </div>
+      <h3>What matters for this role</h3>
+      <div class="tune">
+        <p class="hint">Drag to weight the signals. The shortlist re-scores and re-ranks live — the model adapts to the founder, not the other way around.</p>
+        <div class="w"><label for="w0">Skills coverage <output id="o0">30</output></label><input type="range" id="w0" min="0" max="100" step="5" value="30"></div>
+        <div class="w"><label for="w1">Stage experience <output id="o1">25</output></label><input type="range" id="w1" min="0" max="100" step="5" value="25"></div>
+        <div class="w"><label for="w2">Working-style fit <output id="o2">25</output></label><input type="range" id="w2" min="0" max="100" step="5" value="25"></div>
+        <div class="w"><label for="w3">Retention outlook <output id="o3">20</output></label><input type="range" id="w3" min="0" max="100" step="5" value="20"></div>
+        <button class="reset" id="reset">Reset weights</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Shortlist — ranked by weighted fit</h3>
+      <div class="list" id="list" role="listbox" aria-label="Candidate shortlist"></div>
+      <div class="listnote">All candidates are synthetic profiles for demonstration.</div>
+    </div>
+
+    <div class="card detail">
+      <div class="dhead">
+        <div class="av" id="dAv">—</div>
+        <div>
+          <div class="nm" id="dNm">Select a candidate</div>
+          <div class="meta" id="dMeta"></div>
+        </div>
+        <div class="dscore"><b id="dScore">—</b><i>WEIGHTED FIT</i></div>
+      </div>
+      <div class="dbody">
+        <div class="sig"><div class="lr"><b>Skills coverage</b><output id="v0">0</output></div><div class="bar"><i id="b0" style="width:0%"></i></div></div>
+        <div class="sig"><div class="lr"><b>Stage experience</b><output id="v1">0</output></div><div class="bar"><i id="b1" style="width:0%"></i></div></div>
+        <div class="sig"><div class="lr"><b>Working-style fit</b><output id="v2">0</output></div><div class="bar"><i id="b2" style="width:0%"></i></div></div>
+        <div class="sig"><div class="lr"><b>Retention outlook (18 mo)</b><output id="v3">0</output></div><div class="bar"><i id="b3" style="width:0%"></i></div></div>
+        <div class="why">
+          <div class="t">WHY THIS MATCH — MODEL EXPLANATION</div>
+          <p id="why">Every score is interpretable. Select a candidate, then move the weights — the explanation updates with the reasoning, not just the number.</p>
+        </div>
+        <div class="flags" id="flags"></div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <div><b>Concept prototype.</b> Synthetic data throughout. Screening support only — every decision stays human.</div>
+    <div><b>iConnect Studio</b> · Lisa M. Kaminski · Predictive systems for talent</div>
+  </footer>
+</div>
+
+<script>
+const SIG = ["skills coverage","stage experience","working-style fit","retention outlook"];
+const CANDS = [
+  {id:"a", init:"AT", nm:"Candidate A", meta:"7 yrs · ex-agtech startup · full stack", s:[95,90,93,88],
+   flags:[["up","Prior seed-stage founding team"],["up","Stack overlap: React + cloud deploy"],["","Available in 4 weeks"]],
+   note:"career-pattern signals resemble profiles that stayed and scaled with the company"},
+  {id:"b", init:"RB", nm:"Candidate B", meta:"10 yrs · enterprise background · platform eng", s:[88,52,78,70],
+   flags:[["up","Deepest technical bench in pool"],["watch","No early-stage exposure"],["","Salary band above role target"]],
+   note:"enterprise-to-seed transitions show elevated churn in comparable historical profiles"},
+  {id:"c", init:"JM", nm:"Candidate C", meta:"4 yrs · bootcamp + 2 startups · product-minded", s:[64,82,71,60],
+   flags:[["up","High startup adaptability"],["watch","Skills gap est. closeable in ~8 wks"],["","Strong referral inside network"]],
+   note:"adaptability offsets the skills gap; the model positions this profile as a strong second hire"},
+  {id:"d", init:"KO", nm:"Candidate D", meta:"6 yrs · consultancy → SaaS · full stack", s:[78,68,86,80],
+   flags:[["up","Working-style profile matches founding team"],["","Consulting delivery discipline"],["watch","Two roles under 18 months"]],
+   note:"working-style alignment with the founding team is the strongest signal in this profile"}
+];
+let sel = "a";
+const W = [30,25,25,20], DEF = [30,25,25,20];
+
+const $ = id => document.getElementById(id);
+
+function weighted(c){
+  const t = W.reduce((a,b)=>a+b,0) || 1;
+  return Math.round(c.s.reduce((acc,v,i)=>acc + v*W[i],0)/t);
+}
+function tier(v){ return v>=85?"s-hi":(v>=72?"s-md":"s-lo"); }
+
+function topWeights(n){
+  return W.map((w,i)=>[w,i]).sort((a,b)=>b[0]-a[0]).slice(0,n).map(x=>x[1]);
+}
+
+function explain(c){
+  const [p1,p2] = topWeights(2);
+  const strong = c.s.map((v,i)=>[v,i]).sort((a,b)=>b[0]-a[0]);
+  const best = strong[0][1], worst = strong[3][1];
+  let out = "With the current weighting, " + SIG[p1] + " and " + SIG[p2] +
+    " drive this score. " + c.nm + "'s strongest signal is " + SIG[best] + " (" + c.s[best] + ")";
+  out += c.s[worst] < 70
+    ? ", while " + SIG[worst] + " (" + c.s[worst] + ") holds the score down — "
+    : ", with no signal falling below the caution threshold — ";
+  out += c.note + ".";
+  return out;
+}
+
+function render(){
+  W.forEach((w,i)=>{
+    $("o"+i).textContent = w;
+    const r = $("w"+i);
+    r.value = w;
+    r.style.setProperty("--fill", w + "%");
+  });
+  const ranked = CANDS.map(c=>({c, v:weighted(c)})).sort((a,b)=>b.v-a.v);
+
+  const list = $("list");
+  const prev = {};
+  [...list.children].forEach(el=>{ prev[el.dataset.id] = el.getBoundingClientRect().top; });
+  list.innerHTML = "";
+  ranked.forEach((r,idx)=>{
+    const b = document.createElement("button");
+    b.className = "cand " + tier(r.v) + (r.c.id===sel ? " sel":"");
+    b.dataset.id = r.c.id;
+    b.setAttribute("role","option");
+    b.setAttribute("aria-selected", r.c.id===sel);
+    b.innerHTML = '<span class="rank">'+(idx+1)+'</span><span class="av">'+r.c.init+'</span>'+
+      '<span class="who"><span class="nm">'+r.c.nm+'</span><br><span class="meta">'+r.c.meta+'</span></span>'+
+      '<span class="score"><b>'+r.v+'</b><i>FIT</i></span>';
+    b.onclick = ()=>{ sel = r.c.id; render(); };
+    list.appendChild(b);
+  });
+  if(!matchMedia("(prefers-reduced-motion: reduce)").matches){
+    [...list.children].forEach(el=>{
+      const was = prev[el.dataset.id];
+      if(was===undefined) return;
+      const d = was - el.getBoundingClientRect().top;
+      if(!d) return;
+      el.style.transform = "translateY("+d+"px)";
+      el.style.transition = "none";
+      requestAnimationFrame(()=>{ el.style.transition = "transform .3s ease"; el.style.transform = ""; });
+    });
+  }
+
+  const cur = CANDS.find(c=>c.id===sel);
+  const cv = weighted(cur);
+  $("dAv").textContent = cur.init;
+  $("dNm").textContent = cur.nm + " · synthetic profile";
+  $("dMeta").textContent = cur.meta;
+  const ds = $("dScore");
+  ds.textContent = cv;
+  ds.style.color = cv>=85 ? "var(--good)" : (cv>=72 ? "var(--mid)" : "var(--sub)");
+  cur.s.forEach((v,i)=>{ $("v"+i).textContent = v; $("b"+i).style.width = v+"%"; });
+  $("why").textContent = explain(cur);
+  $("flags").innerHTML = cur.flags.map(f=>'<span class="flag '+f[0]+'">'+f[1]+'</span>').join("");
+
+  const top3 = ranked.slice(0,3);
+  const ret = Math.round(top3.reduce((a,r)=>a + r.c.s[3],0)/top3.length);
+  $("mRet").innerHTML = ret + '<small>%</small>';
+}
+
+[0,1,2,3].forEach(i=>{
+  $("w"+i).addEventListener("input", e=>{ W[i] = +e.target.value; render(); });
+});
+$("reset").onclick = ()=>{ DEF.forEach((v,i)=>W[i]=v); render(); };
+render();
+</script>
+</body>
+</html>
