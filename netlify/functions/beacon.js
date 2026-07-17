@@ -1,43 +1,44 @@
-// beacon.js — first-party visit logger for the Aspen demo.
-// Classic Netlify Functions handler (CommonJS), matching chat.js style.
-// Reached at /api/beacon via the /api/* redirect in netlify.toml.
-// Writes one record per visit to Netlify Blob storage. Fire-and-forget.
-const { getStore, connectLambda } = require('@netlify/blobs');
+// beacon.js — first-party visit logger, ZERO npm dependencies.
+// Uses only Node built-ins (Buffer, fetch) — works on a no-build site.
+// Decodes Netlify's injected event.blobs to reach Blob storage over HTTPS.
+// Reached at /api/beacon via the /api/* redirect. Fire-and-forget.
 
-// Transparent 1x1 GIF — always returned, so the demo is never affected.
 const PIXEL_B64 = 'R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==';
 
-// Basic per-instance guard against write spam.
+// --- per-instance spam guard ---
 const rate = new Map();
 const WINDOW_MS = 60 * 1000;
 const MAX_PER_WINDOW = 30;
-
 function ok(ip) {
   const now = Date.now();
-  const rec = rate.get(ip);
-  if (!rec || now > rec.reset) {
-    rate.set(ip, { count: 1, reset: now + WINDOW_MS });
-    return true;
-  }
-  if (rec.count >= MAX_PER_WINDOW) return false;
-  rec.count++;
-  return true;
+  const r = rate.get(ip);
+  if (!r || now > r.reset) { rate.set(ip, { count: 1, reset: now + WINDOW_MS }); return true; }
+  if (r.count >= MAX_PER_WINDOW) return false;
+  r.count++; return true;
 }
-
 function hash(s) {
   let h = 5381;
   for (let i = 0; i < s.length; i++) h = ((h << 5) + h + s.charCodeAt(i)) | 0;
   return (h >>> 0).toString(36);
 }
 
-exports.handler = async (event, context) => {
-  try { connectLambda(event); } catch (e) {}
-  const pixelResponse = {
+// Decode the Blobs credentials Netlify injects into every function.
+function blobCreds(event) {
+  const raw = event.blobs;
+  if (!raw) return null;
+  try {
+    const data = JSON.parse(Buffer.from(raw, 'base64').toString('utf8'));
+    // data has { url (edge endpoint), token, ... }
+    return { url: data.url, token: data.token };
+  } catch (e) { return null; }
+}
+
+const STORE = 'aspen-visits';
+
+exports.handler = async (event) => {
+  const pixel = {
     statusCode: 200,
-    headers: {
-      'Content-Type': 'image/gif',
-      'Cache-Control': 'no-store, no-cache, must-revalidate',
-    },
+    headers: { 'Content-Type': 'image/gif', 'Cache-Control': 'no-store' },
     body: PIXEL_B64,
     isBase64Encoded: true,
   };
@@ -46,13 +47,15 @@ exports.handler = async (event, context) => {
     const q = event.queryStringParameters || {};
     const page = (q.p || 'unknown').slice(0, 40);
 
-    const forwarded =
-      (event.headers && (event.headers['x-forwarded-for'] || event.headers['client-ip'])) ||
-      'unknown';
-    const ip = forwarded.split(',')[0].trim() || 'unknown';
+    const fwd = (event.headers &&
+      (event.headers['x-forwarded-for'] || event.headers['client-ip'])) || 'unknown';
+    const ip = fwd.split(',')[0].trim() || 'unknown';
+    if (!ok(ip)) return pixel;
 
-    if (!ok(ip)) return pixelResponse;
+    const creds = blobCreds(event);
+    if (!creds) return pixel; // no creds → still serve pixel, never error
 
+    const siteID = process.env.SITE_ID || process.env.NETLIFY_SITE_ID || '';
     const record = {
       t: new Date().toISOString(),
       page,
@@ -60,12 +63,19 @@ exports.handler = async (event, context) => {
       ua: ((event.headers && event.headers['user-agent']) || '').slice(0, 160),
       v: hash(ip),
     };
-
-    const store = getStore('aspen-visits');
     const key = record.t + '-' + Math.random().toString(36).slice(2, 8);
-    await store.setJSON(key, record);
+
+    // Write to the Blobs edge endpoint over HTTPS.
+    // Endpoint shape: {edgeURL}/{siteID}/{store}/{key}
+    const url = creds.url + '/' + siteID + '/' + encodeURIComponent(STORE) +
+                '/' + encodeURIComponent(key);
+    await fetch(url, {
+      method: 'PUT',
+      headers: { 'Authorization': 'Bearer ' + creds.token, 'Content-Type': 'application/json' },
+      body: JSON.stringify(record),
+    });
   } catch (e) {
-    // Never surface a logging failure to the visitor.
+    // never surface a logging failure
   }
-  return pixelResponse;
+  return pixel;
 };
