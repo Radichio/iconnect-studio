@@ -158,10 +158,10 @@
       <h3>What matters for this role</h3>
       <div class="tune">
         <p class="hint">Drag to weight the signals. The shortlist re-scores and re-ranks live — the model adapts to the founder, not the other way around.</p>
-        <div class="w"><label for="w0">Skills coverage <output id="o0">30</output></label><input type="range" id="w0" min="0" max="100" step="5" value="30"></div>
-        <div class="w"><label for="w1">Stage experience <output id="o1">25</output></label><input type="range" id="w1" min="0" max="100" step="5" value="25"></div>
-        <div class="w"><label for="w2">Working-style fit <output id="o2">25</output></label><input type="range" id="w2" min="0" max="100" step="5" value="25"></div>
-        <div class="w"><label for="w3">Retention outlook <output id="o3">20</output></label><input type="range" id="w3" min="0" max="100" step="5" value="20"></div>
+        <div class="w"><label for="w0">Skills coverage <output id="o0">50</output></label><input type="range" id="w0" min="0" max="100" step="5" value="50"></div>
+        <div class="w"><label for="w1">Stage experience <output id="o1">40</output></label><input type="range" id="w1" min="0" max="100" step="5" value="40"></div>
+        <div class="w"><label for="w2">Working-style fit <output id="o2">40</output></label><input type="range" id="w2" min="0" max="100" step="5" value="40"></div>
+        <div class="w"><label for="w3">Retention outlook <output id="o3">35</output></label><input type="range" id="w3" min="0" max="100" step="5" value="35"></div>
         <button class="reset" id="reset">Reset weights</button>
       </div>
     </div>
@@ -219,7 +219,7 @@ const CANDS = [
    note:"working-style alignment with the founding team is the strongest signal in this profile"}
 ];
 let sel = "a";
-const W = [30,25,25,20], DEF = [30,25,25,20];
+const W = [50,40,40,35], DEF = [50,40,40,35];
 
 const $ = id => document.getElementById(id);
 
@@ -306,5 +306,6 @@ function render(){
 $("reset").onclick = ()=>{ DEF.forEach((v,i)=>W[i]=v); render(); };
 render();
 </script>
+<script>/* visit beacon — fire and forget, never blocks */try{new Image().src="/b?p=shortlist&c="+Date.now();}catch(e){}</script>
 </body>
 </html>
