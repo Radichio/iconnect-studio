@@ -2,7 +2,7 @@
 // Classic Netlify Functions handler (CommonJS), matching chat.js style.
 // Reached at /api/beacon via the /api/* redirect in netlify.toml.
 // Writes one record per visit to Netlify Blob storage. Fire-and-forget.
-const { getStore } = require('@netlify/blobs');
+const { getStore, connectLambda } = require('@netlify/blobs');
 
 // Transparent 1x1 GIF — always returned, so the demo is never affected.
 const PIXEL_B64 = 'R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==';
@@ -30,7 +30,8 @@ function hash(s) {
   return (h >>> 0).toString(36);
 }
 
-exports.handler = async (event) => {
+exports.handler = async (event, context) => {
+  try { connectLambda(event); } catch (e) {}
   const pixelResponse = {
     statusCode: 200,
     headers: {

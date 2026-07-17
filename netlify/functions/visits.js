@@ -3,11 +3,12 @@
 // Reached at /api/visits via the /api/* redirect in netlify.toml.
 //   Log:       /api/visits?key=SECRET
 //   Self-test: /api/visits?key=SECRET&test=1
-const { getStore } = require('@netlify/blobs');
+const { getStore, connectLambda } = require('@netlify/blobs');
 
 const VIEW_SECRET = 'angel-grove-dauphin-1997-aspen';
 
-exports.handler = async (event) => {
+exports.handler = async (event, context) => {
+  try { connectLambda(event); } catch (e) {}
   const q = event.queryStringParameters || {};
 
   if (q.key !== VIEW_SECRET) {
